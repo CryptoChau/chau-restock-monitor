@@ -27,6 +27,11 @@ except ImportError:
     sync_playwright = None
 
 try:
+    from camoufox.sync_api import Camoufox
+except ImportError:
+    Camoufox = None
+
+try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 except Exception:
     pass
@@ -545,26 +550,18 @@ def send_discord(webhook_url, content):
         log(f"  Discord-Post Fehler: {e}")
 
 
-def check_browser_retailers(state, now):
-    """Prueft grosse Haendler ohne /products.json per echtem Headless-Browser (Playwright)."""
-    if sync_playwright is None:
-        log("  Playwright nicht installiert, Browser-Haendler uebersprungen")
-        return
-
+def _check_retailer_list(page, state, now, retailers):
+    """Kernlogik fuer Browser-basierte Haendler, unabhaengig davon ob die Seite von normalem
+    Playwright oder von camoufox (Stealth-Browser, siehe check_stealth_browser_retailers)
+    kommt - beide liefern ein Playwright-kompatibles page-Objekt."""
     terms = [(t, "pokemon") for t in config.BROWSER_SEARCH_TERMS_POKEMON] + \
             [(t, "onepiece") for t in config.BROWSER_SEARCH_TERMS_ONEPIECE] + \
             [(t, "dragonball") for t in config.BROWSER_SEARCH_TERMS_DRAGONBALL] + \
             [(t, "mtg") for t in config.BROWSER_SEARCH_TERMS_MTG] + \
             [(t, "yugioh") for t in config.BROWSER_SEARCH_TERMS_YUGIOH]
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True, args=["--disable-http2"])
-        ctx = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
-        )
-        page = ctx.new_page()
-
-        for retailer in config.BROWSER_RETAILERS:
+    if True:
+        for retailer in retailers:
             domain = retailer["name"]
             log(f"  Browser-Haendler: {domain} ...")
             for term, brand_hint in terms:
@@ -630,15 +627,22 @@ def check_browser_retailers(state, now):
                     text = item.get("text", "") or ""
                     if not href:
                         continue
+                    # Query-String abtrennen (z.B. "?imageIndex=1") - sonst zaehlt dasselbe
+                    # Produkt als mehrere verschiedene product_keys, siehe Memory galaxus.ch
+                    href = href.split("?")[0]
                     if href not in best_by_href or len(text) > len(best_by_href[href]):
                         best_by_href[href] = text
 
                 for href, text in best_by_href.items():
 
                     # Echte Titelzeile finden: laengste der ersten paar Zeilen (Marke wie "Pokemon"
-                    # allein oder "Empty"-Platzhalter werden so uebersprungen)
+                    # allein oder "Empty"-Platzhalter werden so uebersprungen). Zeilen, die nur aus
+                    # einer Sprachbeschreibung im Format "Englisch, Kategorie" bestehen (galaxus.ch-
+                    # Format), werden dabei ausgeschlossen, da sie sonst faelschlich als "laengste
+                    # Zeile" den echten Produktnamen ueberstimmen (siehe Memory).
                     lines = [ln.strip() for ln in text.split("\n") if ln.strip() and ln.strip().lower() != "empty"]
-                    candidates = [ln for ln in lines[:5] if len(ln) >= 15]
+                    _lang_desc_re = re.compile(r"^(Englisch|Deutsch|Franz(ö|oe)sisch|Italienisch|Japanisch|English|German|French|Italian|Japanese)\s*,", re.IGNORECASE)
+                    candidates = [ln for ln in lines[:5] if len(ln) >= 15 and not _lang_desc_re.match(ln)]
                     title_line = max(candidates, key=len) if candidates else (lines[0] if lines else "")
                     if not title_line or len(title_line) < 10:
                         continue
@@ -689,7 +693,40 @@ def check_browser_retailers(state, now):
 
                     maybe_notify_pokemon30th(state, product_key, title_line, status, domain, href, "?", now)
 
+
+def check_browser_retailers(state, now):
+    """Prueft grosse Haendler ohne /products.json per echtem Headless-Browser (Playwright)."""
+    if sync_playwright is None:
+        log("  Playwright nicht installiert, Browser-Haendler uebersprungen")
+        return
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True, args=["--disable-http2"])
+        ctx = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+        )
+        page = ctx.new_page()
+        _check_retailer_list(page, state, now, config.BROWSER_RETAILERS)
         browser.close()
+
+
+def check_stealth_browser_retailers(state, now):
+    """Prueft Haendler mit starker Fingerprint-basierter Bot-Erkennung (digitec/brack/mueller-
+    Familie), die normales Playwright/patchright sofort auf TLS-/HTTP2-Ebene blocken
+    (net::ERR_HTTP2_PROTOCOL_ERROR direkt beim goto(), noch vor jeglicher Seiten-JS - siehe
+    Memory). camoufox (Firefox-Basis, GitHub github.com/daijro/camoufox) hat einen komplett
+    anderen Netzwerk-Fingerabdruck und kommt durch, wo Chromium-basierte Tools blockiert werden.
+    Separate Funktion/Browser-Instanz, da camoufox deutlich schwerer/langsamer ist als normales
+    Playwright und die bereits funktionierenden Haendler nicht davon betroffen sein sollen."""
+    if Camoufox is None:
+        log("  camoufox nicht installiert, Stealth-Browser-Haendler uebersprungen")
+        return
+    if not config.STEALTH_BROWSER_RETAILERS:
+        return
+
+    with Camoufox(headless=True) as browser:
+        page = browser.new_page()
+        _check_retailer_list(page, state, now, config.STEALTH_BROWSER_RETAILERS)
 
 
 LOCK_PATH = os.path.join(BASE_DIR, "check.lock")
@@ -929,6 +966,9 @@ def run():
 
     log("Pruefe grosse Haendler (Browser) ...")
     check_browser_retailers(state, now)
+
+    log("Pruefe Stealth-Haendler (camoufox) ...")
+    check_stealth_browser_retailers(state, now)
 
     save_state(state)
     log("=== Restock-Check beendet ===")

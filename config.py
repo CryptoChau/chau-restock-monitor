@@ -178,6 +178,21 @@ BROWSER_RETAILERS = [
     },
 ]
 
+# Haendler mit starker Fingerprint-basierter Bot-Erkennung (net::ERR_HTTP2_PROTOCOL_ERROR direkt
+# beim goto() mit normalem Playwright/patchright, noch bevor Seiten-JS laeuft - siehe Memory).
+# Werden ueber camoufox (Firefox-Basis) statt normalem Playwright geprueft, siehe
+# check_stealth_browser_retailers() in check.py. digitec.ch selbst hat kein TCG-Sortiment
+# (verweist bei jeder Pokemon-Suche auf Galaxus), brack.ch/mueller.ch/coop-city.ch noch nicht
+# mit passenden Selektoren fertig eingebunden (Stand 2026-09-17).
+STEALTH_BROWSER_RETAILERS = [
+    {
+        "name": "galaxus.ch",
+        "search_url": "https://www.galaxus.ch/de/search?q={query}",
+        "product_link_selector": "a[href*='/de/s5/product/']",
+        "card_selector": "article",
+    },
+]
+
 # Suchbegriffe fuer die Browser-Haendler (pro Marke separat, damit Treffer klar zugeordnet werden koennen)
 BROWSER_SEARCH_TERMS_POKEMON = [
     "pokemon elite trainer box",
