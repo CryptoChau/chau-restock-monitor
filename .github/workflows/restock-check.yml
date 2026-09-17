@@ -1,0 +1,45 @@
+name: CHAU Restock Check
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: restock-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      - name: Run restock check
+        env:
+          DISCORD_WEBHOOK_POKEMON: ${{ secrets.DISCORD_WEBHOOK_POKEMON }}
+          DISCORD_WEBHOOK_ONEPIECE: ${{ secrets.DISCORD_WEBHOOK_ONEPIECE }}
+          DISCORD_WEBHOOK_POKEMON_PREORDER: ${{ secrets.DISCORD_WEBHOOK_POKEMON_PREORDER }}
+          DISCORD_WEBHOOK_ONEPIECE_PREORDER: ${{ secrets.DISCORD_WEBHOOK_ONEPIECE_PREORDER }}
+        run: python check.py
+
+      - name: Persist state.json
+        run: |
+          git config user.name "chau-restock-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json
+          git diff --cached --quiet || git commit -m "Update state [skip ci]"
+          git push
