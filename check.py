@@ -92,7 +92,7 @@ def has_non_english_marker(text):
     # Display Simplified Chinese", das faelschlich als englisches Produkt durchging)
     words = [
         "deutsch", "japanisch", "franzosisch", "italienisch", "chinesisch", "koreanisch",
-        "japanese", "korean", "french", "german", "italian",
+        "japanese", "korean", "french", "german", "italian", "japan", "korea",
         "chinese", "simplified chinese", "traditional chinese",
     ]
     return any(w in t for w in words)
