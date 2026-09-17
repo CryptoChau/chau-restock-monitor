@@ -63,6 +63,7 @@ RETAILERS = [
     "ryuland.ch",
     "zockbar.ch",
     "lunivault.ch",
+    "laschocards.ch",
 ]
 
 # WooCommerce-Haendler: oeffentliche Store-API unter /wp-json/wc/store/v1/products
