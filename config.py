@@ -7,14 +7,38 @@ import os
 # Werden AUSSCHLIESSLICH aus Umgebungsvariablen gelesen (Windows-Umgebungsvariablen lokal,
 # GitHub Actions Secrets in der Cloud) - damit die echten URLs NIE im (oeffentlichen) Git-Repo
 # landen. Ohne gesetzte Variablen bleibt der Wert leer und send_discord() ueberspringt den Post.
-DISCORD_WEBHOOK_POKEMON = os.environ.get("DISCORD_WEBHOOK_POKEMON", "")
-DISCORD_WEBHOOK_ONEPIECE = os.environ.get("DISCORD_WEBHOOK_ONEPIECE", "")
+#
+# Windows-Sonderfall (Bug gefunden 2026-09-17): Die Windows-Aufgabenplanung uebernimmt neu per
+# [Environment]::SetEnvironmentVariable(...,"User") gesetzte Variablen NICHT sofort in bereits
+# laufende/registrierte geplante Taks - sie nutzt die beim Login zwischengespeicherte Umgebung,
+# nicht die aktuelle Registry. Dadurch schlug der erste Dragon-Ball-Post mit "Invalid URL ''" fehl,
+# obwohl die Variable laut `[Environment]::GetEnvironmentVariable` bereits korrekt gesetzt war.
+# Fallback: fehlt eine Variable in os.environ, wird sie unter Windows direkt aus der Registry
+# (HKCU\Environment) nachgeladen - das ist immer aktuell, unabhaengig vom Task-Cache.
+def _get_webhook(name):
+    val = os.environ.get(name, "")
+    if val or os.name != "nt":
+        return val
+    try:
+        import winreg
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as key:
+            val, _ = winreg.QueryValueEx(key, name)
+            return val
+    except Exception:
+        return ""
+
+
+DISCORD_WEBHOOK_POKEMON = _get_webhook("DISCORD_WEBHOOK_POKEMON")
+DISCORD_WEBHOOK_ONEPIECE = _get_webhook("DISCORD_WEBHOOK_ONEPIECE")
 # Separate Kanaele fuer Vorbestellungen (Nutzerwunsch 2026-09-16 #3), gleiche Kategorie "Chau's Hype World"
-DISCORD_WEBHOOK_POKEMON_PREORDER = os.environ.get("DISCORD_WEBHOOK_POKEMON_PREORDER", "")
-DISCORD_WEBHOOK_ONEPIECE_PREORDER = os.environ.get("DISCORD_WEBHOOK_ONEPIECE_PREORDER", "")
+DISCORD_WEBHOOK_POKEMON_PREORDER = _get_webhook("DISCORD_WEBHOOK_POKEMON_PREORDER")
+DISCORD_WEBHOOK_ONEPIECE_PREORDER = _get_webhook("DISCORD_WEBHOOK_ONEPIECE_PREORDER")
 # Dragon Ball Super Fusion World (Nutzerwunsch 2026-09-17), gleiche Kategorie "Chau's Hype World"
-DISCORD_WEBHOOK_DRAGONBALL = os.environ.get("DISCORD_WEBHOOK_DRAGONBALL", "")
-DISCORD_WEBHOOK_DRAGONBALL_PREORDER = os.environ.get("DISCORD_WEBHOOK_DRAGONBALL_PREORDER", "")
+DISCORD_WEBHOOK_DRAGONBALL = _get_webhook("DISCORD_WEBHOOK_DRAGONBALL")
+DISCORD_WEBHOOK_DRAGONBALL_PREORDER = _get_webhook("DISCORD_WEBHOOK_DRAGONBALL_PREORDER")
+# Magic: The Gathering (Nutzerwunsch 2026-09-17), gleiche Kategorie "Chau's Hype World"
+DISCORD_WEBHOOK_MTG = _get_webhook("DISCORD_WEBHOOK_MTG")
+DISCORD_WEBHOOK_MTG_PREORDER = _get_webhook("DISCORD_WEBHOOK_MTG_PREORDER")
 
 # Marker, die auf eine Vorbestellung (statt sofort verfuegbar) hinweisen
 PREORDER_MARKERS = [
@@ -112,6 +136,11 @@ BROWSER_SEARCH_TERMS_DRAGONBALL = [
     "dragon ball fusion world booster",
     "dragon ball fusion world starter deck",
 ]
+BROWSER_SEARCH_TERMS_MTG = [
+    "magic the gathering booster display",
+    "magic the gathering bundle",
+    "magic the gathering commander deck",
+]
 
 # Pokemon: alle ENGLISCHEN Sealed-Produkte (erweitert 2026-09-16 auf Nutzerwunsch:
 # "alle englische produkte duerfen gefunden werden auch blister usw.")
@@ -163,6 +192,31 @@ ONEPIECE_EXCLUDE = [
     "(KR)", "[KR]", "Koreanisch",
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
     "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box", "Dice",
+    "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
+]
+
+# Magic: The Gathering: ENGLISCHE UND DEUTSCHE Sealed-Produkte (Nutzerwunsch 2026-09-17,
+# im Unterschied zu den anderen Marken hier explizit beide Sprachen gewuenscht).
+MTG_KEYWORDS = [
+    "magic",
+]
+MTG_MUST_ALSO_CONTAIN = [
+    "booster display", "sammler-booster-display", "sammler-booster", "play-booster-display",
+    "play-booster", "jumpstart-booster-display", "jumpstart-booster", "bundle", "commander-decks",
+    "commander-deck", "commander deck", "szenenbox", "szenenboxen", "einsteigerbox", "kodex-bundle",
+    "booster box", "draft booster", "set booster", "collector booster", "starter kit", "precon",
+    "draft night",
+]
+# Nur JP/FR/IT/CN/KR ausschliessen (nicht DE, da DE explizit erwuenscht ist), plus Zubehoer/Graded
+MTG_EXCLUDE = [
+    "(JP)", "[JP]", "Japanisch", " JP ",
+    "(FR)", "[FR]", "Franzosisch",
+    "(IT)", "[IT]", "Italienisch",
+    "(CN)", "[CN]", "Chinesisch",
+    "(KR)", "[KR]", "Koreanisch",
+    "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
+    "Playmat", "Sleeve", "Album", "Life Counter", "Boulder", "Sidewinder", "Xenoskin",
+    "Squire", "Bastion", "Sidekick", "Zip-Up", "Slipcase", "Deck Box", "Binder", "Toploader",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
 ]
 
