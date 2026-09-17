@@ -66,6 +66,7 @@ RETAILERS = [
     "laschocards.ch",
     "snyffer.ch",
     "pokecard.store",
+    "poke-swiss.ch",
 ]
 
 # WooCommerce-Haendler: oeffentliche Store-API unter /wp-json/wc/store/v1/products
