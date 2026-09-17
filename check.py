@@ -644,7 +644,8 @@ def check_browser_retailers(state, now):
                         continue
 
                     brand = detect_brand(text)
-                    if not brand:
+                    is_30th = matches_pokemon_30th(text) or matches_pokemon_30th_all(text)
+                    if not brand and not is_30th:
                         continue
 
                     # Stock-Heuristik: "in den warenkorb" vorhanden UND kein "nicht verfuegbar"/"ausverkauft"
@@ -664,26 +665,27 @@ def check_browser_retailers(state, now):
                         "last_checked": now,
                     }
 
-                    label = BRAND_LABELS[brand]
-                    restock_webhook, preorder_webhook = BRAND_WEBHOOKS[brand]
-                    if status == "preorder" and prev_status != "preorder":
-                        msg = (
-                            f"\U0001F7E1 VORBESTELLUNG ({label}): **{title_line}**\n"
-                            f"Haendler: {domain}\n"
-                            f"Link: {href}\n"
-                            f"Zeit: {now}"
-                        )
-                        log(f"  VORBESTELLUNG gefunden: {title_line} bei {domain}")
-                        send_discord(preorder_webhook, msg)
-                    elif status == "instock" and prev_status != "instock":
-                        msg = (
-                            f"\U0001F7E2 RESTOCK ({label}): **{title_line}**\n"
-                            f"Haendler: {domain}\n"
-                            f"Link: {href}\n"
-                            f"Zeit: {now}"
-                        )
-                        log(f"  RESTOCK gefunden: {title_line} bei {domain}")
-                        send_discord(restock_webhook, msg)
+                    if brand:
+                        label = BRAND_LABELS[brand]
+                        restock_webhook, preorder_webhook = BRAND_WEBHOOKS[brand]
+                        if status == "preorder" and prev_status != "preorder":
+                            msg = (
+                                f"\U0001F7E1 VORBESTELLUNG ({label}): **{title_line}**\n"
+                                f"Haendler: {domain}\n"
+                                f"Link: {href}\n"
+                                f"Zeit: {now}"
+                            )
+                            log(f"  VORBESTELLUNG gefunden: {title_line} bei {domain}")
+                            send_discord(preorder_webhook, msg)
+                        elif status == "instock" and prev_status != "instock":
+                            msg = (
+                                f"\U0001F7E2 RESTOCK ({label}): **{title_line}**\n"
+                                f"Haendler: {domain}\n"
+                                f"Link: {href}\n"
+                                f"Zeit: {now}"
+                            )
+                            log(f"  RESTOCK gefunden: {title_line} bei {domain}")
+                            send_discord(restock_webhook, msg)
 
                     maybe_notify_pokemon30th(state, product_key, title_line, status, domain, href, "?", now)
 
@@ -742,7 +744,14 @@ def run():
             tags_text_part = " ".join(tags) if isinstance(tags, list) else str(tags)
             tags_text = f"{title} {tags_text_part} {p.get('product_type', '')}"
             brand = detect_brand(tags_text)
-            if not brand:
+            # Pokemon-30th-Unterkanaele NICHT hinter der allgemeinen Marken-Erkennung gaten:
+            # Titel wie "First Partners Illustration Collection" enthalten keines der normalen
+            # POKEMON_KEYWORDS (kein "Booster"/"Collection Box"/etc.), wuerden also von
+            # detect_brand() als None eingestuft und hier uebersprungen, bevor
+            # maybe_notify_pokemon30th() ueberhaupt drankommt - Bug gefunden 2026-09-17
+            # (Kanal blieb leer trotz existierender 30th-Anniversary-Treffer).
+            is_30th = matches_pokemon_30th(tags_text) or matches_pokemon_30th_all(tags_text)
+            if not brand and not is_30th:
                 continue
 
             in_stock, variant = product_in_stock(p)
@@ -763,7 +772,8 @@ def run():
             # Direkter Shopify-Warenkorb-Link (nur wenn Variante verfuegbar ist), spart dem Nutzer
             # den Klick auf die Produktseite - Nutzerwunsch 2026-09-17 (schnelleres manuelles Kaufen)
             cart_link = f"https://{domain}/cart/add?id={variant.get('id')}&quantity=1" if variant else None
-            notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now, cart_link=cart_link)
+            if brand:
+                notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now, cart_link=cart_link)
             maybe_notify_pokemon30th(state, product_key, title, status, domain, link, price, now, cart_link=cart_link)
 
     for domain in config.SOFTRIDGE_RETAILERS:
@@ -776,16 +786,20 @@ def run():
             title = p["title"]
             product_key = f"{domain}:{p['id']}"
             brand = detect_brand(title)
-            if not brand:
+            is_30th = matches_pokemon_30th(title) or matches_pokemon_30th_all(title)
+            if not brand and not is_30th:
                 continue
 
             # Regionsfeld der API zusaetzlich pruefen (zuverlässiger als Titel-Parsing, siehe
             # fetch_softridge_products): softridge nutzt Ein-Buchstaben-Suffixe wie "-D-" statt
             # "(DE)", die der generische Sprachfilter in matches_*() nicht zuverlässig erkennt.
-            allowed_regions = {"EN", "DE"} if brand == "mtg" else {"EN"}
-            region = p.get("region")
-            if region and region not in allowed_regions:
-                continue
+            if brand:
+                allowed_regions = {"EN", "DE"} if brand == "mtg" else {"EN"}
+                region = p.get("region")
+                if region and region not in allowed_regions:
+                    brand = None
+                    if not is_30th:
+                        continue
 
             preorder = p["preorder"]
             status = "preorder" if preorder else ("instock" if p["in_stock"] else "outofstock")
@@ -801,7 +815,8 @@ def run():
 
             price = p.get("price")
             price_str = f"{price:.2f}" if isinstance(price, (int, float)) else "?"
-            notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], price_str, brand, now)
+            if brand:
+                notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], price_str, brand, now)
             maybe_notify_pokemon30th(state, product_key, title, status, domain, p["link"], price_str, now)
 
     for domain in config.SPIELEZAR_RETAILERS:
@@ -814,7 +829,8 @@ def run():
             title = p["title"]
             product_key = f"{domain}:{p['id']}"
             brand = detect_brand(title)
-            if not brand:
+            is_30th = matches_pokemon_30th(title) or matches_pokemon_30th_all(title)
+            if not brand and not is_30th:
                 continue
 
             preorder = is_preorder(title)
@@ -829,7 +845,8 @@ def run():
                 "last_checked": now,
             }
 
-            notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], "?", brand, now)
+            if brand:
+                notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], "?", brand, now)
             maybe_notify_pokemon30th(state, product_key, title, status, domain, p["link"], "?", now)
 
     if PRIORITY_ONLY:
@@ -849,7 +866,8 @@ def run():
             title = html.unescape(p.get("name", ""))
             product_key = f"{domain}:{p.get('id')}"
             brand = detect_brand(title)
-            if not brand:
+            is_30th = matches_pokemon_30th(title) or matches_pokemon_30th_all(title)
+            if not brand and not is_30th:
                 continue
 
             in_stock = bool(p.get("is_in_stock"))
@@ -873,7 +891,8 @@ def run():
             except (ValueError, TypeError):
                 price = "?"
             link = p.get("permalink", f"https://{domain}/")
-            notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now)
+            if brand:
+                notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now)
             maybe_notify_pokemon30th(state, product_key, title, status, domain, link, price, now)
 
     for domain in config.SHOPWARE_RETAILERS:
@@ -886,7 +905,8 @@ def run():
             title = p["title"]
             product_key = f"{domain}:{p['id']}"
             brand = detect_brand(title)
-            if not brand:
+            is_30th = matches_pokemon_30th(title) or matches_pokemon_30th_all(title)
+            if not brand and not is_30th:
                 continue
 
             preorder = is_preorder(title)
@@ -903,7 +923,8 @@ def run():
 
             price = p.get("price")
             price_str = f"{price:.2f}" if isinstance(price, (int, float)) else "?"
-            notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], price_str, brand, now)
+            if brand:
+                notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], price_str, brand, now)
             maybe_notify_pokemon30th(state, product_key, title, status, domain, p["link"], price_str, now)
 
     log("Pruefe grosse Haendler (Browser) ...")
