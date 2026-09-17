@@ -40,6 +40,7 @@ WOOCOMMERCE_RETAILERS = [
 # (kein Login noetig, liefert HTML mit data-product-information JSON pro Produktkarte)
 SHOPWARE_RETAILERS = [
     "amazingtoys.ch",
+    "twomoons.ch",
 ]
 
 # Nicht (mehr) erreichbar/kein passender Endpoint gefunden, Stand 2026-09-17:
