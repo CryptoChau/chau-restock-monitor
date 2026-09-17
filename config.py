@@ -67,6 +67,7 @@ RETAILERS = [
     "snyffer.ch",
     "pokecard.store",
     "poke-swiss.ch",
+    "pikaversum.ch",
 ]
 
 # WooCommerce-Haendler: oeffentliche Store-API unter /wp-json/wc/store/v1/products
@@ -229,7 +230,7 @@ POKEMON_EXCLUDE = [
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
     "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!", "Plueschfigur", "Plüschfigur",
-    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
+    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse", "Protective Case", "TcgLab",
 ]
 
 ONEPIECE_KEYWORDS = [
@@ -250,7 +251,7 @@ ONEPIECE_EXCLUDE = [
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
     "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box", "Dice",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
-    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
+    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse", "Protective Case", "TcgLab",
     "Socken", "Socks", "T-Shirt", "Hoodie", "Cap", "Mütze",
 ]
 
@@ -277,7 +278,7 @@ MTG_EXCLUDE = [
     "Playmat", "Sleeve", "Album", "Life Counter", "Boulder", "Sidewinder", "Xenoskin",
     "Squire", "Bastion", "Sidekick", "Zip-Up", "Slipcase", "Deck Box", "Binder", "Toploader",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
-    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
+    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse", "Protective Case", "TcgLab",
 ]
 
 # Yu-Gi-Oh!: nur ENGLISCHE Sealed-Produkte (Nutzerwunsch 2026-09-17), gleiche Logik wie Dragon Ball
@@ -297,7 +298,7 @@ YUGIOH_EXCLUDE = [
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
     "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box", "Dice",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
-    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
+    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse", "Protective Case", "TcgLab",
     # Konsolen-/Videospiele faelschlich matchen ausschliessen (z.B. Nintendo DS Titel)
     "Nintendo", "PlayStation", "Xbox", "Videospiel", "Video Game",
 ]
@@ -319,7 +320,7 @@ DRAGONBALL_EXCLUDE = [
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
     "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box", "Dice",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
-    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
+    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse", "Protective Case", "TcgLab",
 ]
 
 STATE_FILE = "state.json"
