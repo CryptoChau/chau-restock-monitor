@@ -55,14 +55,19 @@ jobs:
         run: |
           git config user.name "chau-restock-bot"
           git config user.email "actions@users.noreply.github.com"
+          cp state.json /tmp/state_fresh.json
           git add state.json
           git diff --cached --quiet || git commit -m "Update state (priority) [skip ci]"
           for i in 1 2 3 4 5; do
             if git push; then
               exit 0
             fi
-            echo "Push rejected, pulling and retrying ($i/5) ..."
-            git pull --rebase origin master
+            echo "Push rejected, retrying ($i/5) ..."
+            git fetch origin master
+            git reset --hard origin/master
+            cp /tmp/state_fresh.json state.json
+            git add state.json
+            git diff --cached --quiet || git commit -m "Update state (priority) [skip ci]"
           done
           echo "Push failed after 5 retries" >&2
           exit 1

@@ -50,14 +50,24 @@ jobs:
         run: |
           git config user.name "chau-restock-bot"
           git config user.email "actions@users.noreply.github.com"
+          # state.json ist reine, frisch berechnete Zustandsdaten aus DIESEM Lauf. Bei einem
+          # Push-Konflikt (zwei Laeufe ueberschneiden sich trotz concurrency-Gruppe, siehe Memory
+          # Duplikat-Bug 2026-09-17) wird NICHT versucht zu mergen (scheitert bei JSON meist an
+          # Zeilenkonflikten) - stattdessen wird bei jedem Retry hart auf den neuesten origin/master
+          # zurueckgesetzt und unsere frische Kopie von state.json einfach obendrauf committet.
+          cp state.json /tmp/state_fresh.json
           git add state.json
           git diff --cached --quiet || git commit -m "Update state [skip ci]"
           for i in 1 2 3 4 5; do
             if git push; then
               exit 0
             fi
-            echo "Push rejected, pulling and retrying ($i/5) ..."
-            git pull --rebase origin master
+            echo "Push rejected, retrying ($i/5) ..."
+            git fetch origin master
+            git reset --hard origin/master
+            cp /tmp/state_fresh.json state.json
+            git add state.json
+            git diff --cached --quiet || git commit -m "Update state [skip ci]"
           done
           echo "Push failed after 5 retries" >&2
           exit 1
