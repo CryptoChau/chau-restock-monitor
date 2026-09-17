@@ -12,6 +12,9 @@ DISCORD_WEBHOOK_ONEPIECE = os.environ.get("DISCORD_WEBHOOK_ONEPIECE", "")
 # Separate Kanaele fuer Vorbestellungen (Nutzerwunsch 2026-09-16 #3), gleiche Kategorie "Chau's Hype World"
 DISCORD_WEBHOOK_POKEMON_PREORDER = os.environ.get("DISCORD_WEBHOOK_POKEMON_PREORDER", "")
 DISCORD_WEBHOOK_ONEPIECE_PREORDER = os.environ.get("DISCORD_WEBHOOK_ONEPIECE_PREORDER", "")
+# Dragon Ball Super Fusion World (Nutzerwunsch 2026-09-17), gleiche Kategorie "Chau's Hype World"
+DISCORD_WEBHOOK_DRAGONBALL = os.environ.get("DISCORD_WEBHOOK_DRAGONBALL", "")
+DISCORD_WEBHOOK_DRAGONBALL_PREORDER = os.environ.get("DISCORD_WEBHOOK_DRAGONBALL_PREORDER", "")
 
 # Marker, die auf eine Vorbestellung (statt sofort verfuegbar) hinweisen
 PREORDER_MARKERS = [
@@ -105,6 +108,10 @@ BROWSER_SEARCH_TERMS_ONEPIECE = [
     "one piece booster display",
     "one piece booster bundle",
 ]
+BROWSER_SEARCH_TERMS_DRAGONBALL = [
+    "dragon ball fusion world booster",
+    "dragon ball fusion world starter deck",
+]
 
 # Pokemon: alle ENGLISCHEN Sealed-Produkte (erweitert 2026-09-16 auf Nutzerwunsch:
 # "alle englische produkte duerfen gefunden werden auch blister usw.")
@@ -148,6 +155,25 @@ ONEPIECE_MUST_ALSO_CONTAIN = [
 ]
 # Nur ENGLISCHE One Piece Sealed-Produkte (Nutzerwunsch 2026-09-16), gleiche Logik wie Pokemon
 ONEPIECE_EXCLUDE = [
+    "(DE)", "[DE]", " DE ", "Deutsch",
+    "(JP)", "[JP]", "Japanisch", " JP ",
+    "(FR)", "[FR]", "Franzosisch",
+    "(IT)", "[IT]", "Italienisch",
+    "(CN)", "[CN]", "Chinesisch",
+    "(KR)", "[KR]", "Koreanisch",
+    "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
+    "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box", "Dice",
+    "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
+]
+
+# Dragon Ball Super Fusion World: nur ENGLISCHE Sealed-Produkte, gleiche Logik wie One Piece
+DRAGONBALL_KEYWORDS = [
+    "fusion world",
+]
+DRAGONBALL_MUST_ALSO_CONTAIN = [
+    "booster", "display", "bundle", "pack", "box", "deck", "blister", "tin", "collection", "starter",
+]
+DRAGONBALL_EXCLUDE = [
     "(DE)", "[DE]", " DE ", "Deutsch",
     "(JP)", "[JP]", "Japanisch", " JP ",
     "(FR)", "[FR]", "Franzosisch",

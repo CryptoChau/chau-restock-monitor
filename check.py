@@ -128,6 +128,39 @@ def matches_onepiece(title):
     return True
 
 
+def matches_dragonball(title):
+    t = normalize(title)
+    if not any(_contains_keyword(t, k) for k in config.DRAGONBALL_KEYWORDS):
+        return False
+    if not any(_contains_keyword(t, k) for k in config.DRAGONBALL_MUST_ALSO_CONTAIN):
+        return False
+    if has_non_english_marker(title):
+        return False
+    for ex in config.DRAGONBALL_EXCLUDE:
+        if normalize(ex) in t:
+            return False
+    return True
+
+
+def detect_brand(title):
+    """Erkennt die Franchise aus dem Titel, gibt "pokemon"/"onepiece"/"dragonball" oder None zurueck."""
+    if matches_pokemon(title):
+        return "pokemon"
+    if matches_onepiece(title):
+        return "onepiece"
+    if matches_dragonball(title):
+        return "dragonball"
+    return None
+
+
+BRAND_LABELS = {"pokemon": "Pokemon", "onepiece": "One Piece", "dragonball": "Dragon Ball Super Fusion World"}
+BRAND_WEBHOOKS = {
+    "pokemon": (config.DISCORD_WEBHOOK_POKEMON, config.DISCORD_WEBHOOK_POKEMON_PREORDER),
+    "onepiece": (config.DISCORD_WEBHOOK_ONEPIECE, config.DISCORD_WEBHOOK_ONEPIECE_PREORDER),
+    "dragonball": (config.DISCORD_WEBHOOK_DRAGONBALL, config.DISCORD_WEBHOOK_DRAGONBALL_PREORDER),
+}
+
+
 def fetch_products(domain):
     """Holt Produkte ueber den Shopify-Standard-Endpoint /products.json (Pagination)."""
     products = []
@@ -262,16 +295,17 @@ def is_preorder(text):
 DRY_RUN = os.environ.get("CHAU_DRY_RUN") == "1"
 
 
-def notify_status_change(state, product_key, title, status, prev_status, domain, link, price, is_pokemon, now, cart_link=None):
+def notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now, cart_link=None):
     """Gemeinsame Notify-Logik: meldet neue Vorbestellungen/Restocks an den passenden Discord-Kanal.
+    brand: "pokemon"/"onepiece"/"dragonball" (siehe BRAND_WEBHOOKS/BRAND_LABELS).
     cart_link (optional): direkter "in den Warenkorb legen"-Link (Shopify /cart/add), damit der Nutzer
     beim Restock nur noch auf Kaufen klicken muss statt selbst zu suchen (Nutzerwunsch 2026-09-17)."""
-    brand = "Pokemon" if is_pokemon else "One Piece"
+    label = BRAND_LABELS[brand]
+    restock_webhook, preorder_webhook = BRAND_WEBHOOKS[brand]
     cart_line = f"\U0001F6D2 Direkt in den Warenkorb: {cart_link}\n" if cart_link else ""
     if status == "preorder" and prev_status != "preorder":
-        webhook = config.DISCORD_WEBHOOK_POKEMON_PREORDER if is_pokemon else config.DISCORD_WEBHOOK_ONEPIECE_PREORDER
         msg = (
-            f"\U0001F7E1 VORBESTELLUNG ({brand}): **{title}**\n"
+            f"\U0001F7E1 VORBESTELLUNG ({label}): **{title}**\n"
             f"Haendler: {domain}\n"
             f"Preis: CHF {price}\n"
             f"Link: {link}\n"
@@ -279,11 +313,10 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
             f"Zeit: {now}"
         )
         log(f"  VORBESTELLUNG gefunden: {title} bei {domain}")
-        send_discord(webhook, msg)
+        send_discord(preorder_webhook, msg)
     elif status == "instock" and prev_status != "instock":
-        webhook = config.DISCORD_WEBHOOK_POKEMON if is_pokemon else config.DISCORD_WEBHOOK_ONEPIECE
         msg = (
-            f"\U0001F7E2 RESTOCK ({brand}): **{title}**\n"
+            f"\U0001F7E2 RESTOCK ({label}): **{title}**\n"
             f"Haendler: {domain}\n"
             f"Preis: CHF {price}\n"
             f"Link: {link}\n"
@@ -291,7 +324,7 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
             f"Zeit: {now}"
         )
         log(f"  RESTOCK gefunden: {title} bei {domain}")
-        send_discord(webhook, msg)
+        send_discord(restock_webhook, msg)
 
 
 def send_discord(webhook_url, content):
@@ -315,7 +348,8 @@ def check_browser_retailers(state, now):
         return
 
     terms = [(t, "pokemon") for t in config.BROWSER_SEARCH_TERMS_POKEMON] + \
-            [(t, "onepiece") for t in config.BROWSER_SEARCH_TERMS_ONEPIECE]
+            [(t, "onepiece") for t in config.BROWSER_SEARCH_TERMS_ONEPIECE] + \
+            [(t, "dragonball") for t in config.BROWSER_SEARCH_TERMS_DRAGONBALL]
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--disable-http2"])
@@ -373,9 +407,8 @@ def check_browser_retailers(state, now):
                     if not title_line or len(title_line) < 10:
                         continue
 
-                    is_pokemon = matches_pokemon(text)
-                    is_onepiece = matches_onepiece(text)
-                    if not (is_pokemon or is_onepiece):
+                    brand = detect_brand(text)
+                    if not brand:
                         continue
 
                     # Stock-Heuristik: "in den warenkorb" vorhanden UND kein "nicht verfuegbar"/"ausverkauft"
@@ -395,27 +428,26 @@ def check_browser_retailers(state, now):
                         "last_checked": now,
                     }
 
-                    brand = "Pokemon" if is_pokemon else "One Piece"
+                    label = BRAND_LABELS[brand]
+                    restock_webhook, preorder_webhook = BRAND_WEBHOOKS[brand]
                     if status == "preorder" and prev_status != "preorder":
-                        webhook = config.DISCORD_WEBHOOK_POKEMON_PREORDER if is_pokemon else config.DISCORD_WEBHOOK_ONEPIECE_PREORDER
                         msg = (
-                            f"\U0001F7E1 VORBESTELLUNG ({brand}): **{title_line}**\n"
+                            f"\U0001F7E1 VORBESTELLUNG ({label}): **{title_line}**\n"
                             f"Haendler: {domain}\n"
                             f"Link: {href}\n"
                             f"Zeit: {now}"
                         )
                         log(f"  VORBESTELLUNG gefunden: {title_line} bei {domain}")
-                        send_discord(webhook, msg)
+                        send_discord(preorder_webhook, msg)
                     elif status == "instock" and prev_status != "instock":
-                        webhook = config.DISCORD_WEBHOOK_POKEMON if is_pokemon else config.DISCORD_WEBHOOK_ONEPIECE
                         msg = (
-                            f"\U0001F7E2 RESTOCK ({brand}): **{title_line}**\n"
+                            f"\U0001F7E2 RESTOCK ({label}): **{title_line}**\n"
                             f"Haendler: {domain}\n"
                             f"Link: {href}\n"
                             f"Zeit: {now}"
                         )
                         log(f"  RESTOCK gefunden: {title_line} bei {domain}")
-                        send_discord(webhook, msg)
+                        send_discord(restock_webhook, msg)
 
         browser.close()
 
@@ -463,9 +495,8 @@ def run():
             title = p.get("title", "")
             handle = p.get("handle", "")
             product_key = f"{domain}:{p.get('id')}"
-            is_pokemon = matches_pokemon(title)
-            is_onepiece = matches_onepiece(title)
-            if not (is_pokemon or is_onepiece):
+            brand = detect_brand(title)
+            if not brand:
                 continue
 
             in_stock, variant = product_in_stock(p)
@@ -489,7 +520,7 @@ def run():
             # Direkter Shopify-Warenkorb-Link (nur wenn Variante verfuegbar ist), spart dem Nutzer
             # den Klick auf die Produktseite - Nutzerwunsch 2026-09-17 (schnelleres manuelles Kaufen)
             cart_link = f"https://{domain}/cart/add?id={variant.get('id')}&quantity=1" if variant else None
-            notify_status_change(state, product_key, title, status, prev_status, domain, link, price, is_pokemon, now, cart_link=cart_link)
+            notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now, cart_link=cart_link)
 
     if PRIORITY_ONLY:
         # Schneller 1-Minuten-Check (kein Playwright, nur Shopify-Haendler) - deckt nur die
@@ -507,9 +538,8 @@ def run():
         for p in products:
             title = html.unescape(p.get("name", ""))
             product_key = f"{domain}:{p.get('id')}"
-            is_pokemon = matches_pokemon(title)
-            is_onepiece = matches_onepiece(title)
-            if not (is_pokemon or is_onepiece):
+            brand = detect_brand(title)
+            if not brand:
                 continue
 
             in_stock = bool(p.get("is_in_stock"))
@@ -533,7 +563,7 @@ def run():
             except (ValueError, TypeError):
                 price = "?"
             link = p.get("permalink", f"https://{domain}/")
-            notify_status_change(state, product_key, title, status, prev_status, domain, link, price, is_pokemon, now)
+            notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now)
 
     for domain in config.SHOPWARE_RETAILERS:
         log(f"Pruefe {domain} (Shopware) ...")
@@ -544,9 +574,8 @@ def run():
         for p in products:
             title = p["title"]
             product_key = f"{domain}:{p['id']}"
-            is_pokemon = matches_pokemon(title)
-            is_onepiece = matches_onepiece(title)
-            if not (is_pokemon or is_onepiece):
+            brand = detect_brand(title)
+            if not brand:
                 continue
 
             preorder = is_preorder(title)
@@ -563,7 +592,7 @@ def run():
 
             price = p.get("price")
             price_str = f"{price:.2f}" if isinstance(price, (int, float)) else "?"
-            notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], price_str, is_pokemon, now)
+            notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], price_str, brand, now)
 
     log("Pruefe grosse Haendler (Browser) ...")
     check_browser_retailers(state, now)
