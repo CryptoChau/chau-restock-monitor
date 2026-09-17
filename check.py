@@ -79,7 +79,7 @@ def save_state(state):
 
 # Sprachcode als eigenstaendiges "Wort" am Ende oder umgeben von Nicht-Buchstaben,
 # damit z.B. "...Box DE" erkannt wird, aber "Deck"/"Display" nicht faelschlich matchen.
-NON_ENGLISH_LANG_CODES = ["de", "jp", "jpn", "fr", "fra", "it", "cn", "chn", "kr", "kor"]
+NON_ENGLISH_LANG_CODES = ["de", "jp", "jpn", "fr", "fra", "it", "cn", "chn", "kr", "kor", "ko"]
 _LANG_SUFFIX_RE = re.compile(r"(?:^|[^a-z])(" + "|".join(NON_ENGLISH_LANG_CODES) + r")(?:$|[^a-z])")
 
 

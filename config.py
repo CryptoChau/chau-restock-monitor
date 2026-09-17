@@ -65,6 +65,7 @@ RETAILERS = [
     "lunivault.ch",
     "laschocards.ch",
     "snyffer.ch",
+    "pokecard.store",
 ]
 
 # WooCommerce-Haendler: oeffentliche Store-API unter /wp-json/wc/store/v1/products
@@ -249,6 +250,7 @@ ONEPIECE_EXCLUDE = [
     "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box", "Dice",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
     "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
+    "Socken", "Socks", "T-Shirt", "Hoodie", "Cap", "Mütze",
 ]
 
 # Magic: The Gathering: ENGLISCHE UND DEUTSCHE Sealed-Produkte (Nutzerwunsch 2026-09-17,
