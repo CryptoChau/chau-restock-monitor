@@ -73,6 +73,21 @@ SHOPWARE_RETAILERS = [
     "twomoons.ch",
 ]
 
+# Softridge.ch: eigenes CMS ("ppadmin"), aber mit sauberer interner JSON-Suche-API
+# (/api/shop/products?searchTerms=...), siehe fetch_softridge_products(). Liefert regionCode
+# (EN/DE/JP/...) explizit im JSON - zuverlässiger als Titel-Sprachfilter (Nutzerwunsch 2026-09-17).
+SOFTRIDGE_RETAILERS = [
+    "softridge.ch",
+]
+SOFTRIDGE_SEARCH_TERMS = [
+    "pokemon elite trainer box", "pokemon booster display", "pokemon booster bundle",
+    "pokemon ultra premium collection",
+    "one piece booster display", "one piece booster bundle",
+    "dragon ball fusion world booster",
+    "magic the gathering booster display", "magic the gathering bundle", "magic the gathering commander deck",
+    "yu-gi-oh booster box", "yu-gi-oh booster display",
+]
+
 # Nicht (mehr) erreichbar/kein passender Endpoint gefunden, Stand 2026-09-17:
 # goodgames.ch (SSL-Zertifikat zeigt auf falsche/fremde Domain, Seite technisch kaputt) -
 # siehe Memory project_restock_monitor_bot.md
@@ -180,6 +195,7 @@ POKEMON_EXCLUDE = [
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
     "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!", "Plueschfigur", "Plüschfigur",
+    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
 ]
 
 ONEPIECE_KEYWORDS = [
@@ -200,6 +216,7 @@ ONEPIECE_EXCLUDE = [
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
     "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box", "Dice",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
+    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
 ]
 
 # Magic: The Gathering: ENGLISCHE UND DEUTSCHE Sealed-Produkte (Nutzerwunsch 2026-09-17,
@@ -225,6 +242,7 @@ MTG_EXCLUDE = [
     "Playmat", "Sleeve", "Album", "Life Counter", "Boulder", "Sidewinder", "Xenoskin",
     "Squire", "Bastion", "Sidekick", "Zip-Up", "Slipcase", "Deck Box", "Binder", "Toploader",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
+    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
 ]
 
 # Yu-Gi-Oh!: nur ENGLISCHE Sealed-Produkte (Nutzerwunsch 2026-09-17), gleiche Logik wie Dragon Ball
@@ -244,6 +262,7 @@ YUGIOH_EXCLUDE = [
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
     "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box", "Dice",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
+    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
     # Konsolen-/Videospiele faelschlich matchen ausschliessen (z.B. Nintendo DS Titel)
     "Nintendo", "PlayStation", "Xbox", "Videospiel", "Video Game",
 ]
@@ -265,6 +284,7 @@ DRAGONBALL_EXCLUDE = [
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
     "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box", "Dice",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
+    "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
 ]
 
 STATE_FILE = "state.json"

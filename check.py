@@ -317,6 +317,51 @@ def fetch_shopware_products(domain):
     return products
 
 
+def fetch_softridge_products(domain):
+    """Holt Produkte ueber softridges interne Such-API (/api/shop/products?searchTerms=...).
+    Liefert Liste von dicts mit id/title/link/price/in_stock/preorder/region (region=explizites
+    Sprachfeld aus der API, zuverlässiger als Titel-Parsing - siehe Memory)."""
+    products = []
+    seen_ids = set()
+    for term in config.SOFTRIDGE_SEARCH_TERMS:
+        url = f"https://www.{domain}/api/shop/products"
+        try:
+            r = requests.get(
+                url, headers=HEADERS, timeout=config.REQUEST_TIMEOUT,
+                params={
+                    "loadingType": 79, "languageId": 2, "navigationId": 25982,
+                    "filterByAllCategories": "True", "onlineExclusive": "",
+                    "displayType": 1, "searchTerms": term, "page": 1,
+                },
+            )
+        except Exception as e:
+            log(f"  {domain}: Fehler beim Abruf ({term}), uebersprungen ({type(e).__name__})")
+            continue
+        if r.status_code != 200:
+            log(f"  {domain}: HTTP {r.status_code} bei Suche '{term}', uebersprungen")
+            continue
+        try:
+            data = r.json()
+        except Exception:
+            log(f"  {domain}: Antwort kein JSON, uebersprungen")
+            continue
+        for p in data.get("products", []):
+            pid = p.get("id")
+            if not pid or pid in seen_ids:
+                continue
+            seen_ids.add(pid)
+            products.append({
+                "id": pid,
+                "title": p.get("fullTitle", ""),
+                "link": "https://www." + domain + p.get("linkUrl", ""),
+                "price": p.get("salesPrice"),
+                "in_stock": p.get("statusColor") == "Green",
+                "preorder": bool(p.get("isComingSoon")),
+                "region": p.get("regionCode"),
+            })
+    return products
+
+
 def product_in_stock(product):
     for v in product.get("variants", []):
         if v.get("available"):
@@ -560,6 +605,43 @@ def run():
             # den Klick auf die Produktseite - Nutzerwunsch 2026-09-17 (schnelleres manuelles Kaufen)
             cart_link = f"https://{domain}/cart/add?id={variant.get('id')}&quantity=1" if variant else None
             notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now, cart_link=cart_link)
+
+    for domain in config.SOFTRIDGE_RETAILERS:
+        log(f"Pruefe {domain} (Softridge) ...")
+        products = fetch_softridge_products(domain)
+        if not products:
+            continue
+
+        for p in products:
+            title = p["title"]
+            product_key = f"{domain}:{p['id']}"
+            brand = detect_brand(title)
+            if not brand:
+                continue
+
+            # Regionsfeld der API zusaetzlich pruefen (zuverlässiger als Titel-Parsing, siehe
+            # fetch_softridge_products): softridge nutzt Ein-Buchstaben-Suffixe wie "-D-" statt
+            # "(DE)", die der generische Sprachfilter in matches_*() nicht zuverlässig erkennt.
+            allowed_regions = {"EN", "DE"} if brand == "mtg" else {"EN"}
+            region = p.get("region")
+            if region and region not in allowed_regions:
+                continue
+
+            preorder = p["preorder"]
+            status = "preorder" if preorder else ("instock" if p["in_stock"] else "outofstock")
+
+            prev = state.get(product_key)
+            prev_status = prev.get("status") if prev else None
+
+            state[product_key] = {
+                "title": title,
+                "status": status,
+                "last_checked": now,
+            }
+
+            price = p.get("price")
+            price_str = f"{price:.2f}" if isinstance(price, (int, float)) else "?"
+            notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], price_str, brand, now)
 
     if PRIORITY_ONLY:
         # Schneller 1-Minuten-Check (kein Playwright, nur Shopify-Haendler) - deckt nur die
