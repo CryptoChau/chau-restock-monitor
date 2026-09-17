@@ -734,14 +734,17 @@ def run():
             title = p.get("title", "")
             handle = p.get("handle", "")
             product_key = f"{domain}:{p.get('id')}"
-            brand = detect_brand(title)
+            # Sprach-/Franchise-Tags (z.B. "JP") stehen bei manchen Haendlern (pokelight.ch) NUR
+            # im tags-Feld, nicht im Titel selbst - Erkennung deshalb auf Titel+Tags+Typ pruefen,
+            # nicht nur auf den Titel (sonst rutschen z.B. japanische Produkte als "englisch" durch)
+            tags = p.get("tags", "")
+            tags_text_part = " ".join(tags) if isinstance(tags, list) else str(tags)
+            tags_text = f"{title} {tags_text_part} {p.get('product_type', '')}"
+            brand = detect_brand(tags_text)
             if not brand:
                 continue
 
             in_stock, variant = product_in_stock(p)
-            tags = p.get("tags", "")
-            tags_text_part = " ".join(tags) if isinstance(tags, list) else str(tags)
-            tags_text = f"{title} {tags_text_part} {p.get('product_type', '')}"
             preorder = is_preorder(tags_text)
             status = "preorder" if preorder else ("instock" if in_stock else "outofstock")
 
