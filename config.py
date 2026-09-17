@@ -92,6 +92,9 @@ SHOPWARE_RETAILERS = [
 SOFTRIDGE_RETAILERS = [
     "softridge.ch",
 ]
+SPIELEZAR_RETAILERS = [
+    "spielezar.ch",
+]
 SOFTRIDGE_SEARCH_TERMS = [
     "pokemon elite trainer box", "pokemon booster display", "pokemon booster bundle",
     "pokemon ultra premium collection",

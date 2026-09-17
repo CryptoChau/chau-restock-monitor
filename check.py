@@ -389,6 +389,55 @@ def fetch_shopware_products(domain):
     return products
 
 
+_SPIELEZAR_BLOCK_RE = re.compile(
+    r'data-id-product="(\d+)"[\s\S]{0,300}?<a class="no-underline" href="([^"]+)" title="([^"]+)"'
+)
+_SPIELEZAR_STOCK_RE = re.compile(r'availability_statut"\s+class="([^"]+)"')
+
+
+def fetch_spielezar_products(domain):
+    """Holt Produkte per HTML-Suche unter /suche?q=<term> (eigenes CMS "genzo", plain HTML,
+    kein Playwright noetig). Lagerstatus steht NICHT auf der Trefferliste, nur auf der
+    Produktseite selbst (Badge-Klasse "badge_success"/"badge_danger" neben "Lagerbestand:") -
+    daher wird fuer jeden ueber Marke+Sprache erkannten Treffer zusaetzlich die Produktseite
+    abgerufen (spart Requests, da nur tatsaechliche Treffer nachgeprueft werden)."""
+    products = []
+    seen_ids = set()
+    for term in config.SOFTRIDGE_SEARCH_TERMS:  # gleiche kombinierte Suchbegriffsliste wie softridge.ch
+        url = f"https://www.{domain}/suche"
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=config.REQUEST_TIMEOUT, params={"q": term})
+        except Exception as e:
+            log(f"  {domain}: Fehler beim Abruf ({term}), uebersprungen ({type(e).__name__})")
+            continue
+        if r.status_code != 200:
+            log(f"  {domain}: HTTP {r.status_code} bei Suche '{term}', uebersprungen")
+            continue
+        for m in _SPIELEZAR_BLOCK_RE.finditer(r.text):
+            pid, link, title = m.group(1), m.group(2), html.unescape(m.group(3))
+            if pid in seen_ids:
+                continue
+            seen_ids.add(pid)
+            title_clean = title
+            if not detect_brand(title_clean):
+                continue  # nur echte Treffer bekommen einen teuren Produktseiten-Request
+            try:
+                pr = requests.get(link, headers=HEADERS, timeout=config.REQUEST_TIMEOUT)
+                stock_m = _SPIELEZAR_STOCK_RE.search(pr.text) if pr.status_code == 200 else None
+            except Exception:
+                stock_m = None
+            badge = stock_m.group(1) if stock_m else ""
+            in_stock = "badge_success" in badge
+            products.append({
+                "id": pid,
+                "title": title_clean,
+                "link": link,
+                "price": None,
+                "in_stock": in_stock,
+            })
+    return products
+
+
 def fetch_softridge_products(domain):
     """Holt Produkte ueber softridges interne Such-API (/api/shop/products?searchTerms=...).
     Liefert Liste von dicts mit id/title/link/price/in_stock/preorder/region (region=explizites
@@ -750,6 +799,34 @@ def run():
             price_str = f"{price:.2f}" if isinstance(price, (int, float)) else "?"
             notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], price_str, brand, now)
             maybe_notify_pokemon30th(state, product_key, title, status, domain, p["link"], price_str, now)
+
+    for domain in config.SPIELEZAR_RETAILERS:
+        log(f"Pruefe {domain} (Spielezar/genzo) ...")
+        products = fetch_spielezar_products(domain)
+        if not products:
+            continue
+
+        for p in products:
+            title = p["title"]
+            product_key = f"{domain}:{p['id']}"
+            brand = detect_brand(title)
+            if not brand:
+                continue
+
+            preorder = is_preorder(title)
+            status = "preorder" if preorder else ("instock" if p["in_stock"] else "outofstock")
+
+            prev = state.get(product_key)
+            prev_status = prev.get("status") if prev else None
+
+            state[product_key] = {
+                "title": title,
+                "status": status,
+                "last_checked": now,
+            }
+
+            notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], "?", brand, now)
+            maybe_notify_pokemon30th(state, product_key, title, status, domain, p["link"], "?", now)
 
     if PRIORITY_ONLY:
         # Schneller 1-Minuten-Check (kein Playwright, nur Shopify-Haendler) - deckt nur die
