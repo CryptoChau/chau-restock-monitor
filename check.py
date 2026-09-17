@@ -547,13 +547,19 @@ def check_browser_retailers(state, now):
                     log(f"  {domain} ({term}): Fehler beim Auslesen, uebersprungen ({type(e).__name__})")
                     continue
 
-                seen_links = set()
+                # Mehrere <a>-Elemente koennen auf dieselbe Produkt-URL zeigen (z.B. ein
+                # Bild-Link ohne Text + ein Text-Link) - pro href die Version mit dem laengsten
+                # Text behalten statt blind die erste (sonst leerer Titel, siehe Memory conforama.ch)
+                best_by_href = {}
                 for item in links:
                     href = item.get("href", "")
                     text = item.get("text", "") or ""
-                    if not href or href in seen_links:
+                    if not href:
                         continue
-                    seen_links.add(href)
+                    if href not in best_by_href or len(text) > len(best_by_href[href]):
+                        best_by_href[href] = text
+
+                for href, text in best_by_href.items():
 
                     # Echte Titelzeile finden: laengste der ersten paar Zeilen (Marke wie "Pokemon"
                     # allein oder "Empty"-Platzhalter werden so uebersprungen)

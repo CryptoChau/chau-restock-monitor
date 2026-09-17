@@ -102,11 +102,21 @@ SOFTRIDGE_SEARCH_TERMS = [
 # Grosse Haendler, die per echtem Browser (Playwright) geprueft werden, da sie
 # kein einfaches /products.json haben. Jeder Eintrag: Name, Such-URL-Template
 # (mit {query} Platzhalter), CSS-Selektor fuer Produktlinks.
-# Stand 2026-09-17: Coop, Coop City, Interdiscount, Microspot, Mueller, Digitec, Brack,
-# World of Games, Franz Carl Weber konnten NICHT eingebunden werden (starker
-# Bot-Schutz blockt auch echten Headless-Browser, oder Seite technisch nicht
-# erreichbar/falsche URL-Struktur) - siehe Memory project_restock_monitor_bot.md.
+# Stand 2026-09-17 (erneut geprueft): digitec.ch/brack.ch/mueller.ch laden zwar problemlos in
+# einem echten interaktiven Browser, blocken aber gezielt den Playwright-Automatisierungs-
+# Browser (net::ERR_HTTP2_PROTOCOL_ERROR direkt beim goto()) - Fingerprint-basierte
+# Bot-Erkennung, kein simpler IP-Block. Coop City: Suche laedt nicht ueber normale URL-Parameter
+# (braucht weitere Recherche). World of Games (wog.ch): keine eigene Ergebnisseite, nur ein
+# Autocomplete-Dropdown - technisch aufwendiger, noch nicht umgesetzt. Franz Carl Weber (fcw.ch):
+# kein eigener Online-Shop mehr, nur Marken-Uebersichtsseite (gehoert zu Müller Handels AG,
+# Sortiment laeuft über mueller.ch). Conforama.ch funktioniert einwandfrei mit Playwright.
 BROWSER_RETAILERS = [
+    {
+        "name": "conforama.ch",
+        "search_url": "https://www.conforama.ch/de/search?q={query}",
+        "product_link_selector": "a[href*='/product/']",
+        "card_selector": None,
+    },
     {
         "name": "mediamarkt.ch",
         "search_url": "https://www.mediamarkt.ch/de/search.html?query={query}",
