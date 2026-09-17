@@ -10,6 +10,7 @@ import html
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 import traceback
@@ -912,12 +913,66 @@ def run():
     log("=== Restock-Check beendet ===")
 
 
+RUNNING_IN_GITHUB_ACTIONS = os.environ.get("GITHUB_ACTIONS") == "true"
+
+
+def git_sync_pull():
+    """Lokale Laeufe holen vor jedem Check den neuesten state.json-Stand aus dem Repo, damit
+    lokaler Task und GitHub-Actions-Cloud-Job (die inzwischen BEIDE gelegentlich laufen, siehe
+    Memory Duplikat-Bug 2026-09-17) sich einen gemeinsamen Stand teilen statt unabhaengig
+    voneinander abzudriften. GitHub Actions selbst macht das schon per Workflow-Step, hier nur
+    fuer lokale Laeufe noetig. Rein best-effort - schlaegt der Pull fehl, laeuft der Check
+    trotzdem mit dem lokalen Stand weiter."""
+    if RUNNING_IN_GITHUB_ACTIONS:
+        return
+    try:
+        subprocess.run(
+            ["git", "checkout", "--", "state.json"],
+            cwd=BASE_DIR, capture_output=True, timeout=15,
+        )
+        r = subprocess.run(
+            ["git", "pull", "--rebase", "origin", "master"],
+            cwd=BASE_DIR, capture_output=True, timeout=30, text=True,
+        )
+        if r.returncode != 0:
+            log(f"  git pull fehlgeschlagen (state.json bleibt lokal): {r.stderr[:200]}")
+    except Exception as e:
+        log(f"  git pull uebersprungen: {type(e).__name__}")
+
+
+def git_sync_push():
+    """Committet/pusht state.json nach einem lokalen Lauf zurueck, damit der naechste Cloud-
+    oder lokale Lauf den aktuellen Stand sieht. Rein best-effort, siehe git_sync_pull()."""
+    if RUNNING_IN_GITHUB_ACTIONS:
+        return
+    try:
+        subprocess.run(["git", "add", "state.json"], cwd=BASE_DIR, capture_output=True, timeout=15)
+        diff = subprocess.run(
+            ["git", "diff", "--cached", "--quiet"], cwd=BASE_DIR, capture_output=True, timeout=15,
+        )
+        if diff.returncode == 0:
+            return  # keine Aenderung
+        subprocess.run(
+            ["git", "commit", "-m", "Update state (local run) [skip ci]"],
+            cwd=BASE_DIR, capture_output=True, timeout=15,
+        )
+        r = subprocess.run(
+            ["git", "push"], cwd=BASE_DIR, capture_output=True, timeout=30, text=True,
+        )
+        if r.returncode != 0:
+            log(f"  git push fehlgeschlagen: {r.stderr[:200]}")
+    except Exception as e:
+        log(f"  git push uebersprungen: {type(e).__name__}")
+
+
 if __name__ == "__main__":
     if not acquire_lock():
         log("Ein anderer Lauf ist bereits aktiv (Lock vorhanden) - dieser Lauf wird uebersprungen.")
         sys.exit(0)
     try:
+        git_sync_pull()
         run()
+        git_sync_push()
     except Exception:
         log("FEHLER:\n" + traceback.format_exc())
         sys.exit(1)
