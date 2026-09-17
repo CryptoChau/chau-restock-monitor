@@ -177,6 +177,39 @@ def matches_yugioh(title):
     return True
 
 
+def matches_pokemon_30th(title):
+    """Pokemon 30th Anniversary Set, nur ENGLISCHE Produkte (Nutzerwunsch 2026-09-17).
+    Bewusst NUR die Phrase "30th anniversary" (nicht das deutsche "30 Jahre") als Marker
+    verwendet: Haendler wie cardmaniac.ch listen das deutsche Set als "... 30 Jahre" OHNE
+    jede Sprachkennzeichnung (auch keine deutschen Pokemon-Namen als Indiz), waehrend
+    ryuland.ch/lunivault.ch fuer beide Sprachen konsequent "30th Anniversary" + [EN]/Deutsch-
+    Marker nutzen. So bleibt der Filter zuverlaessig englisch-only."""
+    t = normalize(title)
+    if "pokemon" not in t:
+        return False
+    if "30th anniversary" not in t:
+        return False
+    if has_non_english_marker(title):
+        return False
+    for ex in config.POKEMON_EXCLUDE:
+        if normalize(ex) in t:
+            return False
+    return True
+
+
+def maybe_notify_pokemon30th(state, product_key, title, status, domain, link, price, now, cart_link=None):
+    """Zusaetzliche Meldung an den Pokemon-30th-Anniversary-Unterkanal, unabhaengig vom
+    normalen Pokemon-Kanal getrackt (eigener state.json-Key), damit beide Kanaele unabhaengig
+    ihre eigene Neu-Erkennung haben."""
+    if not matches_pokemon_30th(title):
+        return
+    key30 = product_key + ":pokemon30th"
+    prev = state.get(key30)
+    prev_status = prev.get("status") if prev else None
+    state[key30] = {"title": title, "status": status, "last_checked": now}
+    notify_status_change(state, key30, title, status, prev_status, domain, link, price, "pokemon30th", now, cart_link=cart_link)
+
+
 def detect_brand(title):
     """Erkennt die Franchise aus dem Titel, gibt "pokemon"/"onepiece"/"dragonball"/"mtg"/"yugioh" oder None zurueck."""
     if matches_pokemon(title):
@@ -195,6 +228,7 @@ def detect_brand(title):
 BRAND_LABELS = {
     "pokemon": "Pokemon", "onepiece": "One Piece", "dragonball": "Dragon Ball Super Fusion World",
     "mtg": "Magic: The Gathering", "yugioh": "Yu-Gi-Oh!",
+    "pokemon30th": "Pokemon 30th Anniversary",
 }
 BRAND_WEBHOOKS = {
     "pokemon": (config.DISCORD_WEBHOOK_POKEMON, config.DISCORD_WEBHOOK_POKEMON_PREORDER),
@@ -202,6 +236,7 @@ BRAND_WEBHOOKS = {
     "dragonball": (config.DISCORD_WEBHOOK_DRAGONBALL, config.DISCORD_WEBHOOK_DRAGONBALL_PREORDER),
     "mtg": (config.DISCORD_WEBHOOK_MTG, config.DISCORD_WEBHOOK_MTG_PREORDER),
     "yugioh": (config.DISCORD_WEBHOOK_YUGIOH, config.DISCORD_WEBHOOK_YUGIOH_PREORDER),
+    "pokemon30th": (config.DISCORD_WEBHOOK_POKEMON_30TH, config.DISCORD_WEBHOOK_POKEMON_30TH_PREORDER),
 }
 
 
@@ -540,6 +575,8 @@ def check_browser_retailers(state, now):
                         log(f"  RESTOCK gefunden: {title_line} bei {domain}")
                         send_discord(restock_webhook, msg)
 
+                    maybe_notify_pokemon30th(state, product_key, title_line, status, domain, href, "?", now)
+
         browser.close()
 
 
@@ -612,6 +649,7 @@ def run():
             # den Klick auf die Produktseite - Nutzerwunsch 2026-09-17 (schnelleres manuelles Kaufen)
             cart_link = f"https://{domain}/cart/add?id={variant.get('id')}&quantity=1" if variant else None
             notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now, cart_link=cart_link)
+            maybe_notify_pokemon30th(state, product_key, title, status, domain, link, price, now, cart_link=cart_link)
 
     for domain in config.SOFTRIDGE_RETAILERS:
         log(f"Pruefe {domain} (Softridge) ...")
@@ -649,6 +687,7 @@ def run():
             price = p.get("price")
             price_str = f"{price:.2f}" if isinstance(price, (int, float)) else "?"
             notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], price_str, brand, now)
+            maybe_notify_pokemon30th(state, product_key, title, status, domain, p["link"], price_str, now)
 
     if PRIORITY_ONLY:
         # Schneller 1-Minuten-Check (kein Playwright, nur Shopify-Haendler) - deckt nur die
@@ -692,6 +731,7 @@ def run():
                 price = "?"
             link = p.get("permalink", f"https://{domain}/")
             notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now)
+            maybe_notify_pokemon30th(state, product_key, title, status, domain, link, price, now)
 
     for domain in config.SHOPWARE_RETAILERS:
         log(f"Pruefe {domain} (Shopware) ...")
@@ -721,6 +761,7 @@ def run():
             price = p.get("price")
             price_str = f"{price:.2f}" if isinstance(price, (int, float)) else "?"
             notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], price_str, brand, now)
+            maybe_notify_pokemon30th(state, product_key, title, status, domain, p["link"], price_str, now)
 
     log("Pruefe grosse Haendler (Browser) ...")
     check_browser_retailers(state, now)
