@@ -53,6 +53,7 @@ DISCORD_WEBHOOK_MTG_PREORDER = _get_webhook("DISCORD_WEBHOOK_MTG_PREORDER")
 PREORDER_MARKERS = [
     "vorbestellung", "vorbestellen", "vorbesteller", "pre-order", "preorder",
     "pre order", "coming soon", "release date", "erscheint am", "erscheinungsdatum",
+    "release:",  # wog.ch zeigt bei kuenftigen Produkten nur "Release: <Datum>" ohne weiteren Text
 ]
 
 # Schweizer Haendler, bei denen ein Shopify-Standard-Endpoint (/products.json) probiert wird.
@@ -116,6 +117,18 @@ BROWSER_RETAILERS = [
         "search_url": "https://www.conforama.ch/de/search?q={query}",
         "product_link_selector": "a[href*='/product/']",
         "card_selector": None,
+    },
+    {
+        # World of Games: keine normale ?q=-Suche (die gibt 500), echte Ergebnisseite ueber
+        # /index.cfm/search/searchTerm/<query>/orderBy/relevance gefunden (2026-09-17).
+        "name": "wog.ch",
+        "search_url": "https://www.wog.ch/de/index.cfm/search/searchTerm/{query}/orderBy/relevance",
+        "product_link_selector": "a[href*='/details/product/']",
+        "card_selector": "div.product-tile",
+        # Kartenansicht schneidet lange Titel per JS ab ("...") und verliert dabei die
+        # Sprachkennung (-EN-/-DE-) - img[alt] enthaelt immer den vollstaendigen Titel.
+        "name_selector": "img",
+        "name_attr": "alt",
     },
     {
         "name": "mediamarkt.ch",

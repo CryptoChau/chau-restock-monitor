@@ -527,8 +527,31 @@ def check_browser_retailers(state, now):
                     continue
 
                 name_selector = retailer.get("name_selector")
+                name_attr = retailer.get("name_attr")  # z.B. "alt" - fuer ungekuerzten Titel aus <img alt>
+                # card_selector: CSS-Selektor fuer die umschliessende Produktkarte, deren Text
+                # gelesen wird (statt nur des <a>-Elements selbst, das oft nur ein Bild ohne
+                # Text enthaelt). Frueher war dies fest auf 'article' verdrahtet und wurde vom
+                # konfigurierten card_selector ueberhaupt nicht gelesen - echter Bug, gefunden
+                # 2026-09-17 bei wog.ch (keine <article>-Tags, Titel blieb leer). Default bleibt
+                # 'article' fuer Abwaertskompatibilitaet mit bereits funktionierenden Haendlern.
+                card_sel = retailer.get("card_selector") or "article"
                 try:
-                    if name_selector:
+                    if name_selector and name_attr:
+                        # Titel aus einem Attribut lesen (z.B. img[alt]) statt innerText - noetig
+                        # wenn die Kartenansicht lange Titel per JS abschneidet ("...") und dabei
+                        # die Sprachkennung (-EN-/-DE-) verloren geht, siehe wog.ch (Memory).
+                        # Stock-Text (out_markers/Preorder) kommt weiterhin aus card_sel-innerText.
+                        links = page.eval_on_selector_all(
+                            retailer["product_link_selector"],
+                            """(els, args) => { const [sel, attr, cardSel] = args; return els.map(e => {
+                                const nameEl = e.querySelector(sel) || e.closest('li,article,div')?.querySelector(sel);
+                                const card = e.closest(cardSel) || e;
+                                const fullTitle = nameEl ? nameEl.getAttribute(attr) : null;
+                                return {href: e.href, text: (fullTitle || '') + '\\n' + card.innerText};
+                            }); }""",
+                            [name_selector, name_attr, card_sel],
+                        )
+                    elif name_selector:
                         # sauberer Produktname aus dediziertem Element (z.B. migros.ch mo-product-name)
                         links = page.eval_on_selector_all(
                             retailer["product_link_selector"],
@@ -541,7 +564,8 @@ def check_browser_retailers(state, now):
                     else:
                         links = page.eval_on_selector_all(
                             retailer["product_link_selector"],
-                            "els => els.map(e => ({href: e.href, text: (e.closest('article')||e).innerText}))",
+                            """(els, sel) => els.map(e => ({href: e.href, text: (e.closest(sel)||e).innerText}))""",
+                            card_sel,
                         )
                 except Exception as e:
                     log(f"  {domain} ({term}): Fehler beim Auslesen, uebersprungen ({type(e).__name__})")
@@ -575,7 +599,7 @@ def check_browser_retailers(state, now):
 
                     # Stock-Heuristik: "in den warenkorb" vorhanden UND kein "nicht verfuegbar"/"ausverkauft"
                     t_norm = normalize(text)
-                    out_markers = ["nicht verfugbar", "ausverkauft", "zurzeit nicht", "not available", "vergriffen", "nicht auf lager"]
+                    out_markers = ["nicht verfugbar", "ausverkauft", "zurzeit nicht", "not available", "vergriffen", "nicht auf lager", "nicht mehr lieferbar", "nicht mehr bestellbar"]
                     in_stock = not any(m in t_norm for m in out_markers)
                     preorder = is_preorder(text)
                     status = "preorder" if preorder else ("instock" if in_stock else "outofstock")
