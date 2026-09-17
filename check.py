@@ -651,7 +651,9 @@ def acquire_lock():
             age = time.time() - os.path.getmtime(LOCK_PATH)
         except OSError:
             age = 9999
-        if age < 600:  # 10 Minuten - alte verwaiste Locks ignorieren
+        if age < 1350:  # 22.5 Min - etwas ueber dem Task-Scheduler-Zeitlimit (20 Min), damit die
+            # interne Sperre nicht VOR dem harten Kill durch Windows als "veraltet" durchgeht
+            # und einen ueberlappenden Zweitlauf zulaesst (siehe Memory, Duplikat-Bug 2026-09-17)
             return False
     with open(LOCK_PATH, "w") as f:
         f.write(str(os.getpid()))
