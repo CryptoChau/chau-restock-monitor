@@ -197,17 +197,45 @@ def matches_pokemon_30th(title):
     return True
 
 
+def matches_pokemon_30th_all(title):
+    """Pokemon 30-Jahre-Jubilaeumsset, ALLE Sprachen (Nutzerwunsch 2026-09-17, zweiter/
+    breiterer Unterkanal neben dem englisch-only Kanal). Matcht sowohl die deutsche Phrase
+    "30 Jahre" (z.B. cardmaniac.ch) als auch "30th Anniversary" (ryuland.ch/lunivault.ch),
+    keine Sprachfilterung - nur normale Zubehoer-/Graded-Ausschluesse."""
+    t = normalize(title)
+    if "pokemon" not in t:
+        return False
+    if "30 jahre" not in t and "30th anniversary" not in t:
+        return False
+    # Bewusst NICHT POKEMON_EXCLUDE (enthaelt Sprachausschluesse wie "Deutsch"/"(DE)") -
+    # dieser Kanal will explizit alle Sprachen. Nur Zubehoer/Graded ausschliessen.
+    accessory_exclude = [
+        "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box",
+        "PSA", "BGS", "CGC", "graded", "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse",
+    ]
+    for ex in accessory_exclude:
+        if normalize(ex) in t:
+            return False
+    return True
+
+
 def maybe_notify_pokemon30th(state, product_key, title, status, domain, link, price, now, cart_link=None):
-    """Zusaetzliche Meldung an den Pokemon-30th-Anniversary-Unterkanal, unabhaengig vom
-    normalen Pokemon-Kanal getrackt (eigener state.json-Key), damit beide Kanaele unabhaengig
-    ihre eigene Neu-Erkennung haben."""
-    if not matches_pokemon_30th(title):
-        return
-    key30 = product_key + ":pokemon30th"
-    prev = state.get(key30)
-    prev_status = prev.get("status") if prev else None
-    state[key30] = {"title": title, "status": status, "last_checked": now}
-    notify_status_change(state, key30, title, status, prev_status, domain, link, price, "pokemon30th", now, cart_link=cart_link)
+    """Zusaetzliche Meldung(en) an die Pokemon-30th-Anniversary-Unterkanaele, unabhaengig vom
+    normalen Pokemon-Kanal getrackt (eigene state.json-Keys), damit alle Kanaele unabhaengig
+    ihre eigene Neu-Erkennung haben. Zwei Kanaele: nur-Englisch, und alle Sprachen."""
+    if matches_pokemon_30th(title):
+        key30 = product_key + ":pokemon30th"
+        prev = state.get(key30)
+        prev_status = prev.get("status") if prev else None
+        state[key30] = {"title": title, "status": status, "last_checked": now}
+        notify_status_change(state, key30, title, status, prev_status, domain, link, price, "pokemon30th", now, cart_link=cart_link)
+
+    if matches_pokemon_30th_all(title):
+        key30all = product_key + ":pokemon30thall"
+        prev = state.get(key30all)
+        prev_status = prev.get("status") if prev else None
+        state[key30all] = {"title": title, "status": status, "last_checked": now}
+        notify_status_change(state, key30all, title, status, prev_status, domain, link, price, "pokemon30thall", now, cart_link=cart_link)
 
 
 def detect_brand(title):
@@ -228,7 +256,8 @@ def detect_brand(title):
 BRAND_LABELS = {
     "pokemon": "Pokemon", "onepiece": "One Piece", "dragonball": "Dragon Ball Super Fusion World",
     "mtg": "Magic: The Gathering", "yugioh": "Yu-Gi-Oh!",
-    "pokemon30th": "Pokemon 30th Anniversary",
+    "pokemon30th": "Pokemon 30th Anniversary (EN)",
+    "pokemon30thall": "Pokemon 30-Jahre-Jubilaeum (alle Sprachen)",
 }
 BRAND_WEBHOOKS = {
     "pokemon": (config.DISCORD_WEBHOOK_POKEMON, config.DISCORD_WEBHOOK_POKEMON_PREORDER),
@@ -237,6 +266,7 @@ BRAND_WEBHOOKS = {
     "mtg": (config.DISCORD_WEBHOOK_MTG, config.DISCORD_WEBHOOK_MTG_PREORDER),
     "yugioh": (config.DISCORD_WEBHOOK_YUGIOH, config.DISCORD_WEBHOOK_YUGIOH_PREORDER),
     "pokemon30th": (config.DISCORD_WEBHOOK_POKEMON_30TH, config.DISCORD_WEBHOOK_POKEMON_30TH_PREORDER),
+    "pokemon30thall": (config.DISCORD_WEBHOOK_POKEMON_30TH_ALL, config.DISCORD_WEBHOOK_POKEMON_30TH_ALL_PREORDER),
 }
 
 
