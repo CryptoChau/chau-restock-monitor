@@ -1,0 +1,51 @@
+name: CHAU Priority Check
+
+# Laeuft versetzt zu restock-check.yml (Minuten 2,7,12,...), damit die schnellen
+# Shopify-Haendler (config.RETAILERS, z.B. cardmaniac.ch) effektiv alle ~2-3 Min statt
+# alle 5 Min geprueft werden - GitHub erlaubt kein Workflow-Intervall unter 5 Min,
+# zwei versetzte 5-Min-Workflows umgehen das. Kein Playwright noetig (nur Shopify JSON-API),
+# daher schnell und guenstig. Nutzerwunsch 2026-09-17 (schnellere Erkennung bei
+# limitierten/heiss begehrten Produkten).
+on:
+  schedule:
+    - cron: "2-59/5 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: restock-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run priority restock check
+        env:
+          CHAU_PRIORITY_ONLY: "1"
+          DISCORD_WEBHOOK_POKEMON: ${{ secrets.DISCORD_WEBHOOK_POKEMON }}
+          DISCORD_WEBHOOK_ONEPIECE: ${{ secrets.DISCORD_WEBHOOK_ONEPIECE }}
+          DISCORD_WEBHOOK_POKEMON_PREORDER: ${{ secrets.DISCORD_WEBHOOK_POKEMON_PREORDER }}
+          DISCORD_WEBHOOK_ONEPIECE_PREORDER: ${{ secrets.DISCORD_WEBHOOK_ONEPIECE_PREORDER }}
+        run: python check.py
+
+      - name: Persist state.json
+        run: |
+          git config user.name "chau-restock-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json
+          git diff --cached --quiet || git commit -m "Update state (priority) [skip ci]"
+          git pull --rebase origin master
+          git push

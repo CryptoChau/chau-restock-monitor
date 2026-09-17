@@ -262,9 +262,12 @@ def is_preorder(text):
 DRY_RUN = os.environ.get("CHAU_DRY_RUN") == "1"
 
 
-def notify_status_change(state, product_key, title, status, prev_status, domain, link, price, is_pokemon, now):
-    """Gemeinsame Notify-Logik: meldet neue Vorbestellungen/Restocks an den passenden Discord-Kanal."""
+def notify_status_change(state, product_key, title, status, prev_status, domain, link, price, is_pokemon, now, cart_link=None):
+    """Gemeinsame Notify-Logik: meldet neue Vorbestellungen/Restocks an den passenden Discord-Kanal.
+    cart_link (optional): direkter "in den Warenkorb legen"-Link (Shopify /cart/add), damit der Nutzer
+    beim Restock nur noch auf Kaufen klicken muss statt selbst zu suchen (Nutzerwunsch 2026-09-17)."""
     brand = "Pokemon" if is_pokemon else "One Piece"
+    cart_line = f"\U0001F6D2 Direkt in den Warenkorb: {cart_link}\n" if cart_link else ""
     if status == "preorder" and prev_status != "preorder":
         webhook = config.DISCORD_WEBHOOK_POKEMON_PREORDER if is_pokemon else config.DISCORD_WEBHOOK_ONEPIECE_PREORDER
         msg = (
@@ -272,6 +275,7 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
             f"Haendler: {domain}\n"
             f"Preis: CHF {price}\n"
             f"Link: {link}\n"
+            f"{cart_line}"
             f"Zeit: {now}"
         )
         log(f"  VORBESTELLUNG gefunden: {title} bei {domain}")
@@ -283,6 +287,7 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
             f"Haendler: {domain}\n"
             f"Preis: CHF {price}\n"
             f"Link: {link}\n"
+            f"{cart_line}"
             f"Zeit: {now}"
         )
         log(f"  RESTOCK gefunden: {title} bei {domain}")
@@ -440,8 +445,11 @@ def release_lock():
         pass
 
 
+PRIORITY_ONLY = os.environ.get("CHAU_PRIORITY_ONLY") == "1"
+
+
 def run():
-    log("=== Restock-Check gestartet ===")
+    log("=== Restock-Check gestartet ===" + (" (PRIORITY_ONLY)" if PRIORITY_ONLY else ""))
     state = load_state()
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
 
@@ -478,7 +486,17 @@ def run():
 
             price = variant.get("price", "?") if variant else "?"
             link = f"https://{domain}/products/{handle}"
-            notify_status_change(state, product_key, title, status, prev_status, domain, link, price, is_pokemon, now)
+            # Direkter Shopify-Warenkorb-Link (nur wenn Variante verfuegbar ist), spart dem Nutzer
+            # den Klick auf die Produktseite - Nutzerwunsch 2026-09-17 (schnelleres manuelles Kaufen)
+            cart_link = f"https://{domain}/cart/add?id={variant.get('id')}&quantity=1" if variant else None
+            notify_status_change(state, product_key, title, status, prev_status, domain, link, price, is_pokemon, now, cart_link=cart_link)
+
+    if PRIORITY_ONLY:
+        # Schneller 1-Minuten-Check (kein Playwright, nur Shopify-Haendler) - deckt nur die
+        # RETAILERS-Liste ab, siehe .github/workflows/priority-check.yml
+        save_state(state)
+        log("=== Restock-Check beendet (PRIORITY_ONLY) ===")
+        return
 
     for domain in config.WOOCOMMERCE_RETAILERS:
         log(f"Pruefe {domain} (WooCommerce) ...")
