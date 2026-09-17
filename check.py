@@ -87,7 +87,14 @@ def has_non_english_marker(text):
     t = normalize(text)
     if _LANG_SUFFIX_RE.search(t):
         return True
-    words = ["deutsch", "japanisch", "franzosisch", "italienisch", "chinesisch", "koreanisch"]
+    # Deutsche UND englische Sprachbezeichnungen (manche Haendler wie lunivault.ch schreiben
+    # z.B. "Simplified Chinese" statt "(CN)" - gefunden 2026-09-17 bei "Pokemon ... Booster
+    # Display Simplified Chinese", das faelschlich als englisches Produkt durchging)
+    words = [
+        "deutsch", "japanisch", "franzosisch", "italienisch", "chinesisch", "koreanisch",
+        "japanese", "korean", "french", "german", "italian",
+        "chinese", "simplified chinese", "traditional chinese",
+    ]
     return any(w in t for w in words)
 
 
