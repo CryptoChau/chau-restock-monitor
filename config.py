@@ -69,6 +69,7 @@ RETAILERS = [
     "poke-swiss.ch",
     "pikaversum.ch",
     "pokelight.ch",
+    "detsuki.ch",
 ]
 
 # WooCommerce-Haendler: oeffentliche Store-API unter /wp-json/wc/store/v1/products
