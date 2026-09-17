@@ -38,6 +38,8 @@ jobs:
           DISCORD_WEBHOOK_DRAGONBALL_PREORDER: ${{ secrets.DISCORD_WEBHOOK_DRAGONBALL_PREORDER }}
           DISCORD_WEBHOOK_MTG: ${{ secrets.DISCORD_WEBHOOK_MTG }}
           DISCORD_WEBHOOK_MTG_PREORDER: ${{ secrets.DISCORD_WEBHOOK_MTG_PREORDER }}
+          DISCORD_WEBHOOK_YUGIOH: ${{ secrets.DISCORD_WEBHOOK_YUGIOH }}
+          DISCORD_WEBHOOK_YUGIOH_PREORDER: ${{ secrets.DISCORD_WEBHOOK_YUGIOH_PREORDER }}
         run: python check.py
 
       - name: Persist state.json

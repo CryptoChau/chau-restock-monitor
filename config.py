@@ -36,6 +36,9 @@ DISCORD_WEBHOOK_ONEPIECE_PREORDER = _get_webhook("DISCORD_WEBHOOK_ONEPIECE_PREOR
 # Dragon Ball Super Fusion World (Nutzerwunsch 2026-09-17), gleiche Kategorie "Chau's Hype World"
 DISCORD_WEBHOOK_DRAGONBALL = _get_webhook("DISCORD_WEBHOOK_DRAGONBALL")
 DISCORD_WEBHOOK_DRAGONBALL_PREORDER = _get_webhook("DISCORD_WEBHOOK_DRAGONBALL_PREORDER")
+# Yu-Gi-Oh! (Nutzerwunsch 2026-09-17), gleiche Kategorie "Chau's Hype World"
+DISCORD_WEBHOOK_YUGIOH = _get_webhook("DISCORD_WEBHOOK_YUGIOH")
+DISCORD_WEBHOOK_YUGIOH_PREORDER = _get_webhook("DISCORD_WEBHOOK_YUGIOH_PREORDER")
 # Magic: The Gathering (Nutzerwunsch 2026-09-17), gleiche Kategorie "Chau's Hype World"
 DISCORD_WEBHOOK_MTG = _get_webhook("DISCORD_WEBHOOK_MTG")
 DISCORD_WEBHOOK_MTG_PREORDER = _get_webhook("DISCORD_WEBHOOK_MTG_PREORDER")
@@ -141,6 +144,10 @@ BROWSER_SEARCH_TERMS_MTG = [
     "magic the gathering bundle",
     "magic the gathering commander deck",
 ]
+BROWSER_SEARCH_TERMS_YUGIOH = [
+    "yu-gi-oh booster box",
+    "yu-gi-oh booster display",
+]
 
 # Pokemon: alle ENGLISCHEN Sealed-Produkte (erweitert 2026-09-16 auf Nutzerwunsch:
 # "alle englische produkte duerfen gefunden werden auch blister usw.")
@@ -218,6 +225,27 @@ MTG_EXCLUDE = [
     "Playmat", "Sleeve", "Album", "Life Counter", "Boulder", "Sidewinder", "Xenoskin",
     "Squire", "Bastion", "Sidekick", "Zip-Up", "Slipcase", "Deck Box", "Binder", "Toploader",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
+]
+
+# Yu-Gi-Oh!: nur ENGLISCHE Sealed-Produkte (Nutzerwunsch 2026-09-17), gleiche Logik wie Dragon Ball
+YUGIOH_KEYWORDS = [
+    "yu-gi-oh", "yugioh", "yu gi oh",
+]
+YUGIOH_MUST_ALSO_CONTAIN = [
+    "booster", "display", "bundle", "box", "deck", "tin", "collection",
+]
+YUGIOH_EXCLUDE = [
+    "(DE)", "[DE]", " DE ", "Deutsch",
+    "(JP)", "[JP]", "Japanisch", " JP ",
+    "(FR)", "[FR]", "Franzosisch",
+    "(IT)", "[IT]", "Italienisch",
+    "(CN)", "[CN]", "Chinesisch",
+    "(KR)", "[KR]", "Koreanisch",
+    "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
+    "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box", "Dice",
+    "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
+    # Konsolen-/Videospiele faelschlich matchen ausschliessen (z.B. Nintendo DS Titel)
+    "Nintendo", "PlayStation", "Xbox", "Videospiel", "Video Game",
 ]
 
 # Dragon Ball Super Fusion World: nur ENGLISCHE Sealed-Produkte, gleiche Logik wie One Piece

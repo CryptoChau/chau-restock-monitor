@@ -156,8 +156,22 @@ def matches_mtg(title):
     return True
 
 
+def matches_yugioh(title):
+    t = normalize(title)
+    if not any(_contains_keyword(t, k) for k in config.YUGIOH_KEYWORDS):
+        return False
+    if not any(_contains_keyword(t, k) for k in config.YUGIOH_MUST_ALSO_CONTAIN):
+        return False
+    if has_non_english_marker(title):
+        return False
+    for ex in config.YUGIOH_EXCLUDE:
+        if normalize(ex) in t:
+            return False
+    return True
+
+
 def detect_brand(title):
-    """Erkennt die Franchise aus dem Titel, gibt "pokemon"/"onepiece"/"dragonball"/"mtg" oder None zurueck."""
+    """Erkennt die Franchise aus dem Titel, gibt "pokemon"/"onepiece"/"dragonball"/"mtg"/"yugioh" oder None zurueck."""
     if matches_pokemon(title):
         return "pokemon"
     if matches_onepiece(title):
@@ -166,18 +180,21 @@ def detect_brand(title):
         return "dragonball"
     if matches_mtg(title):
         return "mtg"
+    if matches_yugioh(title):
+        return "yugioh"
     return None
 
 
 BRAND_LABELS = {
     "pokemon": "Pokemon", "onepiece": "One Piece", "dragonball": "Dragon Ball Super Fusion World",
-    "mtg": "Magic: The Gathering",
+    "mtg": "Magic: The Gathering", "yugioh": "Yu-Gi-Oh!",
 }
 BRAND_WEBHOOKS = {
     "pokemon": (config.DISCORD_WEBHOOK_POKEMON, config.DISCORD_WEBHOOK_POKEMON_PREORDER),
     "onepiece": (config.DISCORD_WEBHOOK_ONEPIECE, config.DISCORD_WEBHOOK_ONEPIECE_PREORDER),
     "dragonball": (config.DISCORD_WEBHOOK_DRAGONBALL, config.DISCORD_WEBHOOK_DRAGONBALL_PREORDER),
     "mtg": (config.DISCORD_WEBHOOK_MTG, config.DISCORD_WEBHOOK_MTG_PREORDER),
+    "yugioh": (config.DISCORD_WEBHOOK_YUGIOH, config.DISCORD_WEBHOOK_YUGIOH_PREORDER),
 }
 
 
@@ -370,7 +387,8 @@ def check_browser_retailers(state, now):
     terms = [(t, "pokemon") for t in config.BROWSER_SEARCH_TERMS_POKEMON] + \
             [(t, "onepiece") for t in config.BROWSER_SEARCH_TERMS_ONEPIECE] + \
             [(t, "dragonball") for t in config.BROWSER_SEARCH_TERMS_DRAGONBALL] + \
-            [(t, "mtg") for t in config.BROWSER_SEARCH_TERMS_MTG]
+            [(t, "mtg") for t in config.BROWSER_SEARCH_TERMS_MTG] + \
+            [(t, "yugioh") for t in config.BROWSER_SEARCH_TERMS_YUGIOH]
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--disable-http2"])
