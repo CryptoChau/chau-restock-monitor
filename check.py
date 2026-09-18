@@ -343,7 +343,14 @@ _SHOPWARE_LINK_RE = re.compile(r'href="(https://[^"]+)"')
 
 def fetch_shopware_products(domain):
     """Holt Produkte ueber die Shopware-Widget-Suche (/widgets/search?search=&p=), HTML-Parsing.
-    Liefert Liste von dicts mit title/link/price/in_stock (kompatibel zu den anderen Fetch-Funktionen)."""
+    Liefert Liste von dicts mit title/link/price/in_stock (kompatibel zu den anderen Fetch-Funktionen).
+    order=erscheinungsdatum erzwingt Sortierung nach Neuzugaengen statt Relevanz - bei riesigen
+    Katalogen wie amazingtoys.ch (89'590 Produkte) matcht die Volltextsuche fuer "pokemon" ueber
+    49'000 Treffer (praktisch der ganze Katalog, kaputte/zu breite Relevanzsuche), sodass ein
+    einzelnes neues Produkt in den Standardergebnissen (Sortierung "Beste Ergebnisse") auf
+    Seite 50+ untergehen und mit dem 8-Seiten-Limit nie gesehen werden konnte (siehe Memory,
+    30th Celebration Booster Bundle 2026-09-18). Mit Sortierung nach Neuzugang landet ein
+    frisch gelistetes Produkt zuverlaessig auf Seite 1, unabhaengig von der Trefferzahl."""
     products = []
     seen_ids = set()
     for term in ["pokemon", "one piece"]:
@@ -353,7 +360,7 @@ def fetch_shopware_products(domain):
             try:
                 r = requests.get(
                     url, headers=HEADERS, timeout=config.REQUEST_TIMEOUT,
-                    params={"search": term, "p": page},
+                    params={"search": term, "p": page, "order": "erscheinungsdatum"},
                 )
             except Exception as e:
                 log(f"  {domain}: Fehler beim Abruf ({term} S.{page}), uebersprungen ({type(e).__name__})")
