@@ -339,6 +339,7 @@ def fetch_woocommerce_products(domain):
 _SHOPWARE_BOX_RE = re.compile(r'(?=<div class="card product-box)')
 _SHOPWARE_INFO_RE = re.compile(r'data-product-information="([^"]+)"')
 _SHOPWARE_LINK_RE = re.compile(r'href="(https://[^"]+)"')
+_SHOPWARE_AVAIL_RE = re.compile(r'<span class="at-avail-pill">([^<]+)</span>')
 
 
 def fetch_shopware_products(domain):
@@ -389,12 +390,28 @@ def fetch_shopware_products(domain):
                 link = link_m.group(1) if link_m else f"https://{domain}/"
                 b_lower = b.lower()
                 in_stock = "in den warenkorb" in b_lower and "ausverkauft" not in b_lower
+                # Vorbestellungs-Badge (class="at-avail at-avail--pre") wird separat vom
+                # normalen "in den Warenkorb"-Status geprueft - Titel selbst enthaelt bei
+                # amazingtoys.ch/twomoons.ch NIE ein Vorbestellungs-Wort (is_preorder() auf den
+                # Titel allein greift hier also nie), das ist ausschliesslich am Badge-Pill-Text
+                # erkennbar. "Bald verfuegbar"/"in Kuerze" = angekuendigt, Vorbestellung noch
+                # nicht offen; "Vorbestellung" = jetzt vorbestellbar. Fehlte komplett -> ME06
+                # Delta Reign Display wurde nie gemeldet (siehe Memory, 2026-09-18).
+                avail_m = _SHOPWARE_AVAIL_RE.search(b)
+                pill_text = avail_m.group(1).lower() if avail_m else ""
+                if "vorbestellung" in pill_text or "vorbestellen" in pill_text:
+                    preorder_hint = "open"
+                elif "bald verf" in pill_text or "in k" in pill_text or "demn" in pill_text:
+                    preorder_hint = "announced"
+                else:
+                    preorder_hint = None
                 products.append({
                     "id": pid,
                     "title": info.get("name", ""),
                     "link": link,
                     "price": info.get("price"),
                     "in_stock": in_stock,
+                    "preorder_hint": preorder_hint,
                 })
             if len(boxes) < 24:  # amazingtoys.ch zeigt 24 pro Seite
                 break
@@ -519,7 +536,18 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
     label = BRAND_LABELS[brand]
     restock_webhook, preorder_webhook = BRAND_WEBHOOKS[brand]
     cart_line = f"\U0001F6D2 Direkt in den Warenkorb: {cart_link}\n" if cart_link else ""
-    if status == "preorder" and prev_status != "preorder":
+    if status == "announced" and prev_status != "announced":
+        msg = (
+            f"\U0001F514 ANKUENDIGUNG ({label}): **{title}**\n"
+            f"Haendler: {domain}\n"
+            f"Preis: CHF {price}\n"
+            f"Link: {link}\n"
+            f"Vorbestellung noch nicht offen - wird hier angekuendigt, sobald verfuegbar.\n"
+            f"Zeit: {now}"
+        )
+        log(f"  ANKUENDIGUNG gefunden: {title} bei {domain}")
+        send_discord(preorder_webhook, msg)
+    elif status == "preorder" and prev_status != "preorder":
         msg = (
             f"\U0001F7E1 VORBESTELLUNG ({label}): **{title}**\n"
             f"Haendler: {domain}\n"
@@ -1036,8 +1064,13 @@ def run():
             if not brand and not is_30th:
                 continue
 
-            preorder = is_preorder(title)
-            status = "preorder" if preorder else ("instock" if p["in_stock"] else "outofstock")
+            preorder_hint = p.get("preorder_hint")
+            if preorder_hint == "open" or is_preorder(title):
+                status = "preorder"
+            elif preorder_hint == "announced":
+                status = "announced"
+            else:
+                status = "instock" if p["in_stock"] else "outofstock"
 
             prev = state.get(product_key)
             prev_status = prev.get("status") if prev else None
