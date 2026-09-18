@@ -710,6 +710,78 @@ def check_browser_retailers(state, now):
         browser.close()
 
 
+def fetch_stealth_woocommerce_products(page, domain):
+    """Wie fetch_woocommerce_products(), aber ueber eine bereits geoeffnete camoufox-Seite,
+    fuer Haendler mit JS-Challenge-Bot-Check vor dem WooCommerce Store API (z.B. cardcollectors.ch,
+    401 auf jeden requests.get, auch auf /wp-json/ selbst - die Challenge setzt ein Cookie,
+    das camoufox nach einem Erstbesuch der Startseite mitbringt)."""
+    products = []
+    seen_ids = set()
+    for term in ["pokemon", "one piece", "dragon ball", "magic", "yu-gi-oh"]:
+        url = f"https://{domain}/wp-json/wc/store/v1/products?search={term.replace(' ', '%20')}&per_page=100"
+        try:
+            resp = page.goto(url, timeout=20000)
+        except Exception as e:
+            log(f"  {domain}: Fehler beim Abruf ({term}), uebersprungen ({type(e).__name__})")
+            continue
+        if resp is None or resp.status != 200:
+            log(f"  {domain}: HTTP {resp.status if resp else '?'} bei Suche '{term}', uebersprungen")
+            continue
+        try:
+            batch = json.loads(page.evaluate("document.body.innerText"))
+        except Exception:
+            log(f"  {domain}: Antwort kein JSON, uebersprungen")
+            continue
+        for p in batch:
+            if p.get("id") not in seen_ids:
+                seen_ids.add(p.get("id"))
+                products.append(p)
+    return products
+
+
+def check_stealth_woocommerce_retailers(page, state, now):
+    """Verarbeitet config.STEALTH_WOOCOMMERCE_RETAILERS ueber eine bereits offene camoufox-Seite
+    (dieselbe Browser-Instanz wie check_stealth_browser_retailers, spart einen zweiten Start)."""
+    for domain in config.STEALTH_WOOCOMMERCE_RETAILERS:
+        log(f"Pruefe {domain} (Stealth-WooCommerce, camoufox) ...")
+        products = fetch_stealth_woocommerce_products(page, domain)
+        if not products:
+            continue
+
+        for p in products:
+            title = html.unescape(p.get("name", ""))
+            product_key = f"{domain}:{p.get('id')}"
+            brand = detect_brand(title)
+            is_30th = matches_pokemon_30th(title) or matches_pokemon_30th_all(title)
+            if not brand and not is_30th:
+                continue
+
+            in_stock = bool(p.get("is_in_stock"))
+            preorder = is_preorder(title)
+            status = "preorder" if preorder else ("instock" if in_stock else "outofstock")
+
+            prev = state.get(product_key)
+            prev_status = prev.get("status") if prev else None
+
+            state[product_key] = {
+                "title": title,
+                "status": status,
+                "last_checked": now,
+            }
+
+            prices = p.get("prices", {}) or {}
+            minor_unit = prices.get("currency_minor_unit", 2)
+            raw_price = prices.get("price")
+            try:
+                price = f"{int(raw_price) / (10 ** minor_unit):.2f}" if raw_price is not None else "?"
+            except (ValueError, TypeError):
+                price = "?"
+            link = p.get("permalink", f"https://{domain}/")
+            if brand:
+                notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now)
+            maybe_notify_pokemon30th(state, product_key, title, status, domain, link, price, now)
+
+
 def check_stealth_browser_retailers(state, now):
     """Prueft Haendler mit starker Fingerprint-basierter Bot-Erkennung (digitec/brack/mueller-
     Familie), die normales Playwright/patchright sofort auf TLS-/HTTP2-Ebene blocken
@@ -717,16 +789,27 @@ def check_stealth_browser_retailers(state, now):
     Memory). camoufox (Firefox-Basis, GitHub github.com/daijro/camoufox) hat einen komplett
     anderen Netzwerk-Fingerabdruck und kommt durch, wo Chromium-basierte Tools blockiert werden.
     Separate Funktion/Browser-Instanz, da camoufox deutlich schwerer/langsamer ist als normales
-    Playwright und die bereits funktionierenden Haendler nicht davon betroffen sein sollen."""
+    Playwright und die bereits funktionierenden Haendler nicht davon betroffen sein sollen.
+    Deckt ausserdem WooCommerce-Haendler mit JS-Challenge ab (STEALTH_WOOCOMMERCE_RETAILERS,
+    z.B. cardcollectors.ch), die dieselbe camoufox-Instanz mitbenutzen."""
     if Camoufox is None:
         log("  camoufox nicht installiert, Stealth-Browser-Haendler uebersprungen")
         return
-    if not config.STEALTH_BROWSER_RETAILERS:
+    if not config.STEALTH_BROWSER_RETAILERS and not config.STEALTH_WOOCOMMERCE_RETAILERS:
         return
 
     with Camoufox(headless=True) as browser:
         page = browser.new_page()
-        _check_retailer_list(page, state, now, config.STEALTH_BROWSER_RETAILERS)
+        if config.STEALTH_WOOCOMMERCE_RETAILERS:
+            for domain in config.STEALTH_WOOCOMMERCE_RETAILERS:
+                try:
+                    page.goto(f"https://{domain}/", timeout=30000, wait_until="domcontentloaded")
+                    page.wait_for_timeout(6000)
+                except Exception as e:
+                    log(f"  {domain}: Startseite/Challenge fehlgeschlagen ({type(e).__name__})")
+            check_stealth_woocommerce_retailers(page, state, now)
+        if config.STEALTH_BROWSER_RETAILERS:
+            _check_retailer_list(page, state, now, config.STEALTH_BROWSER_RETAILERS)
 
 
 LOCK_PATH = os.path.join(BASE_DIR, "check.lock")

@@ -194,6 +194,14 @@ STEALTH_BROWSER_RETAILERS = [
     },
 ]
 
+# WooCommerce-Haendler mit vorgeschalteter JS-Challenge (401 auf jeden normalen requests.get,
+# auch auf /wp-json/ selbst - cardcollectors.ch). camoufox besucht zuerst die Startseite (loest
+# die Challenge, setzt Cookie), dann laeuft die normale WooCommerce Store API darueber,
+# siehe check_stealth_woocommerce_retailers() in check.py.
+STEALTH_WOOCOMMERCE_RETAILERS = [
+    "cardcollectors.ch",
+]
+
 # Suchbegriffe fuer die Browser-Haendler (pro Marke separat, damit Treffer klar zugeordnet werden koennen)
 BROWSER_SEARCH_TERMS_POKEMON = [
     "pokemon elite trainer box",
