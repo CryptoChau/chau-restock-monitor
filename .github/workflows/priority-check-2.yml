@@ -1,0 +1,75 @@
+name: CHAU Priority Check 2
+
+# Dritter versetzter Workflow (Minute 4,9,14...) neben restock-check.yml (0,5,10...)
+# und priority-check.yml (2,7,12...), damit die schnellen Shopify-Haendler effektiv
+# alle ~1-2 Min statt alle 2-3 Min geprueft werden. Nutzerwunsch 2026-09-18
+# (Vorbestellungs-Kontingent bei laschocards.ch war innert ~3 Min ausverkauft).
+# Gleiche concurrency-Gruppe wie die anderen beiden Workflows verhindert
+# ueberlappende state.json-Schreibvorgaenge (siehe Memory Duplikat-Bug 2026-09-17) -
+# im schlimmsten Fall wartet dieser Lauf in der Warteschlange, wird aber nie
+# gleichzeitig mit einem anderen Lauf ausgefuehrt.
+on:
+  schedule:
+    - cron: "4-59/5 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: restock-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run priority restock check
+        env:
+          CHAU_PRIORITY_ONLY: "1"
+          DISCORD_WEBHOOK_POKEMON: ${{ secrets.DISCORD_WEBHOOK_POKEMON }}
+          DISCORD_WEBHOOK_ONEPIECE: ${{ secrets.DISCORD_WEBHOOK_ONEPIECE }}
+          DISCORD_WEBHOOK_POKEMON_PREORDER: ${{ secrets.DISCORD_WEBHOOK_POKEMON_PREORDER }}
+          DISCORD_WEBHOOK_ONEPIECE_PREORDER: ${{ secrets.DISCORD_WEBHOOK_ONEPIECE_PREORDER }}
+          DISCORD_WEBHOOK_DRAGONBALL: ${{ secrets.DISCORD_WEBHOOK_DRAGONBALL }}
+          DISCORD_WEBHOOK_DRAGONBALL_PREORDER: ${{ secrets.DISCORD_WEBHOOK_DRAGONBALL_PREORDER }}
+          DISCORD_WEBHOOK_MTG: ${{ secrets.DISCORD_WEBHOOK_MTG }}
+          DISCORD_WEBHOOK_MTG_PREORDER: ${{ secrets.DISCORD_WEBHOOK_MTG_PREORDER }}
+          DISCORD_WEBHOOK_YUGIOH: ${{ secrets.DISCORD_WEBHOOK_YUGIOH }}
+          DISCORD_WEBHOOK_YUGIOH_PREORDER: ${{ secrets.DISCORD_WEBHOOK_YUGIOH_PREORDER }}
+          DISCORD_WEBHOOK_POKEMON_30TH: ${{ secrets.DISCORD_WEBHOOK_POKEMON_30TH }}
+          DISCORD_WEBHOOK_POKEMON_30TH_PREORDER: ${{ secrets.DISCORD_WEBHOOK_POKEMON_30TH_PREORDER }}
+          DISCORD_WEBHOOK_POKEMON_30TH_ALL: ${{ secrets.DISCORD_WEBHOOK_POKEMON_30TH_ALL }}
+          DISCORD_WEBHOOK_POKEMON_30TH_ALL_PREORDER: ${{ secrets.DISCORD_WEBHOOK_POKEMON_30TH_ALL_PREORDER }}
+        run: python check.py
+
+      - name: Persist state.json
+        run: |
+          git config user.name "chau-restock-bot"
+          git config user.email "actions@users.noreply.github.com"
+          cp state.json /tmp/state_fresh.json
+          git add state.json
+          git diff --cached --quiet || git commit -m "Update state (priority2) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push rejected, retrying ($i/5) ..."
+            git fetch origin master
+            git reset --hard origin/master
+            cp /tmp/state_fresh.json state.json
+            git add state.json
+            git diff --cached --quiet || git commit -m "Update state (priority2) [skip ci]"
+          done
+          echo "Push failed after 5 retries" >&2
+          exit 1
