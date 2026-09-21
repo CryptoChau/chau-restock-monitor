@@ -23,7 +23,26 @@ jobs:
         with:
           python-version: "3.12"
 
+      # camoufox-Browser cachen: jeder Lauf ruft sonst "camoufox fetch" neu auf, was mehrere
+      # GitHub-API-Calls macht, um die neueste Firefox-Build-URL aufzuloesen. Bei ~280
+      # Laeufen/Tag (drei versetzte Workflows) reisst das schnell das unauthentifizierte
+      # Rate-Limit von 60 Calls/h (siehe Memory, Fehler "403 rate limit exceeded" 2026-09-21,
+      # dadurch "CamoufoxNotInstalled" und kompletter Lauf-Abbruch). Mit Cache-Hit wird "fetch"
+      # praktisch ein No-Op (camoufox prueft trotzdem kurz die Versionsdatei, aber laedt nichts
+      # herunter), nur bei einem echten Cache-Miss (Erstlauf/Versionswechsel) wird wirklich
+      # heruntergeladen.
+      - name: Cache camoufox browser
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/camoufox
+          key: camoufox-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+
       - name: Install dependencies
+        env:
+          # camoufox nutzt GITHUB_TOKEN automatisch fuer die GitHub-API-Calls (Release-Aufloesung),
+          # falls gesetzt - erhoeht das Rate-Limit von 60/h (anonym) auf 5000/h (authentifiziert).
+          # Zweite Absicherung gegen denselben Rate-Limit-Fehler, zusaetzlich zum Cache oben.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
           playwright install --with-deps chromium

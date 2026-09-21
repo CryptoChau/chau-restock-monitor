@@ -833,7 +833,18 @@ def check_stealth_browser_retailers(state, now):
     if not config.STEALTH_BROWSER_RETAILERS and not config.STEALTH_WOOCOMMERCE_RETAILERS:
         return
 
-    with Camoufox(headless=True) as browser:
+    try:
+        camoufox_ctx = Camoufox(headless=True)
+        browser = camoufox_ctx.__enter__()
+    except Exception as e:
+        # Darf den kompletten Lauf NICHT abreissen - sonst gehen alle bereits gesammelten
+        # Treffer der vorherigen Haendler (Shopify/WooCommerce/Shopware/Softridge/Spielezar)
+        # verloren, weil save_state() dann nie erreicht wird (siehe Memory,
+        # CamoufoxNotInstalled durch GitHub-API-Rate-Limit 2026-09-21).
+        log(f"  camoufox konnte nicht gestartet werden, Stealth-Haendler uebersprungen ({type(e).__name__}: {e})")
+        return
+
+    try:
         page = browser.new_page()
         if config.STEALTH_WOOCOMMERCE_RETAILERS:
             for domain in config.STEALTH_WOOCOMMERCE_RETAILERS:
@@ -845,6 +856,13 @@ def check_stealth_browser_retailers(state, now):
             check_stealth_woocommerce_retailers(page, state, now)
         if config.STEALTH_BROWSER_RETAILERS:
             _check_retailer_list(page, state, now, config.STEALTH_BROWSER_RETAILERS)
+    except Exception as e:
+        log(f"  Fehler bei Stealth-Haendlern, Rest wird uebersprungen ({type(e).__name__}: {e})")
+    finally:
+        try:
+            camoufox_ctx.__exit__(None, None, None)
+        except Exception:
+            pass
 
 
 LOCK_PATH = os.path.join(BASE_DIR, "check.lock")
