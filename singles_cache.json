@@ -4,44 +4,48 @@
     "rarity": "Common",
     "number": "2",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-2/small",
+    "image": "https://images.scrydex.com/pokemon/me55-2/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-2",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-3": {
     "name": "Volbeat",
     "rarity": "Common",
     "number": "3",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-3/small",
+    "image": "https://images.scrydex.com/pokemon/me55-3/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-3",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-4": {
     "name": "Illumise",
     "rarity": "Common",
     "number": "4",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-4/small",
+    "image": "https://images.scrydex.com/pokemon/me55-4/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-4",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-5": {
     "name": "Tropius",
     "rarity": "Common",
     "number": "5",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-5/small",
+    "image": "https://images.scrydex.com/pokemon/me55-5/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-5",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-6": {
     "name": "Cherubi",
@@ -81,44 +85,48 @@
     "rarity": "Common",
     "number": "11",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-11/small",
+    "image": "https://images.scrydex.com/pokemon/me55-11/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-11",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-12": {
     "name": "Ho-Oh",
     "rarity": "Rare",
     "number": "12",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-12/small",
+    "image": "https://images.scrydex.com/pokemon/me55-12/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-12",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-13": {
     "name": "Victini",
     "rarity": "Common",
     "number": "13",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-13/small",
+    "image": "https://images.scrydex.com/pokemon/me55-13/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-13",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-14": {
     "name": "Reshiram",
     "rarity": "Rare",
     "number": "14",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-14/small",
+    "image": "https://images.scrydex.com/pokemon/me55-14/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-14",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-15": {
     "name": "Fuecoco ex",
@@ -136,44 +144,48 @@
     "rarity": "Common",
     "number": "16",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-16/small",
+    "image": "https://images.scrydex.com/pokemon/me55-16/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-16",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-17": {
     "name": "Lapras",
     "rarity": "Common",
     "number": "17",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-17/small",
+    "image": "https://images.scrydex.com/pokemon/me55-17/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-17",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-19": {
     "name": "Kyogre",
     "rarity": "Rare",
     "number": "19",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-19/small",
+    "image": "https://images.scrydex.com/pokemon/me55-19/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-19",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-20": {
     "name": "Palkia",
     "rarity": "Rare",
     "number": "20",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-20/small",
+    "image": "https://images.scrydex.com/pokemon/me55-20/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-20",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-21": {
     "name": "Greninja ex",
@@ -191,132 +203,144 @@
     "rarity": "Common",
     "number": "22",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-22/small",
+    "image": "https://images.scrydex.com/pokemon/me55-22/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-22",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-23": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "23",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-23/small",
+    "image": "https://images.scrydex.com/pokemon/me55-23/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-23",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-24": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "24",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-24/small",
+    "image": "https://images.scrydex.com/pokemon/me55-24/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-24",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-25": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "25",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-25/small",
+    "image": "https://images.scrydex.com/pokemon/me55-25/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-25",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-27": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "27",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-27/small",
+    "image": "https://images.scrydex.com/pokemon/me55-27/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-27",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-28": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "28",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-28/small",
+    "image": "https://images.scrydex.com/pokemon/me55-28/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-28",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-31": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "31",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-31/small",
+    "image": "https://images.scrydex.com/pokemon/me55-31/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-31",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-33": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "33",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-33/small",
+    "image": "https://images.scrydex.com/pokemon/me55-33/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-33",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-34": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "34",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-34/small",
+    "image": "https://images.scrydex.com/pokemon/me55-34/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-34",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-35": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "35",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-35/small",
+    "image": "https://images.scrydex.com/pokemon/me55-35/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-35",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-36": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "36",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-36/small",
+    "image": "https://images.scrydex.com/pokemon/me55-36/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-36",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-37": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "37",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-37/small",
+    "image": "https://images.scrydex.com/pokemon/me55-37/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-37",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-39": {
     "name": "Pikachu",
@@ -334,11 +358,12 @@
     "rarity": "Pikachu Rare",
     "number": "42",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-42/small",
+    "image": "https://images.scrydex.com/pokemon/me55-42/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-42",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-43": {
     "name": "Pikachu",
@@ -356,11 +381,12 @@
     "rarity": "Pikachu Rare",
     "number": "44",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-44/small",
+    "image": "https://images.scrydex.com/pokemon/me55-44/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-44",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-45": {
     "name": "Pikachu",
@@ -378,33 +404,36 @@
     "rarity": "Pikachu Rare",
     "number": "46",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-46/small",
+    "image": "https://images.scrydex.com/pokemon/me55-46/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-46",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-47": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "47",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-47/small",
+    "image": "https://images.scrydex.com/pokemon/me55-47/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-47",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-48": {
     "name": "Pikachu",
     "rarity": "Pikachu Rare",
     "number": "48",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-48/small",
+    "image": "https://images.scrydex.com/pokemon/me55-48/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-48",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-51": {
     "name": "Pikachu",
@@ -422,33 +451,36 @@
     "rarity": "Double Rare",
     "number": "53",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-53/small",
+    "image": "https://images.scrydex.com/pokemon/me55-53/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-53",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-55": {
     "name": "Zapdos",
     "rarity": "Common",
     "number": "55",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-55/small",
+    "image": "https://images.scrydex.com/pokemon/me55-55/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-55",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-56": {
     "name": "Zekrom",
     "rarity": "Rare",
     "number": "56",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-56/small",
+    "image": "https://images.scrydex.com/pokemon/me55-56/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-56",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-58": {
     "name": "Toxel",
@@ -477,33 +509,36 @@
     "rarity": "Rare",
     "number": "63",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-63/small",
+    "image": "https://images.scrydex.com/pokemon/me55-63/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-63",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-64": {
     "name": "Mewtwo ex",
     "rarity": "Double Rare",
     "number": "64",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-64/small",
+    "image": "https://images.scrydex.com/pokemon/me55-64/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-64",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-65": {
     "name": "Mew",
     "rarity": "Rare",
     "number": "65",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-65/small",
+    "image": "https://images.scrydex.com/pokemon/me55-65/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-65",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-66": {
     "name": "Mew ex",
@@ -521,55 +556,60 @@
     "rarity": "Common",
     "number": "67",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-67/small",
+    "image": "https://images.scrydex.com/pokemon/me55-67/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-67",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-69": {
     "name": "Espeon",
     "rarity": "Common",
     "number": "69",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-69/small",
+    "image": "https://images.scrydex.com/pokemon/me55-69/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-69",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-72": {
     "name": "Unown",
     "rarity": "Common",
     "number": "72",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-72/small",
+    "image": "https://images.scrydex.com/pokemon/me55-72/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-72",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-76": {
     "name": "Xerneas",
     "rarity": "Rare",
     "number": "76",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-76/small",
+    "image": "https://images.scrydex.com/pokemon/me55-76/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-76",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-77": {
     "name": "Comfey",
     "rarity": "Common",
     "number": "77",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-77/small",
+    "image": "https://images.scrydex.com/pokemon/me55-77/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-77",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-80": {
     "name": "Lunala",
@@ -587,11 +627,12 @@
     "rarity": "Common",
     "number": "81",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-81/small",
+    "image": "https://images.scrydex.com/pokemon/me55-81/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-81",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-82": {
     "name": "Groudon",
@@ -620,33 +661,36 @@
     "rarity": "Common",
     "number": "85",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-85/small",
+    "image": "https://images.scrydex.com/pokemon/me55-85/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-85",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-86": {
     "name": "Koraidon",
     "rarity": "Rare",
     "number": "86",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-86/small",
+    "image": "https://images.scrydex.com/pokemon/me55-86/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-86",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-87": {
     "name": "Nidoran ♀",
     "rarity": "Common",
     "number": "87",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-87/small",
+    "image": "https://images.scrydex.com/pokemon/me55-87/large",
+    "tcgplayer_url": null,
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-88": {
     "name": "Nidorina",
@@ -675,44 +719,48 @@
     "rarity": "Double Rare",
     "number": "90",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-90/small",
+    "image": "https://images.scrydex.com/pokemon/me55-90/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-90",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-91": {
     "name": "Umbreon",
     "rarity": "Common",
     "number": "91",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-91/small",
+    "image": "https://images.scrydex.com/pokemon/me55-91/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-91",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-92": {
     "name": "Umbreon ex",
     "rarity": "Double Rare",
     "number": "92",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-92/small",
+    "image": "https://images.scrydex.com/pokemon/me55-92/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-92",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-93": {
     "name": "Murkrow",
     "rarity": "Common",
     "number": "93",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-93/small",
+    "image": "https://images.scrydex.com/pokemon/me55-93/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-93",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-94": {
     "name": "Scraggy",
@@ -730,33 +778,36 @@
     "rarity": "Common",
     "number": "95",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-95/small",
+    "image": "https://images.scrydex.com/pokemon/me55-95/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-95",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-97": {
     "name": "Deino",
     "rarity": "Common",
     "number": "97",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-97/small",
+    "image": "https://images.scrydex.com/pokemon/me55-97/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-97",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-98": {
     "name": "Zweilous",
     "rarity": "Common",
     "number": "98",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-98/small",
+    "image": "https://images.scrydex.com/pokemon/me55-98/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-98",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-101": {
     "name": "Galarian Meowth",
@@ -774,22 +825,24 @@
     "rarity": "Double Rare",
     "number": "102",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-102/small",
+    "image": "https://images.scrydex.com/pokemon/me55-102/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-102",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-105": {
     "name": "Solgaleo",
     "rarity": "Rare",
     "number": "105",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-105/small",
+    "image": "https://images.scrydex.com/pokemon/me55-105/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-105",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-108": {
     "name": "Gholdengo",
@@ -807,22 +860,24 @@
     "rarity": "Double Rare",
     "number": "109",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-109/small",
+    "image": "https://images.scrydex.com/pokemon/me55-109/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-109",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-110": {
     "name": "Jangmo-o",
     "rarity": "Common",
     "number": "110",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-110/small",
+    "image": "https://images.scrydex.com/pokemon/me55-110/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-110",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-111": {
     "name": "Hakamo-o",
@@ -840,22 +895,24 @@
     "rarity": "Common",
     "number": "112",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-112/small",
+    "image": "https://images.scrydex.com/pokemon/me55-112/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-112",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-113": {
     "name": "Meowth",
     "rarity": "Common",
     "number": "113",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-113/small",
+    "image": "https://images.scrydex.com/pokemon/me55-113/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-113",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-114": {
     "name": "Kangaskhan",
@@ -873,11 +930,12 @@
     "rarity": "Common",
     "number": "115",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-115/small",
+    "image": "https://images.scrydex.com/pokemon/me55-115/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-115",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-116": {
     "name": "Eevee",
@@ -895,11 +953,12 @@
     "rarity": "Common",
     "number": "119",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-119/small",
+    "image": "https://images.scrydex.com/pokemon/me55-119/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-119",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-120": {
     "name": "Igglybuff",
@@ -917,11 +976,12 @@
     "rarity": "Rare",
     "number": "121",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-121/small",
+    "image": "https://images.scrydex.com/pokemon/me55-121/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-121",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-122": {
     "name": "Hisuian Zorua",
@@ -950,22 +1010,24 @@
     "rarity": "Common",
     "number": "124",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-124/small",
+    "image": "https://images.scrydex.com/pokemon/me55-124/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-124",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-125": {
     "name": "Maushold",
     "rarity": "Common",
     "number": "125",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-125/small",
+    "image": "https://images.scrydex.com/pokemon/me55-125/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-125",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-126": {
     "name": "Poké Pad",
@@ -983,11 +1045,12 @@
     "rarity": "Common",
     "number": "127",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-127/small",
+    "image": "https://images.scrydex.com/pokemon/me55-127/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-127",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-128": {
     "name": "Ultra Ball",
@@ -1005,77 +1068,84 @@
     "rarity": "Illustration Rare",
     "number": "129",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-129/small",
+    "image": "https://images.scrydex.com/pokemon/me55-129/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-129",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-130": {
     "name": "Moltres",
     "rarity": "Illustration Rare",
     "number": "130",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-130/small",
+    "image": "https://images.scrydex.com/pokemon/me55-130/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-130",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-131": {
     "name": "Lapras",
     "rarity": "Illustration Rare",
     "number": "131",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-131/small",
+    "image": "https://images.scrydex.com/pokemon/me55-131/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-131",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-133": {
     "name": "Zapdos",
     "rarity": "Illustration Rare",
     "number": "133",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-133/small",
+    "image": "https://images.scrydex.com/pokemon/me55-133/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-133",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-135": {
     "name": "Morpeko",
     "rarity": "Illustration Rare",
     "number": "135",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-135/small",
+    "image": "https://images.scrydex.com/pokemon/me55-135/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-135",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-136": {
     "name": "Drifloon",
     "rarity": "Illustration Rare",
     "number": "136",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-136/small",
+    "image": "https://images.scrydex.com/pokemon/me55-136/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-136",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-137": {
     "name": "Chandelure",
     "rarity": "Illustration Rare",
     "number": "137",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-137/small",
+    "image": "https://images.scrydex.com/pokemon/me55-137/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-137",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-138": {
     "name": "Lycanroc",
@@ -1104,176 +1174,192 @@
     "rarity": "Illustration Rare",
     "number": "142",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-142/small",
+    "image": "https://images.scrydex.com/pokemon/me55-142/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-142",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-144": {
     "name": "Meowth",
     "rarity": "Illustration Rare",
     "number": "144",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-144/small",
+    "image": "https://images.scrydex.com/pokemon/me55-144/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-144",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-145": {
     "name": "Hisuian Zorua",
     "rarity": "Illustration Rare",
     "number": "145",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-145/small",
+    "image": "https://images.scrydex.com/pokemon/me55-145/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-145",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-146": {
     "name": "Maushold",
     "rarity": "Illustration Rare",
     "number": "146",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-146/small",
+    "image": "https://images.scrydex.com/pokemon/me55-146/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-146",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-147": {
     "name": "Fuecoco ex",
     "rarity": "Special Illustration Rare",
     "number": "147",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-147/small",
+    "image": "https://images.scrydex.com/pokemon/me55-147/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-147",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-148": {
     "name": "Greninja ex",
     "rarity": "Special Illustration Rare",
     "number": "148",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-148/small",
+    "image": "https://images.scrydex.com/pokemon/me55-148/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-148",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-149": {
     "name": "Pikachu ex",
     "rarity": "Special Illustration Rare",
     "number": "149",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-149/small",
+    "image": "https://images.scrydex.com/pokemon/me55-149/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-149",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-150": {
     "name": "Pikachu ex",
     "rarity": "Special Illustration Rare",
     "number": "150",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-150/small",
+    "image": "https://images.scrydex.com/pokemon/me55-150/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-150",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-151": {
     "name": "Mewtwo ex",
     "rarity": "Special Illustration Rare",
     "number": "151",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-151/small",
+    "image": "https://images.scrydex.com/pokemon/me55-151/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-151",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-152": {
     "name": "Mew ex",
     "rarity": "Special Illustration Rare",
     "number": "152",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-152/small",
+    "image": "https://images.scrydex.com/pokemon/me55-152/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-152",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-154": {
     "name": "Gengar ex",
     "rarity": "Special Illustration Rare",
     "number": "154",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-154/small",
+    "image": "https://images.scrydex.com/pokemon/me55-154/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-154",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-155": {
     "name": "Jirachi ex",
     "rarity": "Special Illustration Rare",
     "number": "155",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-155/small",
+    "image": "https://images.scrydex.com/pokemon/me55-155/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-155",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-156": {
     "name": "Salamence ex",
     "rarity": "Special Illustration Rare",
     "number": "156",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-156/small",
+    "image": "https://images.scrydex.com/pokemon/me55-156/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-156",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-157": {
     "name": "Mewtwo ex",
     "rarity": "Futuristic Rare",
     "number": "157",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-157/small",
+    "image": "https://images.scrydex.com/pokemon/me55-157/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-157",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55-158": {
     "name": "Mew ex",
     "rarity": "Futuristic Rare",
     "number": "158",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-158/small",
+    "image": "https://images.scrydex.com/pokemon/me55-158/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-158",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55c-4": {
     "name": "Charizard",
     "rarity": "Rare Holo",
     "number": "4",
     "set_name": "30th Celebration: Classic Collection",
-    "image": "https://images.scrydex.com/pokemon/me55c-4/small",
+    "image": "https://images.scrydex.com/pokemon/me55c-4/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55c-4",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55c-5": {
     "name": "Delcatty",
@@ -1291,32 +1377,383 @@
     "rarity": "Rare Holo",
     "number": "11",
     "set_name": "30th Celebration: Classic Collection",
-    "image": "https://images.scrydex.com/pokemon/me55c-11/small",
+    "image": "https://images.scrydex.com/pokemon/me55c-11/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55c-11",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55c-18": {
     "name": "Misty",
     "rarity": "Rare Holo",
     "number": "18",
     "set_name": "30th Celebration: Classic Collection",
-    "image": "https://images.scrydex.com/pokemon/me55c-18/small",
+    "image": "https://images.scrydex.com/pokemon/me55c-18/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55c-18",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
   },
   "me55c-19": {
     "name": "Dark Tyranitar",
     "rarity": "Rare",
     "number": "19",
     "set_name": "30th Celebration: Classic Collection",
-    "image": "https://images.scrydex.com/pokemon/me55c-19/small",
+    "image": "https://images.scrydex.com/pokemon/me55c-19/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55c-19",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-1": {
+    "name": "Exeggcute",
+    "rarity": "Common",
+    "number": "1",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-1/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-1",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-7": {
+    "name": "Cherrim",
+    "rarity": "Common",
+    "number": "7",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-7/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-7",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-10": {
+    "name": "Ninetales",
+    "rarity": "Common",
+    "number": "10",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-10/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-10",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-18": {
+    "name": "Articuno",
+    "rarity": "Common",
+    "number": "18",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-18/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-18",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-26": {
+    "name": "Pikachu",
+    "rarity": "Pikachu Rare",
+    "number": "26",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-26/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-26",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-29": {
+    "name": "Pikachu",
+    "rarity": "Pikachu Rare",
+    "number": "29",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-29/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-29",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-30": {
+    "name": "Pikachu",
+    "rarity": "Pikachu Rare",
+    "number": "30",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-30/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-30",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-38": {
+    "name": "Pikachu",
+    "rarity": "Pikachu Rare",
+    "number": "38",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-38/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-38",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-40": {
+    "name": "Pikachu",
+    "rarity": "Pikachu Rare",
+    "number": "40",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-40/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-40",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-41": {
+    "name": "Pikachu",
+    "rarity": "Pikachu Rare",
+    "number": "41",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-41/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-41",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-50": {
+    "name": "Pikachu",
+    "rarity": "Pikachu Rare",
+    "number": "50",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-50/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-50",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-52": {
+    "name": "Pikachu",
+    "rarity": "Pikachu Rare",
+    "number": "52",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-52/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-52",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-57": {
+    "name": "Zeraora",
+    "rarity": "Common",
+    "number": "57",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-57/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-57",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-59": {
+    "name": "Toxtricity",
+    "rarity": "Common",
+    "number": "59",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-59/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-59",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-60": {
+    "name": "Toxtricity",
+    "rarity": "Common",
+    "number": "60",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-60/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-60",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-68": {
+    "name": "Azumarill",
+    "rarity": "Common",
+    "number": "68",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-68/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-68",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-70": {
+    "name": "Espeon ex",
+    "rarity": "Double Rare",
+    "number": "70",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-70/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-70",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-73": {
+    "name": "Drifloon",
+    "rarity": "Common",
+    "number": "73",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-73/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-73",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-75": {
+    "name": "Chandelure",
+    "rarity": "Common",
+    "number": "75",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-75/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-75",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-78": {
+    "name": "Cosmog",
+    "rarity": "Common",
+    "number": "78",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-78/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-78",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-83": {
+    "name": "Lucario",
+    "rarity": "Common",
+    "number": "83",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-83/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-83",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-100": {
+    "name": "Yveltal",
+    "rarity": "Rare",
+    "number": "100",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-100/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-100",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-106": {
+    "name": "Zacian",
+    "rarity": "Rare",
+    "number": "106",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-106/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-106",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-117": {
+    "name": "Eevee",
+    "rarity": "Common",
+    "number": "117",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-117/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-117",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-118": {
+    "name": "Eevee",
+    "rarity": "Common",
+    "number": "118",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-118/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-118",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-132": {
+    "name": "Articuno",
+    "rarity": "Illustration Rare",
+    "number": "132",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-132/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-132",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-134": {
+    "name": "Toxtricity",
+    "rarity": "Illustration Rare",
+    "number": "134",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-134/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-134",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-143": {
+    "name": "Kommo-o",
+    "rarity": "Illustration Rare",
+    "number": "143",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-143/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-143",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
+  },
+  "me55-153": {
+    "name": "Sylveon ex",
+    "rarity": "Special Illustration Rare",
+    "number": "153",
+    "set_name": "30th Celebration",
+    "image": "https://images.scrydex.com/pokemon/me55-153/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-153",
+    "price_now": null,
+    "price_source": null,
+    "price_history": [],
+    "last_updated": "2026-09-22T23:50:24Z"
   }
 }
