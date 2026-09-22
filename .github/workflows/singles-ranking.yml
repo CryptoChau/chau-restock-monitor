@@ -1,0 +1,59 @@
+name: CHAU 30th Celebration Singles Ranking
+
+# Laeuft 1x/Tag: aktualisiert die selbst gefuehrte Preis-Historie (singles_cache.json)
+# und postet die aktuelle Kauf-Rangliste. Separater, taeglicher Workflow statt Teil
+# von restock-check.yml, da das eine ganz andere Kadenz braucht (Preise bewegen sich
+# langsam) und ~190 einzelne API-Calls macht (pokemontcg.io Suchendpunkt ist kaputt,
+# siehe singles_ranking.py Docstring) - soll die 5-Minuten-Restock-Checks nicht
+# verlangsamen.
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: chau-singles-ranking
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  rank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Update snapshot and post ranking
+        env:
+          DISCORD_WEBHOOK_POKEMON_30TH_SINGLES: ${{ secrets.DISCORD_WEBHOOK_POKEMON_30TH_SINGLES }}
+        run: python singles_ranking.py
+
+      - name: Persist singles_cache.json
+        run: |
+          git config user.name "chau-restock-bot"
+          git config user.email "actions@users.noreply.github.com"
+          cp singles_cache.json /tmp/singles_cache_fresh.json
+          git add singles_cache.json
+          git diff --cached --quiet || git commit -m "Update singles price snapshot [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push rejected, retrying ($i/5) ..."
+            git fetch origin master
+            git reset --hard origin/master
+            cp /tmp/singles_cache_fresh.json singles_cache.json
+            git add singles_cache.json
+            git diff --cached --quiet || git commit -m "Update singles price snapshot [skip ci]"
+          done
+          echo "Push failed after 5 retries" >&2
+          exit 1
