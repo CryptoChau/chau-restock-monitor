@@ -166,7 +166,8 @@ def update_snapshot():
                 "rarity": data.get("rarity"),
                 "number": data.get("number"),
                 "set_name": (data.get("set") or {}).get("name"),
-                "image": (data.get("images") or {}).get("small"),
+                "image": (data.get("images") or {}).get("large") or (data.get("images") or {}).get("small"),
+                "tcgplayer_url": (data.get("tcgplayer") or {}).get("url"),
                 "price_now": price,
                 "price_source": source,
                 "price_history": history,
@@ -211,30 +212,15 @@ def build_ranking(top_n=15):
     return rows[:top_n], len(rows)
 
 
-def format_message(rows, total_tracked, days_of_history):
+def build_header(total_tracked, days_of_history):
     lines = [
-        "\U0001F4C8 **30th Celebration Einzelkarten - Kauf-Rangliste**",
-        f"Getrackt: {total_tracked} Karten | Preis-Historie: {days_of_history} Tag(e)",
+        f"\U0001F4C8 **30th Celebration Einzelkarten - Kauf-Rangliste** ({total_tracked} Karten getrackt, {days_of_history} Tag(e) Preis-Historie)",
     ]
     if days_of_history < 3:
         lines.append(
-            "_Noch wenig Preis-Historie - Ranking basiert momentan hauptsaechlich "
-            "auf Kartenseltenheit, nicht auf echtem Trend. Wird taeglich genauer._"
+            "_Noch wenig Preis-Historie - Ranking basiert momentan hauptsaechlich auf "
+            "Kartenseltenheit, nicht auf echtem Trend. Wird taeglich genauer._"
         )
-    lines.append("")
-    for i, (score, trend_pct, card_id, entry) in enumerate(rows, 1):
-        name = entry.get("name", card_id)
-        rarity = entry.get("rarity") or "?"
-        price = entry.get("price_now")
-        price_str = f"{price:.2f}" if isinstance(price, (int, float)) else "?"
-        source = entry.get("price_source") or "?"
-        if trend_pct is not None:
-            arrow = "\U0001F7E2▲" if trend_pct > 0 else ("\U0001F534▼" if trend_pct < 0 else "⚪")
-            trend_str = f"{arrow} {trend_pct:+.1f}%"
-        else:
-            trend_str = "⚪ noch kein Trend"
-        lines.append(f"**{i}.** {name} ({rarity}) - {price_str} [{source}] {trend_str}")
-    lines.append("")
     lines.append(
         "Hinweis: Preise ohne Marktpreise-Anspruch, aus TCGPlayer/Cardmarket-API "
         "(pokemontcg.io), taeglich selbst getrackt."
@@ -242,20 +228,63 @@ def format_message(rows, total_tracked, days_of_history):
     return "\n".join(lines)
 
 
-def send_discord(webhook_url, content):
+def build_embeds(rows):
+    """Ein Embed pro Karte mit Bild, statt reiner Textliste - Nutzerwunsch."""
+    embeds = []
+    for i, (score, trend_pct, card_id, entry) in enumerate(rows, 1):
+        name = entry.get("name", card_id)
+        rarity = entry.get("rarity") or "?"
+        price = entry.get("price_now")
+        price_str = f"{price:.2f}" if isinstance(price, (int, float)) else "noch kein Marktpreis"
+        source = entry.get("price_source") or "?"
+        if trend_pct is not None:
+            arrow = "\U0001F7E2▲" if trend_pct > 0 else ("\U0001F534▼" if trend_pct < 0 else "⚪")
+            trend_str = f"{arrow} {trend_pct:+.1f}%"
+        else:
+            trend_str = "⚪ noch kein Trend"
+
+        fields = [
+            {"name": "Seltenheit", "value": rarity, "inline": True},
+            {"name": "Preis", "value": f"{price_str}" + (f" ({source})" if isinstance(price, (int, float)) else ""), "inline": True},
+            {"name": "Trend", "value": trend_str, "inline": True},
+        ]
+        embed = {
+            "title": f"{i}. {name}",
+            "fields": fields,
+            "color": 0x7C3AED,
+        }
+        image = entry.get("image")
+        if image:
+            embed["thumbnail"] = {"url": image}
+        tcg_url = entry.get("tcgplayer_url")
+        if tcg_url:
+            embed["url"] = tcg_url
+            embed["footer"] = {"text": "Klick auf den Titel fuer TCGplayer"}
+        embeds.append(embed)
+    return embeds
+
+
+def send_discord(webhook_url, header, embeds):
     if not webhook_url:
         log("Kein Discord-Webhook konfiguriert (DISCORD_WEBHOOK_POKEMON_30TH_SINGLES), ueberspringe Post")
         return
-    # Discord begrenzt Nachrichten auf 2000 Zeichen - bei top_n=15 reicht das meist,
-    # als Sicherheitsnetz trotzdem abschneiden statt einen Fehler zu werfen.
-    if len(content) > 1900:
-        content = content[:1880] + "\n... (gekuerzt)"
     try:
-        r = requests.post(webhook_url, json={"content": content}, timeout=REQUEST_TIMEOUT)
+        r = requests.post(webhook_url, json={"content": header}, timeout=REQUEST_TIMEOUT)
         if r.status_code not in (200, 204):
-            log(f"Discord-Post fehlgeschlagen: HTTP {r.status_code} {r.text[:200]}")
+            log(f"Discord-Header-Post fehlgeschlagen: HTTP {r.status_code} {r.text[:200]}")
     except Exception as e:
-        log(f"Discord-Post Fehler: {type(e).__name__}: {e}")
+        log(f"Discord-Header-Post Fehler: {type(e).__name__}: {e}")
+
+    # Discord erlaubt max. 10 Embeds pro Nachricht - in Batches senden.
+    for batch_start in range(0, len(embeds), 10):
+        batch = embeds[batch_start:batch_start + 10]
+        try:
+            r = requests.post(webhook_url, json={"embeds": batch}, timeout=REQUEST_TIMEOUT)
+            if r.status_code not in (200, 204):
+                log(f"Discord-Embed-Post fehlgeschlagen: HTTP {r.status_code} {r.text[:200]}")
+        except Exception as e:
+            log(f"Discord-Embed-Post Fehler: {type(e).__name__}: {e}")
+        time.sleep(1)  # Rate-Limit-Puffer zwischen Batches
 
 
 if __name__ == "__main__":
@@ -265,6 +294,8 @@ if __name__ == "__main__":
     cache_for_count = load_cache()
     for entry in cache_for_count.values():
         max_history = max(max_history, len(entry.get("price_history") or []))
-    msg = format_message(top_rows, total_tracked, max_history)
-    log(msg)
-    send_discord(os.environ.get("DISCORD_WEBHOOK_POKEMON_30TH_SINGLES"), msg)
+    header = build_header(total_tracked, max_history)
+    embeds = build_embeds(top_rows)
+    log(header)
+    log(f"{len(embeds)} Embeds vorbereitet")
+    send_discord(os.environ.get("DISCORD_WEBHOOK_POKEMON_30TH_SINGLES"), header, embeds)
