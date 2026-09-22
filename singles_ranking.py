@@ -16,6 +16,7 @@ Rare/Hyper Rare erholen sich nach dem Post-Release-Preisverfall meist zuerst).
 """
 import json
 import os
+import sys
 import time
 
 import requests
@@ -46,18 +47,18 @@ RARITY_WEIGHT = [
 ]
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; chau-restock-monitor/1.0)"}
-REQUEST_TIMEOUT = 15
+REQUEST_TIMEOUT = 8
 MAX_HISTORY_POINTS = 90  # ~3 Monate taegliche Snapshots
 
 
 def log(msg):
     line = f"[{time.strftime('%Y-%m-%dT%H:%M:%S')}] {msg}"
     try:
-        print(line)
+        print(line, flush=True)
     except UnicodeEncodeError:
         # Lokale Windows-Konsolen (cp1252) koennen Emojis nicht darstellen - passiert
         # auf dem Linux-GitHub-Runner (UTF-8) nicht, hier nur fuers lokale Testen.
-        print(line.encode("ascii", "replace").decode("ascii"))
+        print(line.encode("ascii", "replace").decode("ascii"), flush=True)
 
 
 def rarity_weight(rarity):
@@ -70,9 +71,14 @@ def rarity_weight(rarity):
     return 0
 
 
-def fetch_card(card_id, retries=4):
-    """Holt eine einzelne Karte. Retries mit Backoff, da die API haeufig HTTP 500
-    liefert (deprecated, wenig gepflegte Infrastruktur - siehe Modul-Docstring)."""
+def fetch_card(card_id, retries=2):
+    """Holt eine einzelne Karte. Kurze Retries, KEIN langes Backoff: die API ist so
+    instabil (haeufig HTTP 500, deprecated/wenig gepflegt - siehe Modul-Docstring),
+    dass ein langes Backoff pro Karte bei ~190 Karten den 25-Minuten-Workflow-Timeout
+    sprengt (siehe Memory, erster Testlauf 2026-09-22 lief komplett durch, ohne
+    auch nur eine Karte fertig geloggt zu haben). Eine fehlgeschlagene Karte wird
+    morgen beim naechsten taeglichen Lauf automatisch erneut versucht, es lohnt sich
+    also nicht, heute lange dafuer zu warten - lieber schnell weiter zur naechsten."""
     for attempt in range(retries):
         try:
             r = requests.get(
@@ -83,7 +89,8 @@ def fetch_card(card_id, retries=4):
                 return r.json().get("data")
         except Exception:
             pass
-        time.sleep(3 * (attempt + 1))
+        if attempt < retries - 1:
+            time.sleep(1)
     return None
 
 
@@ -112,15 +119,30 @@ def extract_price(data):
     return None, None
 
 
+TIME_BUDGET_SECONDS = 18 * 60  # Job-Timeout ist 25 Min - bei Ueberschreitung sauber abbrechen
+                                # (speichern + posten) statt vom Runner hart gekillt zu werden
+
+
 def update_snapshot():
     """Holt fuer jede Karte im Set den aktuellen Preis und haengt ihn an die
     lokale Historie an. Wird 1x/Tag aufgerufen (siehe singles-ranking.yml)."""
     cache = load_cache()
     now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     ok, failed = 0, 0
+    start = time.monotonic()
+    total_cards = sum(SET_TOTALS.values())
+    processed = 0
 
     for set_id, total in SET_TOTALS.items():
         for n in range(1, total + 1):
+            if time.monotonic() - start > TIME_BUDGET_SECONDS:
+                log(f"Zeitbudget erreicht nach {processed}/{total_cards} Karten - breche kontrolliert ab, Rest folgt morgen")
+                save_cache(cache)
+                return cache
+            processed += 1
+            if processed % 20 == 0:
+                log(f"Fortschritt: {processed}/{total_cards} Karten geprueft ({ok} OK, {failed} fehlgeschlagen)")
+
             card_id = f"{set_id}-{n}"
             data = fetch_card(card_id)
             if data is None:
