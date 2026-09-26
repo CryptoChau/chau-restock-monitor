@@ -9,7 +9,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-3": {
     "name": "Volbeat",
@@ -21,7 +21,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-4": {
     "name": "Illumise",
@@ -33,7 +33,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-5": {
     "name": "Tropius",
@@ -45,7 +45,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-6": {
     "name": "Cherubi",
@@ -57,18 +57,19 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-8": {
     "name": "Vivillon",
     "rarity": "Common",
     "number": "8",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-8/small",
+    "image": "https://images.scrydex.com/pokemon/me55-8/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-8",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-9": {
     "name": "Vulpix",
@@ -80,7 +81,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-11": {
     "name": "Moltres",
@@ -128,7 +129,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-15": {
     "name": "Fuecoco ex",
@@ -140,7 +141,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-16": {
     "name": "Slowpoke",
@@ -152,7 +153,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-17": {
     "name": "Lapras",
@@ -164,7 +165,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-19": {
     "name": "Kyogre",
@@ -188,7 +189,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-23T11:40:26Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-21": {
     "name": "Greninja ex",
@@ -200,7 +201,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-22": {
     "name": "Wishiwashi",
@@ -212,7 +213,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-23": {
     "name": "Pikachu",
@@ -236,7 +237,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-25": {
     "name": "Pikachu",
@@ -248,7 +249,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-27": {
     "name": "Pikachu",
@@ -260,7 +261,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T23:50:24Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-28": {
     "name": "Pikachu",
@@ -272,7 +273,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-31": {
     "name": "Pikachu",
@@ -284,7 +285,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-33": {
     "name": "Pikachu",
@@ -296,7 +297,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-34": {
     "name": "Pikachu",
@@ -320,7 +321,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-36": {
     "name": "Pikachu",
@@ -332,7 +333,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-37": {
     "name": "Pikachu",
@@ -404,7 +405,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-46": {
     "name": "Pikachu",
@@ -416,7 +417,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-47": {
     "name": "Pikachu",
@@ -428,7 +429,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-23T11:40:26Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-48": {
     "name": "Pikachu",
@@ -440,7 +441,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-51": {
     "name": "Pikachu",
@@ -452,7 +453,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-53": {
     "name": "Pikachu ex",
@@ -464,7 +465,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-23T11:40:26Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-55": {
     "name": "Zapdos",
@@ -500,7 +501,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-62": {
     "name": "Miraidon",
@@ -536,7 +537,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-65": {
     "name": "Mew",
@@ -560,7 +561,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-67": {
     "name": "Marill",
@@ -584,7 +585,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-23T11:40:26Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-72": {
     "name": "Unown",
@@ -596,7 +597,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-23T11:40:26Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-76": {
     "name": "Xerneas",
@@ -632,7 +633,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-81": {
     "name": "Gimmighoul",
@@ -644,7 +645,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-82": {
     "name": "Groudon",
@@ -668,7 +669,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-85": {
     "name": "Lycanroc",
@@ -692,7 +693,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-87": {
     "name": "Nidoran ♀",
@@ -704,7 +705,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-88": {
     "name": "Nidorina",
@@ -716,7 +717,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-89": {
     "name": "Alolan Meowth",
@@ -728,7 +729,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-90": {
     "name": "Gengar ex",
@@ -740,7 +741,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-91": {
     "name": "Umbreon",
@@ -752,7 +753,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-92": {
     "name": "Umbreon ex",
@@ -812,7 +813,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-98": {
     "name": "Zweilous",
@@ -824,7 +825,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-101": {
     "name": "Galarian Meowth",
@@ -836,7 +837,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-102": {
     "name": "Jirachi ex",
@@ -848,7 +849,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-105": {
     "name": "Solgaleo",
@@ -860,7 +861,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-108": {
     "name": "Gholdengo",
@@ -872,7 +873,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-109": {
     "name": "Salamence ex",
@@ -884,7 +885,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-110": {
     "name": "Jangmo-o",
@@ -908,7 +909,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-112": {
     "name": "Kommo-o",
@@ -932,7 +933,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-114": {
     "name": "Kangaskhan",
@@ -944,7 +945,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-115": {
     "name": "Ditto",
@@ -968,7 +969,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-119": {
     "name": "Snorlax",
@@ -980,7 +981,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-120": {
     "name": "Igglybuff",
@@ -1011,11 +1012,12 @@
     "rarity": "Common",
     "number": "122",
     "set_name": "30th Celebration",
-    "image": "https://images.scrydex.com/pokemon/me55-122/small",
+    "image": "https://images.scrydex.com/pokemon/me55-122/large",
+    "tcgplayer_url": "https://prices.pokemontcg.io/tcgplayer/me55-122",
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T11:35:59Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-123": {
     "name": "Hisuian Zoroark",
@@ -1027,7 +1029,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-124": {
     "name": "Minior",
@@ -1051,7 +1053,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-126": {
     "name": "Poké Pad",
@@ -1063,7 +1065,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-127": {
     "name": "Switch",
@@ -1075,7 +1077,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-128": {
     "name": "Ultra Ball",
@@ -1135,7 +1137,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-135": {
     "name": "Morpeko",
@@ -1159,7 +1161,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-137": {
     "name": "Chandelure",
@@ -1207,7 +1209,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-144": {
     "name": "Meowth",
@@ -1243,7 +1245,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-147": {
     "name": "Fuecoco ex",
@@ -1279,7 +1281,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-150": {
     "name": "Pikachu ex",
@@ -1303,7 +1305,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-152": {
     "name": "Mew ex",
@@ -1315,7 +1317,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-23T11:40:26Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-154": {
     "name": "Gengar ex",
@@ -1327,7 +1329,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-155": {
     "name": "Jirachi ex",
@@ -1339,7 +1341,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-156": {
     "name": "Salamence ex",
@@ -1351,7 +1353,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-157": {
     "name": "Mewtwo ex",
@@ -1363,7 +1365,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-158": {
     "name": "Mew ex",
@@ -1387,7 +1389,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-23T11:40:26Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55c-5": {
     "name": "Delcatty",
@@ -1435,7 +1437,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-1": {
     "name": "Exeggcute",
@@ -1447,7 +1449,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-7": {
     "name": "Cherrim",
@@ -1459,7 +1461,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-10": {
     "name": "Ninetales",
@@ -1471,7 +1473,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-18": {
     "name": "Articuno",
@@ -1495,7 +1497,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-22T23:50:24Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-29": {
     "name": "Pikachu",
@@ -1531,7 +1533,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-40": {
     "name": "Pikachu",
@@ -1555,7 +1557,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-50": {
     "name": "Pikachu",
@@ -1567,7 +1569,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-52": {
     "name": "Pikachu",
@@ -1591,7 +1593,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-59": {
     "name": "Toxtricity",
@@ -1615,7 +1617,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-68": {
     "name": "Azumarill",
@@ -1627,7 +1629,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-70": {
     "name": "Espeon ex",
@@ -1651,7 +1653,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-75": {
     "name": "Chandelure",
@@ -1675,7 +1677,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-23T11:40:26Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-83": {
     "name": "Lucario",
@@ -1711,7 +1713,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-117": {
     "name": "Eevee",
@@ -1723,7 +1725,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-118": {
     "name": "Eevee",
@@ -1735,7 +1737,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-132": {
     "name": "Articuno",
@@ -1747,7 +1749,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-134": {
     "name": "Toxtricity",
@@ -1795,7 +1797,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-49": {
     "name": "Pikachu",
@@ -1807,7 +1809,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-61": {
     "name": "Morpeko",
@@ -1819,7 +1821,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-71": {
     "name": "Sylveon ex",
@@ -1831,7 +1833,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-74": {
     "name": "Cresselia",
@@ -1879,7 +1881,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-23T11:40:26Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-139": {
     "name": "Alolan Meowth",
@@ -1891,7 +1893,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-141": {
     "name": "Galarian Meowth",
@@ -1903,7 +1905,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55c-25": {
     "name": "Sneasel",
@@ -1915,7 +1917,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-54": {
     "name": "Pikachu ex",
@@ -1927,7 +1929,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-96": {
     "name": "Zoroark",
@@ -1939,7 +1941,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-25T11:53:31Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-103": {
     "name": "Dialga",
@@ -1951,7 +1953,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-09-24T11:48:58Z"
+    "last_updated": "2026-09-26T11:27:29Z"
   },
   "me55-104": {
     "name": "Ferrothorn",
