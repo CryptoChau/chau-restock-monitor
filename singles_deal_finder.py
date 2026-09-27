@@ -60,6 +60,24 @@ AUCTION_SOON_HOURS = 24
 MIN_SAMPLES = 3
 MAX_POSTS_PER_RUN = 20
 PAGE_WAIT_MS = 2500
+
+# Bug-Fund zweiter Voll-Testlauf: mehrere "Deals" bei CHF 6.33 fuer verschiedene
+# Karten (Mew ex/Mewtwo ex/Sylveon ex) waren in Wahrheit KEINE Karten, sondern
+# Merchandise ("Novelty Keychain") mit dem Kartennamen im Titel - die Karten-
+# suche matcht Titel-Text, nicht das tatsaechliche Produkt. Alle Titel mit
+# diesen Merch-/Fake-Markern werden deshalb schon beim Einlesen verworfen,
+# bevor sie ueberhaupt in den Median-Pool oder die Deal-Pruefung gelangen.
+TITLE_EXCLUDE = re.compile(
+    r"keychain|schl[uü]sselanh[aä]nger|plush|pluesch|plüsch|funko|figur(e|ine)?\b|"
+    r"\bpin\b|anstecknadel|magnet|poster|sticker|aufkleber|charm\b|badge|"
+    r"acrylic|standee|display\s*case|\bcase\s*for\b|"
+    r"proxy|custom|fake|replica|orica|repro\b|"
+    r"\blot\b|bundle|sammlung|\d{2,}\s*x\b|\d{2,}\s*stk|\d{2,}\s*pcs|"
+    r"code\b|codes\b|tcg\s*live|digital|instant\s*delivery|"
+    r"sleeve\b|binder|playmat|toploader|deck\s*box|"
+    r"\b(psa|bgs|cgc|ace)\s*-?\s*(10|9\.5|9|8\.5|8|7\.5|7|6\.5|6|5\.5|5)\b|graded|authenticated|slab",
+    re.I,
+)
 RICARDO_SHIP_ESTIMATE = 5.0  # CHF - Ricardo-Kartenansicht zeigt keine Versandkosten, grobe Schaetzung
 HISTORY_MAX_DAYS = 60
 
@@ -173,7 +191,7 @@ def fetch_ebay(page, cards):
         new = 0
         for r in rows:
             key = "ebay:" + r["id"]
-            if key in out:
+            if key in out or TITLE_EXCLUDE.search(r["t"]):
                 continue
             price = parse_chf(r["p"])
             if price is None:
@@ -244,7 +262,7 @@ def fetch_ricardo(browser, cards):
         new = 0
         for r in rows:
             price, title = _ricardo_price_and_title(r["lines"])
-            if price is None or not title:
+            if price is None or not title or TITLE_EXCLUDE.search(title):
                 continue
             m = re.search(r"-(\d+)/?$", r["href"].rstrip("/"))
             item_id = m.group(1) if m else r["href"]
