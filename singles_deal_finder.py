@@ -280,8 +280,16 @@ def save_state(st):
 
 
 def update_history(history, items):
+    """NUR Sofort-Kaufen-Angebote (nicht Auktionen) fliessen in die Preis-Historie
+    ein - ein aktuelles Auktions-Gebot ist erst kurz vor Ende ein verlaesslicher
+    Preis, weit vor Ende sagt es nichts aus und wuerde den Referenzpreis massiv
+    nach unten verzerren (Bug-Fund erster Voll-Testlauf: 2 CHF Gebot bei 6 Tagen
+    Restzeit fuer eine Karte mit echtem Median CHF 78 wurde faelschlich als
+    'Deal' gemeldet)."""
     today = datetime.now().strftime("%Y-%m-%d")
     for r in items.values():
+        if r["is_auction"]:
+            continue
         bucket = history.setdefault(r["card_id"], {})
         bucket[r["id"]] = {"total": r["total"], "last_seen": today}
     cutoff = datetime.now().timestamp() - HISTORY_MAX_DAYS * 86400
@@ -299,8 +307,21 @@ def update_history(history, items):
 
 
 def find_deals(items, history):
+    """Referenzpreis (Median) wird AUSSCHLIESSLICH aus Sofort-Kaufen-Angeboten
+    gebildet (live + Historie) - Auktions-Gebote fliessen nie in den Median ein
+    (siehe update_history()-Docstring). Kategorien:
+      - 'deal': NUR Sofort-Kaufen-Angebote, Preis <= DEAL_RATIO des Medians.
+      - 'auction_soon': NUR Auktionen, die innerhalb AUCTION_SOON_HOURS enden
+        UND deren aktuelles Gebot <= Median liegt - ausdruecklich kein
+        garantierter Deal (siehe post_discord()), nur ein Hinweis, dass der
+        aktuelle Stand guenstig ist. Auktionen mit mehr Restzeit werden NICHT
+        gemeldet (ein niedriges Gebot Tage vor Ende sagt nichts aus - Bug-Fund
+        erster Voll-Testlauf: CHF 1 Gebot bei 6 Tagen Restzeit wurde faelschlich
+        als 99%-Deal gemeldet, obwohl die Karte real ~CHF 78 wert ist)."""
     by_card = {}
     for r in items.values():
+        if r["is_auction"]:
+            continue
         by_card.setdefault(r["card_id"], []).append(r["total"])
     for cid, bucket in history.items():
         vals = [v["total"] for v in bucket.values()]
@@ -310,17 +331,20 @@ def find_deals(items, history):
     deals = []
     for r in items.values():
         vals = sorted(by_card.get(r["card_id"], []))
-        if len(vals) < MIN_SAMPLES or not (MIN_TOTAL <= r["total"] <= MAX_TOTAL):
+        if len(vals) < MIN_SAMPLES:
             continue
         med = statistics.median(vals)
         if med < MIN_MEDIAN:
             continue
         ratio = r["total"] / med
-        is_deal = ratio <= DEAL_RATIO
-        is_soon_auction = r["is_auction"] and r["hours_left"] is not None and r["hours_left"] <= AUCTION_SOON_HOURS and ratio <= 1.0
-        if not (is_deal or is_soon_auction):
-            continue
-        category = "deal" if is_deal else "auction_soon"
+        if r["is_auction"]:
+            if r["hours_left"] is None or r["hours_left"] > AUCTION_SOON_HOURS or ratio > 1.0:
+                continue
+            category = "auction_soon"
+        else:
+            if not (MIN_TOTAL <= r["total"] <= MAX_TOTAL) or ratio > DEAL_RATIO:
+                continue
+            category = "deal"
         deals.append(dict(r, median=round(med, 2), n=len(vals), ratio=round(ratio, 2), category=category))
     # Echte Deals zuerst (guenstigster zuerst), dann bald endende Auktionen (dringendste zuerst)
     deals.sort(key=lambda d: (0 if d["category"] == "deal" else 1,
