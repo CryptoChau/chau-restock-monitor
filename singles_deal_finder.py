@@ -51,6 +51,10 @@ CHASE_RARITIES = {"special illustration rare", "illustration rare", "futuristic 
 
 MIN_TOTAL = 1.0
 MAX_TOTAL = 1200.0       # Mew ex SIR liegt schon jetzt bei > CHF 170, Puffer nach oben
+MIN_MEDIAN = 8.0         # Filtert die guenstigsten Pikachu-Rare-Karten raus (Median oft nur
+                         # CHF 2-4) - dort markiert DEAL_RATIO fast jedes Angebot faelschlich
+                         # als "Deal" (Bug-Fund erster Testlauf: 61 Treffer aus 5 Karten, fast
+                         # alle CHF 1-2 Pikachu-Rare-Rauschen statt echter Investment-Deals).
 DEAL_RATIO = 0.75
 AUCTION_SOON_HOURS = 24
 MIN_SAMPLES = 3
@@ -309,7 +313,7 @@ def find_deals(items, history):
         if len(vals) < MIN_SAMPLES or not (MIN_TOTAL <= r["total"] <= MAX_TOTAL):
             continue
         med = statistics.median(vals)
-        if med <= 0:
+        if med < MIN_MEDIAN:
             continue
         ratio = r["total"] / med
         is_deal = ratio <= DEAL_RATIO
