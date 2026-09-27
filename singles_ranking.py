@@ -201,13 +201,24 @@ def update_snapshot():
 # Identische Technik wie D:\Shopify CHW\ebay-holo-deals\vintage_deal_finder.py:
 # eBay blockt echten Headless-Chrome - nur ein "headed" Chromium (unter xvfb-run
 # auf dem GitHub-Actions-Runner, siehe singles-ranking.yml) kommt durch.
-EBAY_EXTRACT_JS = """() => [...document.querySelectorAll('li.s-item, li.s-card')].map(li => {
-  const a = li.querySelector('a[href*="/itm/"]');
-  const id = a ? (a.href.match(/itm[/](\\d+)/) || [])[1] : '';
-  const t = (li.querySelector('.s-item__title, .s-card__title') || {}).textContent || '';
-  const p = (li.querySelector('.s-item__price, .s-card__price') || {}).textContent || '';
-  return {id, t: t.replace('Wird in neuem Fenster oder Tab geöffnet', '').trim(), p: p.trim()};
-}).filter(x => x.id && x.id !== '123456')"""
+EBAY_EXTRACT_JS = """() => {
+  const items = [...document.querySelectorAll('li.s-item, li.s-card')].map(li => {
+    const a = li.querySelector('a[href*="/itm/"]');
+    const id = a ? (a.href.match(/itm[/](\\d+)/) || [])[1] : '';
+    const t = (li.querySelector('.s-item__title, .s-card__title') || {}).textContent || '';
+    const p = (li.querySelector('.s-item__price, .s-card__price') || {}).textContent || '';
+    return {id, t: t.replace('Wird in neuem Fenster oder Tab geöffnet', '').trim(), p: p.trim()};
+  }).filter(x => x.id && x.id !== '123456');
+  // Gesamt-Trefferzahl aus der Ueberschrift ("213 Ergebnisse fuer ...") - NICHT die
+  // Anzahl der auf Seite 1 geladenen Elemente (die ist durch _ipg auf 60 gedeckelt
+  // und war deshalb bei fast jeder Karte identisch = unbrauchbar als Signal,
+  // Bug-Fund 2026-09-27 zweiter Testlauf).
+  const headingEl = document.querySelector('.srp-controls__count-heading, .result-count, [class*="count-heading"]');
+  const headingText = headingEl ? headingEl.textContent : '';
+  const m = headingText.match(/([\\d'.,]+)\\s*(Ergebnisse|results)/i);
+  const total = m ? parseInt(m[1].replace(/[^\\d]/g, ''), 10) : items.length;
+  return {items, total};
+}"""
 
 
 def parse_chf(s):
@@ -245,13 +256,13 @@ def ebay_sold_search(page, name, number, retries=2):
         try:
             page.goto(url, timeout=45000, wait_until="domcontentloaded")
             page.wait_for_timeout(2000 * (attempt + 1))
-            rows = page.evaluate(EBAY_EXTRACT_JS)
-            if rows:
-                return rows
+            result = page.evaluate(EBAY_EXTRACT_JS)
+            if result and result.get("items"):
+                return result["items"], result.get("total", len(result["items"]))
         except Exception as e:
             log(f"eBay-Fehler bei '{query}' (Versuch {attempt + 1}): {e}")
         time.sleep(2)
-    return []
+    return [], 0
 
 
 EBAY_TIME_BUDGET_SECONDS = 32 * 60  # Rest des Gesamt-Zeitbudgets (Job-Timeout 45 Min, siehe YAML)
@@ -284,7 +295,7 @@ def update_ebay_snapshot(cache):
                 log(f"eBay-Zeitbudget erreicht nach {done}/{len(targets)} Karten - Rest folgt morgen")
                 skipped = len(targets) - done
                 break
-            rows = ebay_sold_search(page, entry.get("name") or cid, entry.get("number") or "")
+            rows, total_listings = ebay_sold_search(page, entry.get("name") or cid, entry.get("number") or "")
             prices = [p_ for r in rows if (p_ := parse_chf(r["p"])) is not None]
             ebay_hist = entry.get("ebay_sold_history", [])
             if prices:
@@ -294,9 +305,11 @@ def update_ebay_snapshot(cache):
                     ebay_hist = ebay_hist[-MAX_HISTORY_POINTS:]
                 entry["ebay_sold_history"] = ebay_hist
                 entry["ebay_median_now"] = median
-                entry["ebay_sold_count_now"] = len(prices)
-            else:
-                entry["ebay_sold_count_now"] = 0
+            # ebay_sold_count_now = ECHTE Gesamt-Trefferzahl der Suche (Nachfrage-Signal),
+            # NICHT die Anzahl der fuer den Median genutzten Zeilen (die ist durch die
+            # Seitengroesse gedeckelt und war deshalb bei fast jeder Karte identisch -
+            # Bug-Fund 2026-09-27, siehe ebay_sold_search()-Docstring).
+            entry["ebay_sold_count_now"] = total_listings
             cache[cid] = entry
             done += 1
             if done % 10 == 0:
