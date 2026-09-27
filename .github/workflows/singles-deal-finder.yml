@@ -1,0 +1,74 @@
+name: CHAU Einzelkarten-Deal-Finder (30th Celebration)
+
+# Laeuft unabhaengig vom eigenen PC alle 3 Std (versetzt zu den anderen Cron-Jobs
+# in diesem Repo): durchsucht eBay.ch + Ricardo.ch nach Deals/bald endenden
+# guenstigen Auktionen fuer die 60 Chase-Karten aus singles_ranking.py und postet
+# neue Treffer in den bestehenden Discord-Kanal #pokemon-30th-einzelkarten.
+on:
+  schedule:
+    - cron: "47 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Nur Log/Ausgabe, kein Discord-Post, kein State-Commit"
+        type: boolean
+        default: false
+      test_limit:
+        description: "Nur die ersten N Chase-Karten (schneller Test)"
+        type: string
+        default: ""
+
+concurrency:
+  group: chau-singles-deal-finder
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+          sudo apt-get update && sudo apt-get install -y xvfb
+
+      - name: Run deal finder
+        env:
+          DISCORD_WEBHOOK_POKEMON_30TH_SINGLES: ${{ secrets.DISCORD_WEBHOOK_POKEMON_30TH_SINGLES }}
+          SINGLES_TEST_LIMIT: ${{ github.event.inputs.test_limit }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="--dry-run"; fi
+          xvfb-run -a --server-args="-screen 0 1280x900x24" python singles_deal_finder.py $ARGS
+
+      - name: Persist singles_deal_state.json
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "chau-deal-finder-bot"
+          git config user.email "actions@users.noreply.github.com"
+          cp singles_deal_state.json /tmp/singles_deal_state_fresh.json
+          git add singles_deal_state.json
+          git diff --cached --quiet || git commit -m "Update singles deal-finder state [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push rejected, retrying ($i/5) ..."
+            git fetch origin master
+            git reset --hard origin/master
+            cp /tmp/singles_deal_state_fresh.json singles_deal_state.json
+            git add singles_deal_state.json
+            git diff --cached --quiet || git commit -m "Update singles deal-finder state [skip ci]"
+          done
+          echo "Push failed after 5 retries" >&2
+          exit 1
