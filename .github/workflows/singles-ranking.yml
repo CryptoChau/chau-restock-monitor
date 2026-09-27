@@ -3,9 +3,13 @@ name: CHAU 30th Celebration Singles Ranking
 # Laeuft 1x/Tag: aktualisiert die selbst gefuehrte Preis-Historie (singles_cache.json)
 # und postet die aktuelle Kauf-Rangliste. Separater, taeglicher Workflow statt Teil
 # von restock-check.yml, da das eine ganz andere Kadenz braucht (Preise bewegen sich
-# langsam) und ~190 einzelne API-Calls macht (pokemontcg.io Suchendpunkt ist kaputt,
-# siehe singles_ranking.py Docstring) - soll die 5-Minuten-Restock-Checks nicht
-# verlangsamen.
+# langsam) und ~190 einzelne API-Calls + 60 eBay-Sold-Suchen macht - soll die
+# 5-Minuten-Restock-Checks nicht verlangsamen.
+#
+# V2 (2026-09-27): eBay blockt echten Headless-Chrome (403, siehe singles_ranking.py
+# Docstring und Memory project_ebay_holo_ranking) - xvfb-run startet einen virtuellen
+# X-Server, damit ein "headed" Chromium auch auf dem anzeigelosen Runner laeuft
+# (identische Technik wie chau-vintage-deal-finder).
 on:
   schedule:
     - cron: "17 6 * * *"
@@ -21,7 +25,7 @@ permissions:
 jobs:
   rank:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -30,12 +34,15 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          pip install requests playwright
+          playwright install --with-deps chromium
+          sudo apt-get update && sudo apt-get install -y xvfb
 
       - name: Update snapshot and post ranking
         env:
           DISCORD_WEBHOOK_POKEMON_30TH_SINGLES: ${{ secrets.DISCORD_WEBHOOK_POKEMON_30TH_SINGLES }}
-        run: python singles_ranking.py
+        run: xvfb-run -a --server-args="-screen 0 1280x900x24" python singles_ranking.py
 
       - name: Persist singles_cache.json
         run: |
