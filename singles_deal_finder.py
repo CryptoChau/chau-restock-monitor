@@ -56,6 +56,15 @@ MIN_MEDIAN = 8.0         # Filtert die guenstigsten Pikachu-Rare-Karten raus (Me
                          # als "Deal" (Bug-Fund erster Testlauf: 61 Treffer aus 5 Karten, fast
                          # alle CHF 1-2 Pikachu-Rare-Rauschen statt echter Investment-Deals).
 DEAL_RATIO = 0.75
+# Sicherheitsuntergrenze: Rabatte >85% (ratio < 0.15) sind bei einem seit Tagen
+# beobachteten, mehrfach bestaetigten Median so unwahrscheinlich, dass sie mit
+# hoher Wahrscheinlichkeit ein Scraping-Fehler sind (falscher Preis/Versand
+# geparst, falsches Produkt trotz Textfilter) statt ein echtes Schnaeppchen -
+# Dritter Voll-Testlauf zeigte mehrere Ricardo-Treffer bei 5-11% des Medians,
+# die sich nicht verifizieren liessen (Ricardo blockt automatisierte Pruefung
+# per Cloudflare-Captcha, siehe Memory feedback_cardmarket_nur_brave). Lieber
+# etwas zu vorsichtig filtern als dem Nutzer einen falschen Preis melden.
+MIN_RATIO_SANITY = 0.15
 AUCTION_SOON_HOURS = 24
 MIN_SAMPLES = 3
 MAX_POSTS_PER_RUN = 20
@@ -372,6 +381,8 @@ def find_deals(items, history):
         if med < MIN_MEDIAN:
             continue
         ratio = r["total"] / med
+        if ratio < MIN_RATIO_SANITY:
+            continue
         if r["is_auction"]:
             if r["hours_left"] is None or r["hours_left"] > AUCTION_SOON_HOURS or ratio > 1.0:
                 continue
@@ -397,10 +408,12 @@ def post_discord(webhook, deals):
             hl = d["hours_left"] or 0
             headline = f"⏰ **Auktion endet in {hl:.1f} Std - aktuell {int(round((1 - d['ratio']) * 100)) if d['ratio'] < 1 else 0}% unter/am Median**"
         ship_note = "" if d["source"] == "eBay.ch" else " (Versand geschaetzt)"
+        verify_note = "\n⚠️ Preis/Versand vor dem Kauf auf der Zielseite gegenpruefen (automatisiert erfasst)." if d["ratio"] < 0.4 else ""
         desc = (f"{headline}\n"
                 f"**CHF {d['total']:.2f}** inkl. Versand{ship_note} (Preis {d['price']:.2f} + Versand {d['ship']:.2f})\n"
                 f"Karte: **{d['card_name']}** - Quelle: **{d['source']}**\n"
-                f"Median CHF {d['median']:.2f} aus {d['n']} beobachteten Angeboten\n"
+                f"Median CHF {d['median']:.2f} aus {d['n']} beobachteten Angeboten"
+                f"{verify_note}\n"
                 f"[Zum Angebot]({d['url']})")
         color = 0x2ECC71 if d["category"] == "deal" else 0xF1C40F
         embeds.append({
