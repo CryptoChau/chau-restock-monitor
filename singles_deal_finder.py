@@ -70,7 +70,10 @@ PAGE_WAIT_MS = 2500
 TITLE_EXCLUDE = re.compile(
     r"keychain|schl[uü]sselanh[aä]nger|plush|pluesch|plüsch|funko|figur(e|ine)?\b|"
     r"\bpin\b|anstecknadel|magnet|poster|sticker|aufkleber|charm\b|badge|"
-    r"acrylic|standee|display\s*case|\bcase\s*for\b|"
+    r"acrylic|standee|\bcase\b|"  # generisch "Case": zweiter Voll-Testlauf fand einen
+    # "Extended Artwork Case" (leere Schutzhuelle/Display-Case eines Zubehoer-Sellers,
+    # nicht die Karte selbst) faelschlich als 93%-Deal - Kartentitel enthalten "Case"
+    # so gut wie nie fuer die Karte selbst, nur fuer Huellen/Vitrinen dazu.
     r"proxy|custom|fake|replica|orica|repro\b|"
     r"\blot\b|bundle|sammlung|\d{2,}\s*x\b|\d{2,}\s*stk|\d{2,}\s*pcs|"
     r"code\b|codes\b|tcg\s*live|digital|instant\s*delivery|"
@@ -118,13 +121,26 @@ def parse_chf(s):
     return float(m3.group(1).replace("'", "").replace(",", "")) if m3 else None
 
 
-def parse_shipping_ebay(s):
-    if not s:
-        return 0.0
+def parse_shipping_ebay(s, full=""):
+    """Bug-Fund dritter Voll-Testlauf: eBay hat auf einen Teil der Suchergebnisse
+    ein neues Markup umgestellt (Klasse 'su-styled-text secondary large' statt
+    '.s-item__shipping' etc.) - der dedizierte Selektor traf dort ins Leere,
+    Versand wurde stillschweigend als CHF 0 gewertet (CHF 11.70 Versand
+    verschwand komplett, echte Karte wirkte faelschlich wie ein 93%-Deal).
+    Fallback: wenn der dedizierte Selektor nichts liefert, den kompletten
+    sichtbaren Kartentext nach einer 'X Versand'-Zeile durchsuchen (robuster
+    gegen Markup-Wechsel als eine einzelne CSS-Klasse)."""
     if re.search(r"kostenlos|gratis|free", s, re.I):
         return 0.0
-    v = parse_chf(s)
-    return v if v is not None else 0.0
+    v = parse_chf(s) if s else None
+    if v is not None:
+        return v
+    m = re.search(r"([\d'.,]+)\s*Versand", full)
+    if m:
+        return parse_chf("CHF " + m.group(1)) or 0.0
+    if re.search(r"kostenlos|gratis|free", full, re.I):
+        return 0.0
+    return 0.0
 
 
 def parse_hours_left(s):
@@ -152,8 +168,9 @@ EBAY_EXTRACT_JS = r"""() => [...document.querySelectorAll('li.s-item, li.s-card'
   const timeEl = li.querySelector('.s-item__time-left, [class*="time-left"], [class*="timeLeft"]');
   const timeLeft = timeEl ? timeEl.textContent : '';
   const img = li.querySelector('img');
+  const full = (li.innerText || '').replace(/\s+/g, ' ').trim();
   return {id, t: t.replace('Wird in neuem Fenster oder Tab geöffnet', '').trim(), p: p.trim(), s: s.trim(),
-          bids: bids.trim(), timeLeft: timeLeft.trim(),
+          bids: bids.trim(), timeLeft: timeLeft.trim(), full,
           img: img ? (img.src || img.getAttribute('data-src') || '') : ''};
 }).filter(x => x.id && x.id !== '123456')"""
 
@@ -196,9 +213,9 @@ def fetch_ebay(page, cards):
             price = parse_chf(r["p"])
             if price is None:
                 continue
-            ship = parse_shipping_ebay(r["s"])
-            hours_left = parse_hours_left(r["timeLeft"])
-            is_auction = bool(r["bids"]) or hours_left is not None
+            ship = parse_shipping_ebay(r["s"], r.get("full", ""))
+            hours_left = parse_hours_left(r["timeLeft"]) or parse_hours_left(r.get("full", ""))
+            is_auction = bool(r["bids"]) or hours_left is not None or "gebot" in r.get("full", "").lower()
             img = re.sub(r"/s-l\d+\.(webp|jpg)", "/s-l1600.jpg", r["img"] or "")
             out[key] = dict(
                 id=key, card_id=cid, card_name=name, title=r["t"], price=price, ship=ship,
