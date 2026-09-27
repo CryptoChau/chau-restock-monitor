@@ -65,6 +65,13 @@ RARITY_WEIGHT = [
 # (Name/Bild/Rarity) fuers Set-Tracking, aber keine eBay-Historie.
 CHASE_RARITIES = {"special illustration rare", "illustration rare", "futuristic rare", "pikachu rare"}
 
+# Pokemon mit ueberdurchschnittlich starker, langjaehrig belegter Sammler-Nachfrage
+# (Franchise-Maskottchen bzw. historisch bei Charizard/Pikachu/Mew-Reprints immer
+# schnell ausverkauft/teuer geworden - keine Prognose, sondern ein bekanntes,
+# wiederkehrendes Marktmuster). Nur fuer die Begruendungs-Zeile im Discord-Post,
+# fliesst NICHT in den Score/die Sortierung ein (Ranking bleibt rein daten-basiert).
+ICONIC_CHARACTERS = {"pikachu", "mew", "mewtwo", "charizard", "eevee", "gengar", "lucario", "umbreon"}
+
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; chau-restock-monitor/1.0)"}
 REQUEST_TIMEOUT = 8
 MAX_HISTORY_POINTS = 90  # ~3 Monate taegliche Snapshots
@@ -331,6 +338,48 @@ def compute_trend(entry):
     return None
 
 
+def build_reasoning(entry):
+    """Kurze, nachvollziehbare Begruendung fuer die Discord-Anzeige - Nutzerwunsch
+    "warum stets steigendes Potenzial", NICHT Finanzberatung. Baut ausschliesslich
+    auf den tatsaechlich vorhandenen Datenpunkten dieser Karte auf (Rarity-Stufe,
+    heutiger Preis, heutige Nachfrage, echter Trend falls vorhanden) plus einem
+    klar gekennzeichneten, bekannten Marktmuster (Maskottchen-Charaktere). Keine
+    Garantie, nur Transparenz darueber, worauf das Ranking beruht."""
+    rarity = (entry.get("rarity") or "").lower()
+    name_l = (entry.get("name") or "").lower()
+    price = entry.get("ebay_median_now")
+    demand = entry.get("ebay_sold_count_now", 0)
+    trend = compute_trend(entry)
+
+    reasons = []
+    if rarity in ("special illustration rare", "futuristic rare"):
+        reasons.append("hoechste Seltenheitsstufe des Sets (Special Illustration/Futuristic Rare - niedrigste Pull-Rate)")
+    elif rarity == "illustration rare":
+        reasons.append("gehobene Seltenheitsstufe (Illustration Rare)")
+    elif rarity == "pikachu rare":
+        reasons.append("Set-eigene Jubilaeums-Sonderrarity (nur in diesem 30th-Celebration-Set, nicht nachdruckbar)")
+
+    if any(c in name_l for c in ICONIC_CHARACTERS):
+        reasons.append("bekanntes Maskottchen/Fan-Liebling - historisch bei Reprints regelmaessig ueberdurchschnittliche Nachfrage (Marktmuster, keine Garantie)")
+
+    if isinstance(price, (int, float)) and price >= 50:
+        reasons.append(f"bereits hoher Marktpreis heute (Median CHF {price:.2f}) - Markt preist Seltenheit/Nachfrage schon ein")
+    if demand >= 100:
+        reasons.append(f"sehr hohe aktuelle Nachfrage ({demand} aktive eBay-Angebote - viele Sammler suchen/bieten diese Karte)")
+
+    if trend is not None:
+        if trend > 0:
+            reasons.append(f"echter Preistrend seit Tracking-Start bereits positiv ({trend:+.1f}%)")
+        elif trend < 0:
+            reasons.append(f"Preistrend seit Tracking-Start bisher negativ ({trend:+.1f}%) - noch keine Bestaetigung eines Aufwaertstrends")
+    else:
+        reasons.append("Preistrend noch nicht auswertbar (erst 1 Tag Historie) - diese Einschaetzung stuetzt sich bisher nur auf Rarity/Preis/Nachfrage heute")
+
+    if not reasons:
+        return "Keine ausreichenden Daten fuer eine Begruendung."
+    return "; ".join(reasons) + "."
+
+
 def build_ranking_popularity(cache, top_n=10):
     """'Meistverkauft/beliebt': sortiert nach Anzahl verkaufter eBay-Angebote in
     der letzten Suche (echtes Nachfrage-Signal, kein Rarity-Ersatz)."""
@@ -369,7 +418,9 @@ def build_header(cache):
         "Hinweis: eBay.ch AKTIVE Sofort-Kaufen-Angebote (Naeherungswert, Kartenname+Nummer als "
         "Suche, keine 1:1-Garantie pro Druckvariante) - eBay verlangt fuer 'verkaufte Artikel' "
         "zwingend Login, daher keine echten Verkaufszahlen. Taeglich selbst getrackt. Keine "
-        "offiziellen Marktpreise/Cardmarket-Daten."
+        "offiziellen Marktpreise/Cardmarket-Daten. Die Begruendungs-Zeile je Karte ist ein "
+        "datenbasierter Erklaerungsversuch (Rarity/Preis/Nachfrage/Trend), KEINE Finanzberatung "
+        "und keine Garantie fuer zukuenftige Wertentwicklung."
     )
     return "\n".join(lines)
 
@@ -400,6 +451,7 @@ def build_embeds(rows, kind):
             {"name": "Seltenheit", "value": f"{rarity} (#{number})", "inline": True},
             {"name": "eBay Angebote (aktiv)", "value": f"{sold_count}x, Median {median_str}", "inline": True},
             {"name": "Trend", "value": trend_str, "inline": True},
+            {"name": "Warum Wertsteigerungs-Potenzial?", "value": build_reasoning(entry)[:1000], "inline": False},
         ]
         embed = {"title": f"{i}. {name}", "fields": fields, "color": 0x7C3AED}
         image = entry.get("image")
