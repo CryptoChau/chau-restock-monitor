@@ -3,12 +3,18 @@
 V2 (2026-09-27, Nutzer-Feedback "bisher keine Daten, Ranking nutzlos"): Die reine
 pokemontcg.io-Preisabfrage (V1) lieferte fuer JEDE Karte "kein Marktpreis" - das
 Set ist zu neu, weder Cardmarket noch TCGplayer haben Preisfelder befuellt. Bloss
-Rarity als Ranking-Signal ist kein echtes Datum. Jetzt: echtes eBay.ch-Sold-
-Listings-Scraping fuer die "Chase"-Karten (Special Illustration Rare, Illustration
-Rare, Futuristic Rare, Pikachu Rare - 60 von 191 Karten, siehe CHASE_RARITIES).
-Das beantwortet alle 3 Nutzerfragen mit echten Daten statt Heuristik:
-  - "meistverkauft/beliebt"    -> Anzahl verkaufter Angebote (sold listings)
-  - "Wertsteigerungs-Potenzial" -> Trend des taeglich getrackten Sold-Median-Preises
+Rarity als Ranking-Signal ist kein echtes Datum. Jetzt: echtes eBay.ch-Scraping
+fuer die "Chase"-Karten (Special Illustration Rare, Illustration Rare, Futuristic
+Rare, Pikachu Rare - 60 von 191 Karten, siehe CHASE_RARITIES). Das beantwortet
+die Nutzerfragen mit echten Daten statt Heuristik:
+  - "meistverkauft/beliebt" -> Anzahl AKTIVER Sofort-Kaufen-Angebote pro Karte
+    (Naeherung fuer Nachfrage: mehr Angebote nach dem Hype-Release = mehr Pulls/
+    Interesse). ACHTUNG: eBay.ch verlangt fuer echte "verkaufte Artikel"
+    (LH_Sold=1) zwingend Login - ohne Account nicht automatisierbar (kein Bot-
+    Block, sondern eBay-Policy, siehe ebay_sold_search()-Docstring). Keine echten
+    Verkaufszahlen, sondern Angebots-/Interesse-Naeherung.
+  - "Wertsteigerungs-Potenzial" -> Trend des taeglich getrackten Median-Preises
+    dieser aktiven Angebote (Asking-Price-Trend, keine bestaetigten Verkaeufe).
 Technik identisch zum bereits funktionierenden eBay-Deal-Finder (siehe
 D:\\Shopify CHW\\ebay-holo-deals\\vintage_deal_finder.py, Memory
 project_ebay_holo_ranking): eBay blockt echten Headless-Chrome (403), ein
@@ -215,14 +221,26 @@ def parse_chf(s):
 
 
 def ebay_sold_search(page, name, number, retries=2):
-    """Sucht verkaufte (sold/completed) Angebote fuer eine Karte auf eBay.ch.
-    Kartenname + Kartennummer im Suchbegriff, um Karten mit identischem Namen
-    (z.B. die 30 verschiedenen "Pikachu Rare"-Artvarianten) etwas einzugrenzen -
-    eBay-Titel sind hier nicht perfekt disambiguierbar, das Verfahren ist ein
-    Naeherungswert, kein exakter Karten-Match (siehe Modul-Docstring)."""
+    """Sucht AKTIVE Sofort-Kaufen-Angebote fuer eine Karte auf eBay.ch (Naeherungswert
+    fuer Nachfrage/Wert - siehe Docstring-Update). Kartenname + Kartennummer im
+    Suchbegriff, um Karten mit identischem Namen (z.B. die 30 verschiedenen
+    "Pikachu Rare"-Artvarianten) etwas einzugrenzen - eBay-Titel sind hier nicht
+    perfekt disambiguierbar, das Verfahren ist ein Naeherungswert, kein exakter
+    Karten-Match.
+
+    WICHTIG (Bug-Fund 2026-09-27, erster Testlauf): "Verkaufte Artikel"
+    (LH_Sold=1&LH_Complete=1) verlangt bei eBay.ch zwingend einen eingeloggten
+    Account - ohne Session landet man nur auf der Login-Seite (0 Treffer fuer
+    ALLE 60 Karten im ersten Testlauf, kein Bot-Block). Da ein automatisierter
+    eBay-Login nicht vertretbar ist (Kontodaten, ToS), wird stattdessen die
+    Anzahl AKTIVER Sofort-Kaufen-Angebote als Nachfrage-Naeherung verwendet
+    (mehr aktive Angebote nach einem Hype-Release deutet auf mehr Pulls/
+    Interesse hin) und der Median-Preis dieser aktiven Angebote taeglich
+    getrackt (Trend = Wertentwicklung der Verkaufspreise, keine bestaetigten
+    Verkaeufe)."""
     query = f'pokemon "{name}" 30th celebration {number}'
     url = ("https://www.ebay.ch/sch/i.html?_nkw=" + urllib.parse.quote(query) +
-           "&_sacat=183454&LH_Sold=1&LH_Complete=1&_sop=13&_ipg=60")
+           "&_sacat=183454&LH_BIN=1&_sop=12&_ipg=60")
     for attempt in range(retries):
         try:
             page.goto(url, timeout=45000, wait_until="domcontentloaded")
@@ -247,7 +265,7 @@ def update_ebay_snapshot(cache):
     from playwright.sync_api import sync_playwright
 
     targets = [(cid, e) for cid, e in cache.items() if (e.get("rarity") or "").lower() in CHASE_RARITIES]
-    log(f"{len(targets)} Chase-Karten fuer eBay-Sold-Abgleich")
+    log(f"{len(targets)} Chase-Karten fuer eBay-Abgleich (aktive Angebote)")
     now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     today = now[:10]
     start = time.monotonic()
@@ -331,12 +349,14 @@ def build_header(cache):
     ]
     if max_hist < 3:
         lines.append(
-            "_Noch wenig eBay-Preis-Historie - der Wertsteigerungs-Trend wird taeglich genauer. "
-            "Das Meistverkauft-Ranking basiert bereits auf echten eBay.ch-Sold-Listings von heute._"
+            "_Noch wenig Preis-Historie - der Wertsteigerungs-Trend wird taeglich genauer. "
+            "Das Nachfrage-Ranking basiert bereits auf echten eBay.ch-Angeboten von heute._"
         )
     lines.append(
-        "Hinweis: eBay.ch-Sold-Preise (Naeherungswert, Kartenname+Nummer als Suche, keine 1:1-Garantie "
-        "pro Druckvariante), taeglich selbst getrackt. Keine offiziellen Marktpreise/Cardmarket-Daten."
+        "Hinweis: eBay.ch AKTIVE Sofort-Kaufen-Angebote (Naeherungswert, Kartenname+Nummer als "
+        "Suche, keine 1:1-Garantie pro Druckvariante) - eBay verlangt fuer 'verkaufte Artikel' "
+        "zwingend Login, daher keine echten Verkaufszahlen. Taeglich selbst getrackt. Keine "
+        "offiziellen Marktpreise/Cardmarket-Daten."
     )
     return "\n".join(lines)
 
@@ -365,7 +385,7 @@ def build_embeds(rows, kind):
 
         fields = [
             {"name": "Seltenheit", "value": f"{rarity} (#{number})", "inline": True},
-            {"name": "eBay Sold (heute)", "value": f"{sold_count}x, Median {median_str}", "inline": True},
+            {"name": "eBay Angebote (aktiv)", "value": f"{sold_count}x, Median {median_str}", "inline": True},
             {"name": "Trend", "value": trend_str, "inline": True},
         ]
         embed = {"title": f"{i}. {name}", "fields": fields, "color": 0x7C3AED}
@@ -383,6 +403,13 @@ def build_embeds(rows, kind):
 def send_discord(webhook_url, content=None, embeds=None):
     if not webhook_url:
         log("Kein Discord-Webhook konfiguriert (DISCORD_WEBHOOK_POKEMON_30TH_SINGLES), ueberspringe Post")
+        return
+    # embeds kann eine leere Liste sein (z.B. 0 Treffer) - dann NICHT posten, sonst
+    # lehnt Discord mit HTTP 400 "Cannot send an empty message" ab (Bug im ersten
+    # Testlauf 2026-09-27, als die Sold-Suche wegen des Login-Requirements ueberall
+    # 0 Treffer lieferte).
+    if not content and not embeds:
+        log("Nichts zu posten (leerer Inhalt), ueberspringe.")
         return
     payload = {}
     if content:
@@ -408,8 +435,11 @@ if __name__ == "__main__":
     time.sleep(1)
 
     pop_rows = build_ranking_popularity(cache, top_n=10)
-    send_discord(webhook, content="\U0001F525 **Meistverkauft / beliebt (eBay.ch Sold, heute)**")
-    send_discord(webhook, embeds=build_embeds(pop_rows, "popularity"))
+    if pop_rows:
+        send_discord(webhook, content="\U0001F525 **Meistgefragt (aktive eBay.ch-Angebote heute)**")
+        send_discord(webhook, embeds=build_embeds(pop_rows, "popularity"))
+    else:
+        send_discord(webhook, content="\U0001F525 **Meistgefragt:** heute keine aktiven eBay.ch-Angebote gefunden.")
     time.sleep(1)
 
     growth_rows = build_ranking_growth(cache, top_n=10)
