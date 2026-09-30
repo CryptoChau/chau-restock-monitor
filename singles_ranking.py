@@ -63,7 +63,24 @@ RARITY_WEIGHT = [
 # Nur diese Rarities werden taeglich per eBay gescraped (Investment-relevant,
 # siehe Docstring). Alle anderen Karten behalten nur ihre pokemontcg.io-Metadaten
 # (Name/Bild/Rarity) fuers Set-Tracking, aber keine eBay-Historie.
+# "SAR" (Special Art Rare, gaengiger Community-Begriff) ist dasselbe wie
+# "Special Illustration Rare" - pokemontcg.io nennt es nur anders, keine
+# zusaetzliche Rarity noetig.
 CHASE_RARITIES = {"special illustration rare", "illustration rare", "futuristic rare", "pikachu rare"}
+
+# Classic Collection (Set-Praefix "me55c", 30 Promo-Reprints beruehmter alter
+# Karten wie Charizard/Misty) traegt klassische Rarity-Namen ("Rare Holo",
+# "Rare" statt "Special Illustration Rare" etc.) - waere durch CHASE_RARITIES
+# allein NIE als Chase-Karte erkannt worden, obwohl gerade diese Reprints
+# Nutzerwunsch sind (Nutzer-Feedback 2026-09-30 "sehe die Classic Collection
+# Karten nicht"). Deshalb eigener, rarity-unabhaengiger Satz.
+CHASE_SET_PREFIXES = {"me55c"}
+
+
+def is_chase(card_id, entry):
+    if card_id.split("-")[0] in CHASE_SET_PREFIXES:
+        return True
+    return (entry.get("rarity") or "").lower() in CHASE_RARITIES
 
 # Pokemon mit ueberdurchschnittlich starker, langjaehrig belegter Sammler-Nachfrage
 # (Franchise-Maskottchen bzw. historisch bei Charizard/Pikachu/Mew-Reprints immer
@@ -151,53 +168,72 @@ TIME_BUDGET_SECONDS = 8 * 60  # Metadaten-Fetch bekommt nur einen Teil des Gesam
 
 def update_snapshot():
     """Holt fuer jede Karte im Set Name/Bild/Rarity (+ TCGplayer/Cardmarket-Preis
-    als Bonus, meist leer). Wird 1x/Tag aufgerufen (siehe singles-ranking.yml)."""
+    als Bonus, meist leer). Wird 1x/Tag aufgerufen (siehe singles-ranking.yml).
+
+    Bug-Fund 2026-09-30 (Nutzer-Feedback "sehe Classic Collection nicht"): diese
+    Funktion iterierte bisher IMMER set-weise von Karte 1 an - bei ~40% Fehlerquote
+    der (deprecateten, oft HTTP-500-instabilen) pokemontcg.io-API und einem festen
+    Zeitbudget kam sie nie bis zum Ende des Hauptsets (me55, 161 Karten) durch,
+    "me55c" (Classic Collection, 30 Karten) wurde dadurch fast nie erreicht (nur
+    6/30 im Cache). Fix: fehlende Karten (noch kein Name im Cache) werden IMMER
+    zuerst verarbeitet, und darunter zuerst Classic Collection (kleines Set, laesst
+    sich realistisch an einem Tag komplettieren) - bereits vollstaendige Karten
+    werden nur noch mit dem uebrigen Zeitbudget aufgefrischt."""
     cache = load_cache()
     now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     ok, failed = 0, 0
     start = time.monotonic()
-    total_cards = sum(SET_TOTALS.values())
-    processed = 0
 
+    all_ids = []
     for set_id, total in SET_TOTALS.items():
         for n in range(1, total + 1):
-            if time.monotonic() - start > TIME_BUDGET_SECONDS:
-                log(f"Zeitbudget (Metadaten) erreicht nach {processed}/{total_cards} Karten - Rest folgt morgen")
-                save_cache(cache)
-                return cache
-            processed += 1
-            if processed % 20 == 0:
-                log(f"Fortschritt: {processed}/{total_cards} Karten geprueft ({ok} OK, {failed} fehlgeschlagen)")
+            all_ids.append(f"{set_id}-{n}")
+    missing = [cid for cid in all_ids if not cache.get(cid, {}).get("name")]
+    present = [cid for cid in all_ids if cache.get(cid, {}).get("name")]
+    # Classic Collection zuerst unter den fehlenden Karten (klein, priorisiert
+    # abschliessbar), Rest des Hauptsets danach.
+    missing.sort(key=lambda cid: (0 if cid.startswith("me55c-") else 1, cid))
+    order = missing + present
+    total_cards = len(order)
+    processed = 0
 
-            card_id = f"{set_id}-{n}"
-            data = fetch_card(card_id)
-            if data is None:
-                failed += 1
-                continue
-            ok += 1
+    for card_id in order:
+        if time.monotonic() - start > TIME_BUDGET_SECONDS:
+            log(f"Zeitbudget (Metadaten) erreicht nach {processed}/{total_cards} Karten - Rest folgt morgen")
+            save_cache(cache)
+            return cache
+        processed += 1
+        if processed % 20 == 0:
+            log(f"Fortschritt: {processed}/{total_cards} Karten geprueft ({ok} OK, {failed} fehlgeschlagen)")
 
-            price, source = extract_price(data)
-            entry = cache.get(card_id, {})
-            history = entry.get("price_history", [])
-            if price is not None:
-                today = now[:10]
-                if not history or history[-1]["t"][:10] != today:
-                    history.append({"t": now, "p": price})
-                    history = history[-MAX_HISTORY_POINTS:]
+        data = fetch_card(card_id)
+        if data is None:
+            failed += 1
+            continue
+        ok += 1
 
-            entry.update({
-                "name": data.get("name"),
-                "rarity": data.get("rarity"),
-                "number": data.get("number"),
-                "set_name": (data.get("set") or {}).get("name"),
-                "image": (data.get("images") or {}).get("large") or (data.get("images") or {}).get("small"),
-                "tcgplayer_url": (data.get("tcgplayer") or {}).get("url"),
-                "price_now": price,
-                "price_source": source,
-                "price_history": history,
-                "last_updated": now,
-            })
-            cache[card_id] = entry
+        price, source = extract_price(data)
+        entry = cache.get(card_id, {})
+        history = entry.get("price_history", [])
+        if price is not None:
+            today = now[:10]
+            if not history or history[-1]["t"][:10] != today:
+                history.append({"t": now, "p": price})
+                history = history[-MAX_HISTORY_POINTS:]
+
+        entry.update({
+            "name": data.get("name"),
+            "rarity": data.get("rarity"),
+            "number": data.get("number"),
+            "set_name": (data.get("set") or {}).get("name"),
+            "image": (data.get("images") or {}).get("large") or (data.get("images") or {}).get("small"),
+            "tcgplayer_url": (data.get("tcgplayer") or {}).get("url"),
+            "price_now": price,
+            "price_source": source,
+            "price_history": history,
+            "last_updated": now,
+        })
+        cache[card_id] = entry
 
     save_cache(cache)
     log(f"Metadaten aktualisiert: {ok} Karten OK, {failed} fehlgeschlagen (uebersprungen, alter Stand bleibt)")
@@ -272,7 +308,9 @@ def ebay_sold_search(page, name, number, retries=2):
     return [], 0
 
 
-EBAY_TIME_BUDGET_SECONDS = 32 * 60  # Rest des Gesamt-Zeitbudgets (Job-Timeout 45 Min, siehe YAML)
+EBAY_TIME_BUDGET_SECONDS = 40 * 60  # Rest des Gesamt-Zeitbudgets (Job-Timeout 55 Min, siehe YAML) -
+                                     # angehoben, weil Classic Collection die Chase-Kartenzahl auf
+                                     # bis zu 90 erhoehen kann (siehe CHASE_SET_PREFIXES)
 
 
 def update_ebay_snapshot(cache):
@@ -282,7 +320,7 @@ def update_ebay_snapshot(cache):
     (Metadaten) auch ohne installiertes Playwright lokal laufen kann."""
     from playwright.sync_api import sync_playwright
 
-    targets = [(cid, e) for cid, e in cache.items() if (e.get("rarity") or "").lower() in CHASE_RARITIES]
+    targets = [(cid, e) for cid, e in cache.items() if is_chase(cid, e)]
     log(f"{len(targets)} Chase-Karten fuer eBay-Abgleich (aktive Angebote)")
     now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     today = now[:10]
@@ -347,11 +385,15 @@ def build_reasoning(entry):
     Garantie, nur Transparenz darueber, worauf das Ranking beruht."""
     rarity = (entry.get("rarity") or "").lower()
     name_l = (entry.get("name") or "").lower()
+    set_name_l = (entry.get("set_name") or "").lower()
     price = entry.get("ebay_median_now")
     demand = entry.get("ebay_sold_count_now", 0)
     trend = compute_trend(entry)
+    is_classic = "classic collection" in set_name_l
 
     reasons = []
+    if is_classic:
+        reasons.append("Classic Collection: limitierter Promo-Reprint einer beruehmten alten Karte im modernen 30th-Jubilaeums-Design - eigene, kleine 30-Karten-Sub-Serie mit hoher Nostalgie-Nachfrage")
     if rarity in ("special illustration rare", "futuristic rare"):
         reasons.append("hoechste Seltenheitsstufe des Sets (Special Illustration/Futuristic Rare - niedrigste Pull-Rate)")
     elif rarity == "illustration rare":
@@ -394,7 +436,7 @@ def build_ranking_growth(cache, top_n=10):
     auf Chase-Rarity + aktuellen Sold-Median zurueck (nicht leer am 1. Tag)."""
     rows = []
     for cid, e in cache.items():
-        if (e.get("rarity") or "").lower() not in CHASE_RARITIES:
+        if not is_chase(cid, e):
             continue
         trend = compute_trend(e)
         score = trend if trend is not None else rarity_weight(e.get("rarity"))
@@ -404,7 +446,7 @@ def build_ranking_growth(cache, top_n=10):
 
 
 def build_header(cache):
-    chase_n = sum(1 for e in cache.values() if (e.get("rarity") or "").lower() in CHASE_RARITIES)
+    chase_n = sum(1 for cid, e in cache.items() if is_chase(cid, e))
     max_hist = max((len(e.get("ebay_sold_history") or []) for e in cache.values()), default=0)
     lines = [
         f"\U0001F4C8 **30th Celebration Einzelkarten - Rangliste** ({chase_n} Chase-Karten getrackt, {max_hist} Tag(e) eBay-Preis-Historie)",

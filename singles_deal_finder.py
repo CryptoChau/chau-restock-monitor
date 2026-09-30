@@ -48,6 +48,18 @@ DRY_RUN = "--dry-run" in sys.argv
 RESET = "--reset" in sys.argv
 
 CHASE_RARITIES = {"special illustration rare", "illustration rare", "futuristic rare", "pikachu rare"}
+# Classic Collection (Set-Praefix "me55c") traegt klassische Rarity-Namen ("Rare
+# Holo"/"Rare" statt "Special Illustration Rare" etc.) und wuerde ueber
+# CHASE_RARITIES allein nie erfasst - Nutzerwunsch 2026-09-30, siehe
+# singles_ranking.py::is_chase() (identische Logik, hier dupliziert weil
+# eigenstaendiges Skript ohne Import voneinander).
+CHASE_SET_PREFIXES = {"me55c"}
+
+
+def is_chase(card_id, entry):
+    if card_id.split("-")[0] in CHASE_SET_PREFIXES:
+        return True
+    return (entry.get("rarity") or "").lower() in CHASE_RARITIES
 
 MIN_TOTAL = 1.0
 MAX_TOTAL = 1200.0       # Mew ex SIR liegt schon jetzt bei > CHF 170, Puffer nach oben
@@ -110,7 +122,7 @@ def load_chase_cards():
     cache = json.load(open(CACHE_FILE, encoding="utf-8"))
     cards = []
     for cid, e in cache.items():
-        if (e.get("rarity") or "").lower() in CHASE_RARITIES and e.get("name"):
+        if is_chase(cid, e) and e.get("name"):
             cards.append((cid, e))
     if _test_limit:
         cards = cards[: int(_test_limit)]
