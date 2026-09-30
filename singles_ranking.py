@@ -119,7 +119,14 @@ def fetch_card(card_id, retries=2):
     instabil (haeufig HTTP 500, deprecated/wenig gepflegt - siehe Modul-Docstring),
     dass ein langes Backoff pro Karte bei ~190 Karten den Workflow-Timeout sprengt.
     Eine fehlgeschlagene Karte wird morgen beim naechsten taeglichen Lauf automatisch
-    erneut versucht, es lohnt sich also nicht, heute lange dafuer zu warten."""
+    erneut versucht, es lohnt sich also nicht, heute lange dafuer zu warten.
+
+    Bug-Fund 2026-09-30: dieselbe Karten-ID liefert bei Direkt-Retests INNERHALB
+    von Sekunden abwechselnd 404/500/502 - keine stabile "existiert nicht"-Antwort,
+    sondern echte Infrastruktur-Flakiness. Mit retries=2 kam z.B. Classic
+    Collection (nur 30 Karten, viel Zeitbudget uebrig) ueber Tage nie ueber 6/30
+    hinaus. Aufrufer geben fuer kleine, wichtige Teilmengen deshalb ein hoeheres
+    retries mit."""
     for attempt in range(retries):
         try:
             r = requests.get(
@@ -131,7 +138,7 @@ def fetch_card(card_id, retries=2):
         except Exception:
             pass
         if attempt < retries - 1:
-            time.sleep(1)
+            time.sleep(1.5)
     return None
 
 
@@ -206,7 +213,8 @@ def update_snapshot():
         if processed % 20 == 0:
             log(f"Fortschritt: {processed}/{total_cards} Karten geprueft ({ok} OK, {failed} fehlgeschlagen)")
 
-        data = fetch_card(card_id)
+        retries = 8 if card_id.startswith("me55c-") else 2
+        data = fetch_card(card_id, retries=retries)
         if data is None:
             failed += 1
             continue
