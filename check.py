@@ -822,6 +822,115 @@ def check_stealth_woocommerce_retailers(page, state, now):
             maybe_notify_pokemon30th(state, product_key, title, status, domain, link, price, now)
 
 
+def fetch_stealth_category_products(page, category_url, product_link_selector, max_clicks=8):
+    """Blaettert eine Kategorieseite durch Klicken auf 'Mehr anzeigen' durch (NICHT per Scroll -
+    Scroll allein laedt bei galaxus.ch nichts nach, siehe config.STEALTH_CATEGORY_RETAILERS).
+    Liefert Liste von dicts mit title/link/price/in_stock/preorder, title kommt aus dem
+    aria-label des Produktlinks (sauberer als der verschachtelte Karten-Text)."""
+    try:
+        page.goto(category_url, timeout=30000, wait_until="domcontentloaded")
+        page.wait_for_timeout(2500)
+    except Exception as e:
+        log(f"  Kategorie {category_url}: Laden fehlgeschlagen ({type(e).__name__})")
+        return []
+
+    for _ in range(max_clicks):
+        try:
+            page.keyboard.press("End")
+            page.wait_for_timeout(700)
+            page.mouse.wheel(0, -1200)
+            page.wait_for_timeout(500)
+            clicked = page.evaluate("""() => {
+                const els = Array.from(document.querySelectorAll('button, a, div[role=button]'));
+                const t = els.find(e => e.textContent.trim() === 'Mehr anzeigen');
+                if (t) { t.scrollIntoView(); t.click(); return true; }
+                return false;
+            }""")
+        except Exception:
+            break
+        if not clicked:
+            break
+        page.wait_for_timeout(1400)
+
+    try:
+        cards = page.eval_on_selector_all(
+            product_link_selector,
+            """els => {
+                const seen = new Set();
+                const out = [];
+                for (const el of els) {
+                    const href = el.href.split('?')[0];
+                    if (seen.has(href)) continue;
+                    const label = el.getAttribute('aria-label');
+                    if (!label) continue;
+                    seen.add(href);
+                    const article = el.closest('article');
+                    const priceEl = article ? article.querySelector('[class*=yRGTUHk]') : null;
+                    const iconEl = article ? article.querySelector('svg[aria-label]') : null;
+                    out.push({
+                        href, title: label,
+                        price: priceEl ? priceEl.textContent.trim() : null,
+                        avail: iconEl ? iconEl.getAttribute('aria-label') : null,
+                    });
+                }
+                return out;
+            }"""
+        )
+    except Exception as e:
+        log(f"  Kategorie {category_url}: Auslesen fehlgeschlagen ({type(e).__name__})")
+        return []
+
+    products = []
+    for c in cards:
+        avail = (c.get("avail") or "").lower()
+        in_stock = avail == "verfuegbar" or avail == "verfügbar"
+        preorder = ("verfügbar" in avail or "verfuegbar" in avail) and not in_stock
+        products.append({
+            "title": c["title"],
+            "link": c["href"],
+            "price": (c.get("price") or "?").replace("CHF", "").strip(),
+            "in_stock": in_stock,
+            "preorder": preorder,
+        })
+    return products
+
+
+def check_stealth_category_retailers(page, state, now):
+    """Verarbeitet config.STEALTH_CATEGORY_RETAILERS (Kategorie-Paging statt kaputter
+    Volltextsuche, siehe fetch_stealth_category_products())."""
+    for entry in config.STEALTH_CATEGORY_RETAILERS:
+        domain = entry["name"]
+        log(f"  Kategorie-Haendler: {domain} ({entry['category_url'].rsplit('/', 1)[-1]}) ...")
+        products = fetch_stealth_category_products(
+            page, entry["category_url"], entry["product_link_selector"], entry.get("max_clicks", 8)
+        )
+        if not products:
+            continue
+
+        for p in products:
+            title = html.unescape(p["title"])
+            product_key = f"{domain}:{p['link']}"
+            brand = detect_brand(title)
+            is_30th = matches_pokemon_30th(title) or matches_pokemon_30th_all(title)
+            if not brand and not is_30th:
+                continue
+
+            status = "preorder" if p["preorder"] else ("instock" if p["in_stock"] else "outofstock")
+
+            prev = state.get(product_key)
+            prev_status = prev.get("status") if prev else None
+
+            state[product_key] = {
+                "title": title,
+                "status": status,
+                "last_checked": now,
+            }
+
+            if brand:
+                notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], p["price"], brand, now)
+            maybe_notify_pokemon30th(state, product_key, title, status, domain, p["link"], p["price"], now)
+
+
 def check_stealth_browser_retailers(state, now):
     """Prueft Haendler mit starker Fingerprint-basierter Bot-Erkennung (digitec/brack/mueller-
     Familie), die normales Playwright/patchright sofort auf TLS-/HTTP2-Ebene blocken
@@ -835,7 +944,7 @@ def check_stealth_browser_retailers(state, now):
     if Camoufox is None:
         log("  camoufox nicht installiert, Stealth-Browser-Haendler uebersprungen")
         return
-    if not config.STEALTH_BROWSER_RETAILERS and not config.STEALTH_WOOCOMMERCE_RETAILERS:
+    if not config.STEALTH_BROWSER_RETAILERS and not config.STEALTH_WOOCOMMERCE_RETAILERS and not config.STEALTH_CATEGORY_RETAILERS:
         return
 
     try:
@@ -859,6 +968,8 @@ def check_stealth_browser_retailers(state, now):
                 except Exception as e:
                     log(f"  {domain}: Startseite/Challenge fehlgeschlagen ({type(e).__name__})")
             check_stealth_woocommerce_retailers(page, state, now)
+        if config.STEALTH_CATEGORY_RETAILERS:
+            check_stealth_category_retailers(page, state, now)
         if config.STEALTH_BROWSER_RETAILERS:
             _check_retailer_list(page, state, now, config.STEALTH_BROWSER_RETAILERS)
     except Exception as e:

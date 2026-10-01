@@ -196,6 +196,42 @@ STEALTH_BROWSER_RETAILERS = [
     },
 ]
 
+# galaxus.ch: Die Volltextsuche (search_url oben) ist kaputt/zu breit (ein Query wie "pokemon
+# 30th anniversary booster bundle" liefert 4870 "Produkte", praktisch der ganze Katalog -
+# gefunden 2026-10-02, zwei user-gemeldete 30th-Anniversary-Produkte (DE Booster Bundle,
+# EN Mini Tin) tauchten in KEINER Suchanfrage in den ersten paar hundert Ergebnissen auf,
+# selbe Symptomatik wie amazingtoys.ch vorher). Fix: statt Suche die eigene Franchise-
+# Kategorieseite durchblaettern (Button "Mehr anzeigen" klicken statt Scroll - Scroll allein
+# laedt NICHTS nach, siehe check_stealth_category_retailers() in check.py). Deckt zwar nicht
+# zu 100% den ganzen Katalog ab (bei ~1800 Produkten pro Kategorie brauchts viele Klicks),
+# ist aber eine echte, nach Kategorie saubere statt Noise-verseuchte Quelle.
+STEALTH_CATEGORY_RETAILERS = [
+    {
+        "name": "galaxus.ch",
+        "category_url": "https://www.galaxus.ch/de/s5/producttype/sammelkarten-971/subtype/sammelkarten-spielwelt-pokemon-karten-1809",
+        "product_link_selector": "a[href*='/de/s5/product/']",
+        "max_clicks": 10,
+    },
+    {
+        "name": "galaxus.ch",
+        "category_url": "https://www.galaxus.ch/de/s5/producttype/sammelkarten-971/subtype/sammelkarten-spielwelt-one-piece-karten-7179",
+        "product_link_selector": "a[href*='/de/s5/product/']",
+        "max_clicks": 6,
+    },
+    {
+        "name": "galaxus.ch",
+        "category_url": "https://www.galaxus.ch/de/s5/producttype/sammelkarten-971/subtype/sammelkarten-spielwelt-dragon-ball-karten-7180",
+        "product_link_selector": "a[href*='/de/s5/product/']",
+        "max_clicks": 4,
+    },
+    {
+        "name": "galaxus.ch",
+        "category_url": "https://www.galaxus.ch/de/s5/producttype/sammelkarten-971/subtype/sammelkarten-spielwelt-yugioh-karten-1808",
+        "product_link_selector": "a[href*='/de/s5/product/']",
+        "max_clicks": 4,
+    },
+]
+
 # WooCommerce-Haendler mit vorgeschalteter JS-Challenge (401 auf jeden normalen requests.get,
 # auch auf /wp-json/ selbst - cardcollectors.ch). camoufox besucht zuerst die Startseite (loest
 # die Challenge, setzt Cookie), dann laeuft die normale WooCommerce Store API darueber,
