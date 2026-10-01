@@ -100,6 +100,11 @@ def has_non_english_marker(text):
         "deutsch", "japanisch", "franzosisch", "italienisch", "chinesisch", "koreanisch",
         "japanese", "korean", "french", "german", "italian", "japan", "korea",
         "chinese", "simplified chinese", "traditional chinese",
+        # Franzoesische Sprachbezeichnungen (franzoesischsprachige Haendler wie pokealp.ch
+        # schreiben "Edition japonaise"/"Boite Japonaise"/"Japonais" statt "(JP)" - gefunden
+        # 2026-09-18, ging vorher als englisches Produkt durch)
+        "japonais", "japonaise", "chinois", "chinoise", "coreen", "coreenne",
+        "allemand", "allemande", "italien", "italienne",
     ]
     return any(w in t for w in words)
 

@@ -70,6 +70,8 @@ RETAILERS = [
     "pikaversum.ch",
     "pokelight.ch",
     "detsuki.ch",
+    "pokealp.ch",
+    "thebluesamurai.com",
 ]
 
 # WooCommerce-Haendler: oeffentliche Store-API unter /wp-json/wc/store/v1/products
@@ -246,6 +248,7 @@ POKEMON_KEYWORDS = [
     "special box",
     "sleeved booster",
     "trainer box",
+    "binder collection",
 ]
 # Sprach-Ausschluss: Titel darf NICHT diese Marker enthalten (nur-englische Produkte, Nutzerwunsch 2026-09-16)
 POKEMON_EXCLUDE = [
@@ -256,7 +259,7 @@ POKEMON_EXCLUDE = [
     "(CN)", "[CN]", "Chinesisch",
     "(KR)", "[KR]", "Koreanisch",
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
-    "Protecc", "Sleeve", "Playmat", "Binder", "Toploader", "Deck Box",
+    "Protecc", "Sleeve", "Playmat", "Toploader", "Deck Box",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!", "Plueschfigur", "Plüschfigur",
     "Display Case", "Acryl", "Evoretro", "Gehäuse", "Gehaeuse", "Protective Case", "TcgLab",
 ]
