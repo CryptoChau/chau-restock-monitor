@@ -105,6 +105,22 @@ TITLE_EXCLUDE = re.compile(
 RICARDO_SHIP_ESTIMATE = 5.0  # CHF - Ricardo-Kartenansicht zeigt keine Versandkosten, grobe Schaetzung
 HISTORY_MAX_DAYS = 60
 
+# Nutzerwunsch 2026-10-02: nur Englisch oder Japanisch vergleichen - andere
+# Sprachversionen handeln auf eBay/Ricardo oft zu abweichenden Preisen und
+# wuerden den Median verzerren. Titel OHNE Sprachmarker gelten als Englisch
+# (Standardverhalten, Verkaeufer labeln praktisch nie explizit "(EN)").
+LANGUAGE_EXCLUDE = re.compile(
+    r"\bgerman\b|\bdeutsch\b|allemand|\bfrench\b|fran[çc]ais|\bitalian\b|italiano|"
+    r"\bkorean\b|koreanisch|\bchinese\b|chinesisch|simplified|traditional\s*chinese|"
+    r"\bspanish\b|espa[ñn]ol|\bportuguese\b|portugiesisch|"
+    r"\(DE\)|\(FR\)|\(IT\)|\(KR\)|\(CN\)|\(ES\)|\(PT\)",
+    re.I,
+)
+LANGUAGE_NEGATIVE_QUERY = (
+    " -german -deutsch -french -français -italian -italiano "
+    "-korean -chinese -spanish -español -portuguese"
+)
+
 # Nur fuer schnelle Testlaeufe: SINGLES_TEST_LIMIT=5 begrenzt auf die ersten N Chase-Karten.
 _test_limit = os.environ.get("SINGLES_TEST_LIMIT")
 
@@ -212,7 +228,7 @@ def fetch_ebay(page, cards):
     for cid, entry in cards:
         name = entry.get("name") or cid
         number = entry.get("number") or ""
-        q = f'pokemon "{name}" 30th celebration {number}'
+        q = f'pokemon "{name}" 30th celebration {number}' + LANGUAGE_NEGATIVE_QUERY
         url = ("https://www.ebay.ch/sch/i.html?_nkw=" + urllib.parse.quote(q) +
                f"&_sacat=183454&_sop=15&_udlo={int(MIN_TOTAL)}&_udhi={int(MAX_TOTAL)}&_ipg=60")
         rows = []
@@ -229,7 +245,7 @@ def fetch_ebay(page, cards):
         new = 0
         for r in rows:
             key = "ebay:" + r["id"]
-            if key in out or TITLE_EXCLUDE.search(r["t"]):
+            if key in out or TITLE_EXCLUDE.search(r["t"]) or LANGUAGE_EXCLUDE.search(r["t"]):
                 continue
             price = parse_chf(r["p"])
             if price is None:
@@ -300,7 +316,9 @@ def fetch_ricardo(browser, cards):
         new = 0
         for r in rows:
             price, title = _ricardo_price_and_title(r["lines"])
-            if price is None or not title or TITLE_EXCLUDE.search(title):
+            # Ricardo unterstuetzt keine eBay-"-wort"-Ausschluss-Syntax in der
+            # Suche selbst, deshalb hier nur der nachtraegliche Titel-Filter.
+            if price is None or not title or TITLE_EXCLUDE.search(title) or LANGUAGE_EXCLUDE.search(title):
                 continue
             m = re.search(r"-(\d+)/?$", r["href"].rstrip("/"))
             item_id = m.group(1) if m else r["href"]

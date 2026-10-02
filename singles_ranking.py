@@ -282,6 +282,28 @@ def parse_chf(s):
     return float(m.group(1).replace("'", "").replace(".", "") + "." + m.group(2))
 
 
+# Nutzerwunsch 2026-10-02: nur Englisch oder Japanisch vergleichen, da andere
+# Sprachversionen (v.a. Deutsch/Franzoesisch/Koreanisch/Chinesisch) auf eBay oft
+# zu abweichenden Preisen gehandelt werden und sonst den Median verzerren.
+# Titel OHNE jeden Sprachmarker gelten als Englisch (eBay-Standardverhalten -
+# Verkaeufer labeln praktisch nie explizit "(EN)", nur Fremdsprachen).
+LANGUAGE_EXCLUDE = re.compile(
+    r"\bgerman\b|\bdeutsch\b|allemand|\bfrench\b|fran[çc]ais|\bitalian\b|italiano|"
+    r"\bkorean\b|koreanisch|\bchinese\b|chinesisch|simplified|traditional\s*chinese|"
+    r"\bspanish\b|espa[ñn]ol|\bportuguese\b|portugiesisch|"
+    r"\(DE\)|\(FR\)|\(IT\)|\(KR\)|\(CN\)|\(ES\)|\(PT\)",
+    re.I,
+)
+# Negativ-Suchbegriffe direkt in der eBay-Suche (eBays "-wort"-Syntax) - reduziert
+# sowohl die angezeigten Treffer ALS AUCH die echte Gesamttrefferzahl aus der
+# Ueberschrift (ein reiner Nachtraeglich-Filter auf geladene Zeilen wuerde die
+# Gesamtzahl nicht senken).
+LANGUAGE_NEGATIVE_QUERY = (
+    " -german -deutsch -french -français -italian -italiano "
+    "-korean -chinese -spanish -español -portuguese"
+)
+
+
 def ebay_sold_search(page, name, number, retries=2):
     """Sucht AKTIVE Sofort-Kaufen-Angebote fuer eine Karte auf eBay.ch (Naeherungswert
     fuer Nachfrage/Wert - siehe Docstring-Update). Kartenname + Kartennummer im
@@ -300,7 +322,7 @@ def ebay_sold_search(page, name, number, retries=2):
     Interesse hin) und der Median-Preis dieser aktiven Angebote taeglich
     getrackt (Trend = Wertentwicklung der Verkaufspreise, keine bestaetigten
     Verkaeufe)."""
-    query = f'pokemon "{name}" 30th celebration {number}'
+    query = f'pokemon "{name}" 30th celebration {number}' + LANGUAGE_NEGATIVE_QUERY
     url = ("https://www.ebay.ch/sch/i.html?_nkw=" + urllib.parse.quote(query) +
            "&_sacat=183454&LH_BIN=1&_sop=12&_ipg=60")
     for attempt in range(retries):
@@ -309,7 +331,11 @@ def ebay_sold_search(page, name, number, retries=2):
             page.wait_for_timeout(2000 * (attempt + 1))
             result = page.evaluate(EBAY_EXTRACT_JS)
             if result and result.get("items"):
-                return result["items"], result.get("total", len(result["items"]))
+                # Sicherheitsnetz zusaetzlich zur Negativ-Suche: Titel mit
+                # explizitem Fremdsprachen-Marker trotzdem rauswerfen (eBays
+                # Negativ-Suche ist nicht 100% zuverlaessig).
+                items = [it for it in result["items"] if not LANGUAGE_EXCLUDE.search(it.get("t", ""))]
+                return items, result.get("total", len(items))
         except Exception as e:
             log(f"eBay-Fehler bei '{query}' (Versuch {attempt + 1}): {e}")
         time.sleep(2)
