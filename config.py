@@ -187,14 +187,13 @@ BROWSER_RETAILERS = [
 # check_stealth_browser_retailers() in check.py. digitec.ch selbst hat kein TCG-Sortiment
 # (verweist bei jeder Pokemon-Suche auf Galaxus), brack.ch/mueller.ch/coop-city.ch noch nicht
 # mit passenden Selektoren fertig eingebunden (Stand 2026-09-17).
-STEALTH_BROWSER_RETAILERS = [
-    {
-        "name": "galaxus.ch",
-        "search_url": "https://www.galaxus.ch/de/search?q={query}",
-        "product_link_selector": "a[href*='/de/s5/product/']",
-        "card_selector": "article",
-    },
-]
+# galaxus.ch lief hier urspruenglich ueber die (kaputte) Volltextsuche - seit 2026-10-02 durch
+# STEALTH_CATEGORY_RETAILERS unten ersetzt. Leer lassen, NICHT galaxus.ch hier wieder eintragen:
+# beide Mechanismen gleichzeitig erzeugten fuer dasselbe Produkt leicht unterschiedliche
+# URL-Slugs (Galaxus haengt je nach Quellseite ein anderes Kategorie-Wort an dieselbe Produkt-ID
+# an), was als zwei "neue" Produkte zaehlte -> doppelte Discord-Meldungen (siehe Memory,
+# User-Report "gleiche Meldungen seit Stunden" 2026-10-02).
+STEALTH_BROWSER_RETAILERS = []
 
 # galaxus.ch: Die Volltextsuche (search_url oben) ist kaputt/zu breit (ein Query wie "pokemon
 # 30th anniversary booster bundle" liefert 4870 "Produkte", praktisch der ganze Katalog -

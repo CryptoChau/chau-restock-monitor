@@ -909,7 +909,14 @@ def check_stealth_category_retailers(page, state, now):
 
         for p in products:
             title = html.unescape(p["title"])
-            product_key = f"{domain}:{p['link']}"
+            # Stabile numerische Produkt-ID statt des ganzen Slugs verwenden: galaxus.ch haengt
+            # je nach Quellseite (Suche vs. Kategorie) ein anderes Kategorie-Wort an dieselbe
+            # Produkt-ID an (z.B. "...-box-set-collection-72348007" vs.
+            # "...-elite-top-trainer-box-72348007") - bei vollem Slug als Key zaehlte das als
+            # zwei verschiedene Produkte und erzeugte doppelte Meldungen (siehe Memory, 2026-10-02).
+            id_match = re.search(r"-(\d+)$", p["link"])
+            stable_id = id_match.group(1) if id_match else p["link"]
+            product_key = f"{domain}:{stable_id}"
             brand = detect_brand(title)
             is_30th = matches_pokemon_30th(title) or matches_pokemon_30th_all(title)
             if not brand and not is_30th:
