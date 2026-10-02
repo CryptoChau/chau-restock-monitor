@@ -173,6 +173,29 @@ TIME_BUDGET_SECONDS = 8 * 60  # Metadaten-Fetch bekommt nur einen Teil des Gesam
                                # der Rest ist fuer das (langsamere) eBay-Scraping reserviert.
 
 
+# Manuell gepflegte Classic-Collection-Karten (Nutzerwunsch 2026-10-03): pokemontcg.io
+# liefert sie dauerhaft nicht (500/502/404), Name/Nummer stammen aus der Set-Analytics-
+# Ansicht einer Karten-App. IDs mit Praefix "me55c-" => is_chase() greift automatisch,
+# und sie liegen ausserhalb des API-Abrufs (all_ids), werden also nie ueberschrieben.
+MANUAL_CARDS = {
+    "me55c-m149": {"name": "Lugia", "number": "149/147"},
+    "me55c-m203": {"name": "Magikarp", "number": "203/193"},
+    "me55c-m94": {"name": "Gengar Prime", "number": "94/102"},
+    "me55c-m33": {"name": "Pikachu & Zekrom GX", "number": "33/181"},
+}
+
+
+def seed_manual_cards(cache):
+    for cid, base in MANUAL_CARDS.items():
+        e = cache.setdefault(cid, {})
+        e.update({
+            "name": base["name"], "number": base["number"],
+            "rarity": e.get("rarity") or "Classic Collection",
+            "set_name": "30th Celebration: Classic Collection",
+        })
+    return cache
+
+
 def update_snapshot():
     """Holt fuer jede Karte im Set Name/Bild/Rarity (+ TCGplayer/Cardmarket-Preis
     als Bonus, meist leer). Wird 1x/Tag aufgerufen (siehe singles-ranking.yml).
@@ -186,7 +209,8 @@ def update_snapshot():
     zuerst verarbeitet, und darunter zuerst Classic Collection (kleines Set, laesst
     sich realistisch an einem Tag komplettieren) - bereits vollstaendige Karten
     werden nur noch mit dem uebrigen Zeitbudget aufgefrischt."""
-    cache = load_cache()
+    cache = seed_manual_cards(load_cache())
+    save_cache(cache)
     now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     ok, failed = 0, 0
     start = time.monotonic()

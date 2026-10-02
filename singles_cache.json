@@ -3595,5 +3595,29 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-29T12:56:34Z"
+  },
+  "me55c-m149": {
+    "name": "Lugia",
+    "number": "149/147",
+    "rarity": "Classic Collection",
+    "set_name": "30th Celebration: Classic Collection"
+  },
+  "me55c-m203": {
+    "name": "Magikarp",
+    "number": "203/193",
+    "rarity": "Classic Collection",
+    "set_name": "30th Celebration: Classic Collection"
+  },
+  "me55c-m94": {
+    "name": "Gengar Prime",
+    "number": "94/102",
+    "rarity": "Classic Collection",
+    "set_name": "30th Celebration: Classic Collection"
+  },
+  "me55c-m33": {
+    "name": "Pikachu & Zekrom GX",
+    "number": "33/181",
+    "rarity": "Classic Collection",
+    "set_name": "30th Celebration: Classic Collection"
   }
 }
