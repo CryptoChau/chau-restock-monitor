@@ -140,9 +140,32 @@ def load_chase_cards():
     for cid, e in cache.items():
         if is_chase(cid, e) and e.get("name"):
             cards.append((cid, e))
+            h = e.get("ebay_sold_history") or []
+            if len(h) >= 2 and h[0].get("median"):
+                TRENDS[cid] = ((h[-1]["median"] - h[0]["median"]) / h[0]["median"] * 100, len(h))
     if _test_limit:
         cards = cards[: int(_test_limit)]
     return cards
+
+
+# card_id -> (Trend-% seit Tracking-Start, Anzahl Tage Historie); wird in
+# load_chase_cards() aus der von singles_ranking.py gepflegten Median-Historie
+# befuellt (Nutzerwunsch 2026-10-03: Trend-Prozent direkt in der Deal-Meldung).
+TRENDS = {}
+
+
+def trend_text(card_id):
+    t = TRENDS.get(card_id)
+    if not t:
+        return "⚪ Trend: noch nicht auswertbar"
+    pct, days = t
+    arrow = "\U0001F7E2▲" if pct > 0.5 else ("\U0001F534▼" if pct < -0.5 else "⚪▬")
+    hint = ""
+    if pct <= -8:
+        hint = " - Preis faellt noch, evtl. noch abwarten"
+    elif pct >= 3:
+        hint = " - Preis steigt, guter Zeitpunkt"
+    return f"{arrow} Trend: {pct:+.1f}% (seit {days} Tagen){hint}"
 
 
 def parse_chf(s):
@@ -442,7 +465,8 @@ def post_discord(webhook, deals):
         desc = (f"{headline}\n"
                 f"**CHF {d['total']:.2f}** inkl. Versand{ship_note} (Preis {d['price']:.2f} + Versand {d['ship']:.2f})\n"
                 f"Karte: **{d['card_name']}** - Quelle: **{d['source']}**\n"
-                f"Median CHF {d['median']:.2f} aus {d['n']} beobachteten Angeboten"
+                f"Median CHF {d['median']:.2f} aus {d['n']} beobachteten Angeboten\n"
+                f"{trend_text(d['card_id'])}"
                 f"{verify_note}\n"
                 f"[Zum Angebot]({d['url']})")
         color = 0x2ECC71 if d["category"] == "deal" else 0xF1C40F
