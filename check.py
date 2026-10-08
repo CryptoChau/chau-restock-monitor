@@ -719,8 +719,17 @@ def _check_retailer_list(page, state, now, retailers):
             # Kaufbereich der Produktseite (wog: div.atc, Klassen atc__stock--stock-0..4).
             detail_sel = retailer.get("detail_stock_selector")
             if detail_sel and matched:
-                log(f"  {domain}: Detail-Check fuer {len(matched)} Produkte ...")
-                for href, m in matched.items():
+                # Nur dort nachschauen, wo die Kachel nichts aussagt UND ein Wechsel relevant ist:
+                # Vorbestellungen (Release-Marker) sowie Produkte, die zuletzt als Vorbestellung,
+                # angekuendigt oder ausverkauft galten (Wiederverfuegbarkeit). Normale Lagerware
+                # bleibt bei der Kachel-Heuristik - alle 220 Treffer zu laden kostete ~6 Min
+                # und brachte den Lauf auf 24 Min (Cloud-Lauf 2026-10-08 11:20 UTC).
+                to_check = {
+                    h: m for h, m in matched.items()
+                    if m["preorder"] or (state.get(f"{domain}:{h}") or {}).get("status") in ("preorder", "announced", "outofstock")
+                }
+                log(f"  {domain}: Detail-Check fuer {len(to_check)} von {len(matched)} Produkten ...")
+                for href, m in to_check.items():
                     detail_status = _detail_stock_status(page, href, detail_sel, m["preorder"])
                     if detail_status:
                         m["status"] = detail_status
