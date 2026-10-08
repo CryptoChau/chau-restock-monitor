@@ -534,6 +534,38 @@ def is_preorder(text):
 DRY_RUN = os.environ.get("CHAU_DRY_RUN") == "1"
 
 
+ALERT_COOLDOWN_SECONDS = 24 * 3600
+
+
+def _alert_suppressed(state, product_key, status, now):
+    """Pro Produkt und Status hoechstens eine Discord-Meldung innerhalb von 24h.
+    Hintergrund: galaxus.ch pendelt bei manchen Produkten im Stundentakt zwischen
+    "verfuegbar" und "in einigen Tagen verfuegbar" (instock <-> preorder), jeder Wechsel
+    loeste eine neue Meldung aus -> User-Report "immer die gleichen Deals" (2026-10-08).
+    Das Log liegt unter dem Sonderkey "_alert_log" in state.json (kein Produkt-Eintrag,
+    load_state() ignoriert ihn, weil weder "status" noch "in_stock" vorhanden)."""
+    log_map = state.setdefault("_alert_log", {})
+    key = f"{product_key}|{status}"
+    try:
+        now_dt = datetime.fromisoformat(now)
+    except Exception:
+        return False
+    last = log_map.get(key)
+    if last:
+        try:
+            if (now_dt - datetime.fromisoformat(last)).total_seconds() < ALERT_COOLDOWN_SECONDS:
+                log(f"  Meldung unterdrueckt (Cooldown 24h): {product_key} -> {status}")
+                return True
+        except Exception:
+            pass
+    log_map[key] = now
+    if len(log_map) > 5000:
+        cutoff = now_dt.timestamp() - 7 * 24 * 3600
+        for k in [k for k, v in log_map.items() if datetime.fromisoformat(v).timestamp() < cutoff]:
+            del log_map[k]
+    return False
+
+
 def notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now, cart_link=None):
     """Gemeinsame Notify-Logik: meldet neue Vorbestellungen/Restocks an den passenden Discord-Kanal.
     brand: "pokemon"/"onepiece"/"dragonball" (siehe BRAND_WEBHOOKS/BRAND_LABELS).
@@ -545,6 +577,8 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
     # Ankuendigung nur, wenn das Produkt neu ist oder vorher ausverkauft war - ein "Downgrade"
     # preorder/instock -> announced (z.B. nach Einfuehrung des wog.ch-Detail-Checks) ist keine News.
     if status == "announced" and prev_status in (None, "outofstock"):
+        if _alert_suppressed(state, product_key, status, now):
+            return
         msg = (
             f"\U0001F514 ANKUENDIGUNG ({label}): **{title}**\n"
             f"Haendler: {domain}\n"
@@ -556,6 +590,8 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
         log(f"  ANKUENDIGUNG gefunden: {title} bei {domain}")
         send_discord(preorder_webhook, msg)
     elif status == "preorder" and prev_status != "preorder":
+        if _alert_suppressed(state, product_key, status, now):
+            return
         msg = (
             f"\U0001F7E1 VORBESTELLUNG ({label}): **{title}**\n"
             f"Haendler: {domain}\n"
@@ -567,6 +603,8 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
         log(f"  VORBESTELLUNG gefunden: {title} bei {domain}")
         send_discord(preorder_webhook, msg)
     elif status == "instock" and prev_status != "instock":
+        if _alert_suppressed(state, product_key, status, now):
+            return
         msg = (
             f"\U0001F7E2 RESTOCK ({label}): **{title}**\n"
             f"Haendler: {domain}\n"
