@@ -15,6 +15,7 @@ import sys
 import time
 import traceback
 import unicodedata
+import urllib.parse
 from datetime import datetime, timezone
 
 import requests
@@ -541,7 +542,9 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
     label = BRAND_LABELS[brand]
     restock_webhook, preorder_webhook = BRAND_WEBHOOKS[brand]
     cart_line = f"\U0001F6D2 Direkt in den Warenkorb: {cart_link}\n" if cart_link else ""
-    if status == "announced" and prev_status != "announced":
+    # Ankuendigung nur, wenn das Produkt neu ist oder vorher ausverkauft war - ein "Downgrade"
+    # preorder/instock -> announced (z.B. nach Einfuehrung des wog.ch-Detail-Checks) ist keine News.
+    if status == "announced" and prev_status in (None, "outofstock"):
         msg = (
             f"\U0001F514 ANKUENDIGUNG ({label}): **{title}**\n"
             f"Haendler: {domain}\n"
@@ -604,6 +607,10 @@ def _check_retailer_list(page, state, now, retailers):
         for retailer in retailers:
             domain = retailer["name"]
             log(f"  Browser-Haendler: {domain} ...")
+            # Treffer ueber alle Suchbegriffe pro href sammeln (dasselbe Produkt taucht bei
+            # mehreren Begriffen auf) - Status/Notify erst danach, damit ein optionaler
+            # Detailseiten-Check (detail_stock_selector) pro Produkt nur EINMAL laeuft.
+            matched = {}
             for term, brand_hint in terms:
                 url = retailer["search_url"].format(query=term.replace(" ", "+"))
                 try:
@@ -668,8 +675,10 @@ def _check_retailer_list(page, state, now, retailers):
                     if not href:
                         continue
                     # Query-String abtrennen (z.B. "?imageIndex=1") - sonst zaehlt dasselbe
-                    # Produkt als mehrere verschiedene product_keys, siehe Memory galaxus.ch
-                    href = href.split("?")[0]
+                    # Produkt als mehrere verschiedene product_keys, siehe Memory galaxus.ch.
+                    # URL-Encoding normalisieren: wog.ch liefert dieselbe Produkt-URL mal mit
+                    # "-" und mal mit "%2D" -> ohne unquote zwei Keys pro Produkt (doppelte Alerts).
+                    href = urllib.parse.unquote(href.split("?")[0])
                     if href not in best_by_href or len(text) > len(best_by_href[href]):
                         best_by_href[href] = text
 
@@ -692,46 +701,68 @@ def _check_retailer_list(page, state, now, retailers):
                     if not brand and not is_30th:
                         continue
 
-                    # Stock-Heuristik: "in den warenkorb" vorhanden UND kein "nicht verfuegbar"/"ausverkauft"
+                    # Stock-Heuristik aus der Suchkachel: kein "nicht verfuegbar"/"ausverkauft"-Marker
                     t_norm = normalize(text)
                     out_markers = ["nicht verfugbar", "ausverkauft", "zurzeit nicht", "not available", "vergriffen", "nicht auf lager", "nicht mehr lieferbar", "nicht mehr bestellbar"]
                     in_stock = not any(m in t_norm for m in out_markers)
                     preorder = is_preorder(text)
                     status = "preorder" if preorder else ("instock" if in_stock else "outofstock")
 
-                    product_key = f"{domain}:{href}"
-                    prev = state.get(product_key)
-                    prev_status = prev.get("status") if prev else None
+                    if href not in matched:
+                        matched[href] = {"title": title_line, "brand": brand, "status": status, "preorder": preorder}
 
-                    state[product_key] = {
-                        "title": title_line,
-                        "status": status,
-                        "last_checked": now,
-                    }
+            # Optionaler Detailseiten-Check: bei wog.ch tragen die Suchkacheln KEINEN Lagerstatus
+            # (nur Titel/Preis/"Release: <Datum>"), d.h. eine offene, eine ausverkaufte und eine
+            # geschlossene Vorbestellung sehen in der Kachel identisch aus -> der Bot sah die
+            # 30th-Celebration-Premium-Collections seit 17.09. dauerhaft als "preorder" und hatte
+            # nie einen Wechsel zu melden (User-Report 2026-10-08). Der echte Status steht nur im
+            # Kaufbereich der Produktseite (wog: div.atc, Klassen atc__stock--stock-0..4).
+            detail_sel = retailer.get("detail_stock_selector")
+            if detail_sel and matched:
+                log(f"  {domain}: Detail-Check fuer {len(matched)} Produkte ...")
+                for href, m in matched.items():
+                    detail_status = _detail_stock_status(page, href, detail_sel, m["preorder"])
+                    if detail_status:
+                        m["status"] = detail_status
 
-                    if brand:
-                        label = BRAND_LABELS[brand]
-                        restock_webhook, preorder_webhook = BRAND_WEBHOOKS[brand]
-                        if status == "preorder" and prev_status != "preorder":
-                            msg = (
-                                f"\U0001F7E1 VORBESTELLUNG ({label}): **{title_line}**\n"
-                                f"Haendler: {domain}\n"
-                                f"Link: {href}\n"
-                                f"Zeit: {now}"
-                            )
-                            log(f"  VORBESTELLUNG gefunden: {title_line} bei {domain}")
-                            send_discord(preorder_webhook, msg)
-                        elif status == "instock" and prev_status != "instock":
-                            msg = (
-                                f"\U0001F7E2 RESTOCK ({label}): **{title_line}**\n"
-                                f"Haendler: {domain}\n"
-                                f"Link: {href}\n"
-                                f"Zeit: {now}"
-                            )
-                            log(f"  RESTOCK gefunden: {title_line} bei {domain}")
-                            send_discord(restock_webhook, msg)
+            for href, m in matched.items():
+                title_line, brand, status = m["title"], m["brand"], m["status"]
+                product_key = f"{domain}:{href}"
+                prev = state.get(product_key)
+                prev_status = prev.get("status") if prev else None
 
-                    maybe_notify_pokemon30th(state, product_key, title_line, status, domain, href, "?", now)
+                state[product_key] = {
+                    "title": title_line,
+                    "status": status,
+                    "last_checked": now,
+                }
+
+                if brand:
+                    notify_status_change(state, product_key, title_line, status, prev_status, domain, href, "?", brand, now)
+                maybe_notify_pokemon30th(state, product_key, title_line, status, domain, href, "?", now)
+
+
+def _detail_stock_status(page, url, selector, is_preorder_item):
+    """Liest den echten Lagerstatus aus dem Kaufbereich einer Produktseite (siehe
+    detail_stock_selector in config.BROWSER_RETAILERS). Rueckgabe: "instock"/"preorder"/
+    "announced"/"outofstock" oder None (Seite/Element nicht lesbar -> Kachel-Status behalten).
+    wog.ch-Texte: "In den Warenkorb ... verfuegbar/bestellbar" = bestellbar; "noch nicht
+    erschienen" ohne Warenkorb-Button = angekuendigt; "nicht mehr bestellbar" /
+    "derzeit ausverkauft" / "nicht bestellbar/lieferbar" = ausverkauft."""
+    try:
+        page.goto(url, timeout=15000, wait_until="domcontentloaded")
+        page.wait_for_timeout(800)
+        txt = page.eval_on_selector(selector, "e => e.innerText") or ""
+    except Exception:
+        return None
+    t = normalize(txt)
+    if "in den warenkorb" in t:
+        return "preorder" if is_preorder_item else "instock"
+    if "noch nicht erschienen" in t:
+        return "announced"
+    if any(mk in t for mk in ("nicht mehr bestellbar", "nicht bestellbar", "ausverkauft", "nicht verfugbar", "nicht lieferbar")):
+        return "outofstock"
+    return None
 
 
 def check_browser_retailers(state, now):

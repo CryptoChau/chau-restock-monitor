@@ -141,6 +141,9 @@ BROWSER_RETAILERS = [
         # Sprachkennung (-EN-/-DE-) - img[alt] enthaelt immer den vollstaendigen Titel.
         "name_selector": "img",
         "name_attr": "alt",
+        # Suchkacheln tragen keinen Lagerstatus -> echter Status aus dem Kaufbereich der
+        # Produktseite (div.atc), siehe _detail_stock_status() in check.py (2026-10-08).
+        "detail_stock_selector": ".atc",
     },
     {
         "name": "mediamarkt.ch",
@@ -245,6 +248,12 @@ BROWSER_SEARCH_TERMS_POKEMON = [
     "pokemon booster display",
     "pokemon booster bundle",
     "pokemon ultra premium collection",
+    # "premium collection" fand bei wog.ch die Ditto Premium Collection nicht ueber den
+    # Begriff "ultra premium collection" (User-Report 2026-10-08); "30th celebration" und
+    # "mini tin" decken die restlichen Jubilaeums-Produkte (Tins, Binder, Blister) ab.
+    "pokemon premium collection",
+    "pokemon 30th celebration",
+    "pokemon mini tin",
 ]
 BROWSER_SEARCH_TERMS_ONEPIECE = [
     "one piece booster display",

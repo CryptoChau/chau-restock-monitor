@@ -757,7 +757,7 @@
   "manor.ch:https://www.manor.ch/de/p/mp-8a6e748a-tproduct": {
     "title": "Greninja ex Ultra Premium Collection Box - Greninja ex - EN",
     "status": "instock",
-    "last_checked": "2026-10-01T17:02:05+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/mp-4805ed4f-tproduct": {
     "title": "Jirachi GX Collection Box - EN",
@@ -767,7 +767,7 @@
   "manor.ch:https://www.manor.ch/de/p/mp-6e53a201-tproduct": {
     "title": "Tera Brawlers Premium Collection Box - EN",
     "status": "instock",
-    "last_checked": "2026-10-01T17:02:05+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/mp-6a38d98b-tproduct": {
     "title": "TCG: Scarlet & Violet 151 Booster Pack - EN",
@@ -777,7 +777,7 @@
   "manor.ch:https://www.manor.ch/de/p/mp-981cbd55-tproduct": {
     "title": "TCG: Prismatic Evolutions Super-Premium Collection - EN",
     "status": "instock",
-    "last_checked": "2026-10-01T17:02:05+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/mp-58ee42ee-tproduct": {
     "title": "Sword & Shield Darkness Ablaze Build & Battle Prerelease Kit",
@@ -3207,22 +3207,22 @@
   "manor.ch:https://www.manor.ch/de/p/mp-56c2cc7f-tproduct": {
     "title": "Terapagos ex Ultra-Premium Collection - EN",
     "status": "instock",
-    "last_checked": "2026-09-20T02:21:18+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/10003389953": {
     "title": "Terapagos ex Ultra Premium Collection, englisch",
     "status": "instock",
-    "last_checked": "2026-09-20T02:21:18+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/10001553494": {
     "title": "Charizard Ultra Premium Collection",
     "status": "instock",
-    "last_checked": "2026-09-20T02:21:18+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/10000737921": {
     "title": "Sword & Shield Ultra Premium Collection",
     "status": "instock",
-    "last_checked": "2026-09-20T02:21:18+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "toytans.ch:https://www.toytans.ch/de/pokemon-trainerboxen/222-pokemon-swsh5-battle-styles-elite-trainer-box-blau-en.html": {
     "title": "POKÉMON SWSH5 BATTLE STYLES ELITE TRAINER BOX BLAU EN - RAPID STRIKE",
@@ -5399,122 +5399,42 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253434%2DPokemon%2D30th%2DCelebration%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon 30th Celebration Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254361%2DPokemon%2DMega%2DEvolution%2DDelta%2DReign%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Mega Evolution: Delta Reign Elite Trainer Box -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/216637%2DPokemon%2DScarlet%2DViolet%2DDestined%2DRivals%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Scarlet & Violet: Destined Rivals Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/245321%2DPokemon%2DMega%2DEvolution%2DPitch%2DBlack%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Mega Evolution: Pitch Black Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/112002%2DPokemon%2DShining%2DFates%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Shining Fates Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/226732%2DPokemon%2DMega%2DEvolution%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Mega Evolution Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/203673%2DPokemon%2DScarlet%2DViolet%2DPrismatic%2DEvolutions%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Scarlet & Violet: Prismatic Evolutions Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241603%2DPokemon%2DMega%2DEvolution%2DChaos%2DRising%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Mega Evolution: Chaos Rising Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/237070%2DPokemon%2DMega%2DEvolution%2DAscended%2DHeroes%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Mega Evolution: Ascended Heroes Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/238628%2DPokemon%2DMega%2DEvolution%2DPerfect%2DOrder%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Mega Evolution: Perfect Order Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/220507%2DPokemon%2DScarlet%2DViolet%2DWhite%2DFlare%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Scarlet & Violet: White Flare Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/220500%2DPokemon%2DScarlet%2DViolet%2DBlack%2DBolt%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Scarlet & Violet: Black Bolt Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/155899%2DPokemon%2DSword%2DShield%2DCrown%2DZenith%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Sword & Shield: Crown Zenith Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/141411%2DPokemon%2DGO%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon GO Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/229792%2DPokemon%2DMega%2DEvolution%2DPhantasmal%2DFlames%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Mega Evolution: Phantasmal Flames Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/170242%2DPokemon%2DScarlet%2DViolet%2D151%2DElite%2DTrainer%2DBox%2DEN": {
-    "title": "Pokémon Scarlet & Violet: 151 Elite Trainer Box -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/199562%2DPokemon%2DScarlet%2DViolet%2DSurging%2DSparks%2DElite%2DTrainer%2DBox%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/199562-Pokemon-Scarlet-Violet-Surging-Sparks-Elite-Trainer-Box-EN": {
     "title": "Pokémon Scarlet & Violet: Surging Sparks Elite Trainer Box -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/178432%2DPokemon%2DScarlet%2DViolet%2DPaldean%2DFates%2DElite%2DTrainer%2DBox%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/178432-Pokemon-Scarlet-Violet-Paldean-Fates-Elite-Trainer-Box-EN": {
     "title": "Pokémon Scarlet & Violet: Paldean Fates Elite Trainer Box -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/211350%2DPokemon%2DScarlet%2DViolet%2DJourney%2DTogether%2DElite%2DTrainer%2DBox%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/211350-Pokemon-Scarlet-Violet-Journey-Together-Elite-Trainer-Box-EN": {
     "title": "Pokémon Scarlet & Violet: Journey Together Elite Trainer Box -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/148193%2DPokemon%2DSword%2DShield%2DEvolving%2DSkies%2DElite%2DTrainer%2DBox%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/148193-Pokemon-Sword-Shield-Evolving-Skies-Elite-Trainer-Box-EN": {
     "title": "Pokémon Sword & Shield: Evolving Skies Elite Trainer Box -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/150822%2DPokemon%2DSword%2DShield%2DSilver%2DTempest%2DElite%2DTrainer%2DBox%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/150822-Pokemon-Sword-Shield-Silver-Tempest-Elite-Trainer-Box-EN": {
     "title": "Pokémon Sword & Shield: Silver Tempest Elite Trainer Box -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/148192%2DPokemon%2DSword%2DShield%2DChilling%2DReign%2DElite%2DTrainer%2DBox%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/148192-Pokemon-Sword-Shield-Chilling-Reign-Elite-Trainer-Box-EN": {
     "title": "Pokémon Sword & Shield: Chilling Reign Elite Trainer Box -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/190864%2DPokemon%2DScarlet%2DViolet%2DShrouded%2DFable%2DElite%2DTrainer%2DBox%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/190864-Pokemon-Scarlet-Violet-Shrouded-Fable-Elite-Trainer-Box-EN": {
     "title": "Pokémon Scarlet & Violet: Shrouded Fable Elite Trainer Box -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/195750%2DPokemon%2DScarlet%2DViolet%2DStellar%2DCrown%2DElite%2DTrainer%2DBox%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/195750-Pokemon-Scarlet-Violet-Stellar-Crown-Elite-Trainer-Box-EN": {
     "title": "Pokémon Scarlet & Violet: Stellar Crown Elite Trainer Box -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
@@ -5574,84 +5494,29 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254359%2DPokemon%2DMega%2DEvolution%2DDelta%2DReign%2DBooster%2DDisplay%2DEN": {
-    "title": "Pokémon Mega Evolution: Delta Reign Booster Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241601%2DPokemon%2DMega%2DEvolution%2DChaos%2DRising%2DBooster%2DDisplay%2DEN": {
-    "title": "Pokémon Mega Evolution: Chaos Rising Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/245317%2DPokemon%2DMega%2DEvolution%2DPitch%2DBlack%2DBooster%2DDisplay%2DEN": {
-    "title": "Pokémon Mega Evolution: Pitch Black Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/238626%2DPokemon%2DMega%2DEvolution%2DPerfect%2DOrder%2DBooster%2DDisplay%2DEN": {
-    "title": "Pokémon Mega Evolution: Perfect Order Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/226729%2DPokemon%2DMega%2DEvolution%2DBooster%2DDisplay%2DEN": {
-    "title": "Pokémon Mega Evolution Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/216634%2DPokemon%2DScarlet%2DViolet%2DDestined%2DRivals%2DBooster%2DDisplay%2DEN": {
-    "title": "Pokémon Scarlet & Violet: Destined Rivals Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/229790%2DPokemon%2DMega%2DEvolution%2DPhantasmal%2DFlames%2DBooster%2DDisplay%2DEN": {
-    "title": "Pokémon Mega Evolution: Phantasmal Flames Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/199552%2DPokemon%2DScarlet%2DViolet%2DSurging%2DSparks%2DBooster%2DDisplay%2DEN": {
-    "title": "Pokémon Scarlet & Violet: Surging Sparks Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/211342%2DPokemon%2DScarlet%2DViolet%2DJourney%2DTogether%2DBooster%2DDisplay%2DEN": {
-    "title": "Pokémon Scarlet & Violet: Journey Together Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/103025%2DPokemon%2DSchwert%2DSchild%2DFarbenschock%2DBooster%2DDisplay": {
-    "title": "Pokémon Schwert & Schild: Farbenschock Booster Display",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/114318%2DPokemon%2DSchwert%2DSchild%2DSchaurige%2DHerrschaft%2DBooster%2DDisplay": {
-    "title": "Pokémon Schwert & Schild: Schaurige Herrschaft Booster Display",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/115679%2DPokemon%2DSchwert%2DSchild%2DDrachenwandel%2DBooster%2DDisplay": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/115679-Pokemon-Schwert-Schild-Drachenwandel-Booster-Display": {
     "title": "Pokémon Schwert & Schild: Drachenwandel Booster Display",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/55731%2DPokemon%2DSonne%2Dund%2DMond%2DNacht%2Din%2DFlammen%2DBooster%2DDisplay": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/55731-Pokemon-Sonne-und-Mond-Nacht-in-Flammen-Booster-Display": {
     "title": "Pokémon Sonne und Mond: Nacht in Flammen Booster Display",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/105166%2DPokemon%2DSchwert%2DSchild%2DFlammende%2DFinsternis%2DClash%2Dder%2DRebellen%2DTwin%2DBooster%2DDisplay": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/105166-Pokemon-Schwert-Schild-Flammende-Finsternis-Clash-der-Rebellen-Twin-Booster-Display": {
     "title": "Pokémon Schwert & Schild: Flammende Finsternis & Clash der Rebellen Twin Booster Display",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/150820%2DPokemon%2DSword%2DShield%2DSilver%2DTempest%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/150820-Pokemon-Sword-Shield-Silver-Tempest-Booster-Display-EN": {
     "title": "Pokémon Sword & Shield: Silver Tempest Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253440-Pokemon-30th-Celebration-Booster-Bundle-EN": {
     "title": "Pokémon 30th Celebration Booster Bundle -EN-",
-    "status": "instock",
+    "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/239517-Pokemon-Mega-Evolution-Ascended-Heroes-Booster-Bundle-EN": {
@@ -5689,57 +5554,17 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253440%2DPokemon%2D30th%2DCelebration%2DBooster%2DBundle%2DEN": {
-    "title": "Pokémon 30th Celebration Booster Bundle -EN-",
-    "status": "outofstock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/239517%2DPokemon%2DMega%2DEvolution%2DAscended%2DHeroes%2DBooster%2DBundle%2DEN": {
-    "title": "Pokémon Mega Evolution: Ascended Heroes Booster Bundle -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/170244%2DPokemon%2DScarlet%2DViolet%2D151%2DBooster%2DBundle%2DEN": {
-    "title": "Pokémon Scarlet & Violet: 151 Booster Bundle -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/223652%2DPokemon%2DScarlet%2DViolet%2DWhite%2DFlare%2DBooster%2DBundle%2DEN": {
-    "title": "Pokémon Scarlet & Violet: White Flare Booster Bundle -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/223649%2DPokemon%2DScarlet%2DViolet%2DBlack%2DBolt%2DBooster%2DBundle%2DEN": {
-    "title": "Pokémon Scarlet & Violet: Black Bolt Booster Bundle -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/208035%2DPokemon%2DScarlet%2DViolet%2DPrismatic%2DEvolutions%2DBooster%2DBundle%2DEN%2Dmax%2D2%2Dpro%2DHaushalt": {
-    "title": "Pokémon Scarlet & Violet: Prismatic Evolutions Booster Bundle -EN- (max. 2 pro Haushalt)",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/181544%2DPokemon%2DScarlet%2DViolet%2DPaldean%2DFates%2DBooster%2DBundle%2DEN": {
-    "title": "Pokémon Scarlet & Violet: Paldean Fates Booster Bundle -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/208038%2DPokemon%2DScarlet%2DViolet%2DPrismatic%2DEvolutions%2DBooster%2DBundle%2DCase%2DEN%2Dmax%2D1%2Dpro%2DHaushalt": {
-    "title": "Pokémon Scarlet & Violet: Prismatic Evolutions Booster Bundle Case -EN- (max. 1 pro Haushalt)",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/197869%2DPokemon%2DTrick%2Dor%2DTrade%2DBooster%2DBundle%2D2024%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/197869-Pokemon-Trick-or-Trade-Booster-Bundle-2024-EN": {
     "title": "Pokémon Trick or Trade Booster Bundle 2024 -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/176553%2DPokemon%2DTrick%2Dor%2DTrade%2DBooster%2DBundle%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/176553-Pokemon-Trick-or-Trade-Booster-Bundle-EN": {
     "title": "Pokémon Trick or Trade Booster Bundle -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/195290%2DPokemon%2DScarlet%2DViolet%2DShrouded%2DFable%2DBooster%2DBundle%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/195290-Pokemon-Scarlet-Violet-Shrouded-Fable-Booster-Bundle-EN": {
     "title": "Pokémon Scarlet & Violet: Shrouded Fable Booster Bundle -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
@@ -5775,41 +5600,6 @@
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/199272-Pokemon-Terapagos-EX-Ultra-Premium-Collection-EN": {
-    "title": "Pokémon Terapagos EX Ultra-Premium Collection -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254353%2DPokemon%2D30th%2DCelebration%2DUltra%2DPremium%2DCollection%2DDay%2DEN": {
-    "title": "Pokémon 30th Celebration Ultra-Premium Collection Day -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254355%2DPokemon%2D30th%2DCelebration%2DUltra%2DPremium%2DCollection%2DNight%2DEN": {
-    "title": "Pokémon 30th Celebration Ultra-Premium Collection Night -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/229803%2DPokemon%2DMega%2DCharizard%2DUltra%2DPremium%2DCollection%2DEN": {
-    "title": "Pokémon Mega Charizard Ultra-Premium Collection -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/232865%2DPokemon%2DTeam%2DRockets%2DMoltres%2DUltra%2DPremium%2DCollection%2DEN": {
-    "title": "Pokémon Team Rocket's Moltres Ultra-Premium Collection -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/148209%2DPokemon%2DSword%2DShield%2DUltra%2DPremium%2DCollection%2DCharizard%2DEN": {
-    "title": "Pokémon Sword & Shield: Ultra Premium Collection Charizard -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/170742%2DPokemon%2DScarlet%2DViolet%2D151%2DUltra%2DPremium%2DCollection%2DEN": {
-    "title": "Pokémon Scarlet & Violet: 151 Ultra Premium Collection -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/199272%2DPokemon%2DTerapagos%2DEX%2DUltra%2DPremium%2DCollection%2DEN": {
     "title": "Pokémon Terapagos EX Ultra-Premium Collection -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
@@ -5892,90 +5682,10 @@
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/203432-One-Piece-Card-Game-A-Fist-of-Divine-Speed-Booster-Display-EN": {
     "title": "One Piece Card Game A Fist of Divine Speed Booster Display -EN-",
     "status": "instock",
-    "last_checked": "2026-10-08T04:21:30+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/246654%2DOne%2DPiece%2DCard%2DGame%2DEB05%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game EB05 Booster Display -EN-",
-    "status": "preorder",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247980%2DOne%2DPiece%2DCard%2DGame%2DSet%2D18%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Set 18 Booster Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/252583%2DOne%2DPiece%2DCard%2DGame%2DEB06%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game EB06 Booster Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/255215%2DOne%2DPiece%2DCard%2DGame%2DSet%2D19%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Set 19 Booster Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/242238%2DOne%2DPiece%2DCard%2DGame%2DThe%2DWorld%2DStrongest%2DWarriors%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game The World Strongest Warriors Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/168645%2DOne%2DPiece%2DCard%2DGame%2DAwakening%2Dof%2Dthe%2DNew%2DEra%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Awakening of the New Era Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/162914%2DOne%2DPiece%2DCard%2DGame%2DKingdoms%2Dof%2DIntrigue%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Kingdoms of Intrigue Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/174090%2DOne%2DPiece%2DCard%2DGame%2DWings%2Dof%2Dthe%2DCaptain%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Wings of the Captain Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-09-17T14:27:54+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/144241%2DOne%2DPiece%2DCard%2DGame%2DRomance%2DDawn%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Romance Dawn Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/189296%2DOne%2DPiece%2DCard%2DGame%2DThe%2DBest%2DPremium%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game The Best Premium Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/197600%2DOne%2DPiece%2DCard%2DGame%2DRoyal%2DBlood%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Royal Blood Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/185292%2DOne%2DPiece%2DCard%2DGame%2DTwo%2DLegends%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Two Legends Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/203432%2DOne%2DPiece%2DCard%2DGame%2DA%2DFist%2Dof%2DDivine%2DSpeed%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game A Fist of Divine Speed Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/180024%2DOne%2DPiece%2DCard%2DGame%2D500%2DYears%2Din%2Dthe%2DFuture%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/180024-One-Piece-Card-Game-500-Years-in-the-Future-Booster-Display-EN": {
     "title": "One Piece Card Game 500 Years in the Future Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/151681%2DOne%2DPiece%2DCard%2DGame%2DParamount%2DWar%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Paramount War Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/178440%2DOne%2DPiece%2DCard%2DGame%2DMemorial%2DCollection%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Memorial Collection Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/158705%2DOne%2DPiece%2DCard%2DGame%2DPillars%2Dof%2DStrength%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Pillars of Strength Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
@@ -6059,117 +5769,37 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/243454%2DDragonball%2DSuper%2DFusion%2DWorld%2DBrightness%2Dof%2DHope%2DBooster%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World: Brightness of Hope Booster Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/252551%2DDragonball%2DSuper%2DFusion%2DWorld%2DBooster%2DDisplay%2D12%2DEN": {
-    "title": "Dragonball Super Fusion World Booster Display 12 -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/252561%2DDragonball%2DSuper%2DFusion%2DWorld%2DSpecial%2DBooster%2D02%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World Special Booster 02 Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/192960%2DDragonball%2DSuper%2DFusion%2DWorld%2DUltra%2DLimit%2DBooster%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World: Ultra Limit Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/186173%2DDragonball%2DSuper%2DFusion%2DWorld%2DRaging%2DRoar%2DBooster%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World: Raging Roar Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/255572%2DDragonball%2DSuper%2DFusion%2DWorld%2DBooster%2DDisplay%2D13%2DEN": {
-    "title": "Dragonball Super Fusion World Booster Display 13 -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/240919%2DDragonball%2DSuper%2DFusion%2DWorld%2DStory%2DBooster%2D01%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World: Story Booster 01 Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/237736%2DDragonball%2DSuper%2DFusion%2DWorld%2DCross%2DForce%2DBooster%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World: Cross Force Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/231627%2DDragonball%2DSuper%2DFusion%2DWorld%2DDual%2DEvolution%2DBooster%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World: Dual Evolution Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/213526%2DDragonball%2DSuper%2DFusion%2DWorld%2DManga%2DBooster%2D01%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World Manga Booster 01 Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/186172%2DDragonball%2DSuper%2DFusion%2DWorld%2DRaging%2DRoar%2DBooster%2DEN": {
-    "title": "Dragonball Super Fusion World: Raging Roar Booster -EN-",
-    "status": "instock",
-    "last_checked": "2026-09-17T15:35:00+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/224274%2DDragonball%2DSuper%2DFusion%2DWorld%2DManga%2DBooster%2D02%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World Manga Booster 02 Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/206025%2DDragonball%2DSuper%2DFusion%2DWorld%2DRivals%2DClash%2DBooster%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World Rivals Clash Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/216642%2DDragonball%2DSuper%2DFusion%2DWorld%2DWish%2Dfor%2DShenron%2DBooster%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World Wish for Shenron Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/226472%2DDragonball%2DSuper%2DFusion%2DWorld%2DSaiyans%2DPride%2DBooster%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World Saiyan's Pride Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/175300%2DDragonball%2DSuper%2DFusion%2DWorld%2DAwakened%2DPulse%2DBooster%2DDisplay%2DEN": {
-    "title": "Dragonball Super Fusion World Awakened Pulse Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/177968%2DDragonball%2DSuper%2DFusion%2DWorld%2DBlazing%2DAura%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/177968-Dragonball-Super-Fusion-World-Blazing-Aura-Booster-Display-EN": {
     "title": "Dragonball Super Fusion World Blazing Aura Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/206023%2DDragonball%2DSuper%2DFusion%2DWorld%2DRivals%2DClash%2DBooster%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/206023-Dragonball-Super-Fusion-World-Rivals-Clash-Booster-EN": {
     "title": "Dragonball Super Fusion World Rivals Clash Booster -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/199117%2DDragonball%2DSuper%2DFusion%2DWorld%2DNew%2DAdventure%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/199117-Dragonball-Super-Fusion-World-New-Adventure-Booster-Display-EN": {
     "title": "Dragonball Super Fusion World: New Adventure Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/175298%2DDragonball%2DSuper%2DFusion%2DWorld%2DAwakened%2DPulse%2DBooster%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/175298-Dragonball-Super-Fusion-World-Awakened-Pulse-Booster-EN": {
     "title": "Dragonball Super Fusion World Awakened Pulse Booster -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/177967%2DDragonball%2DSuper%2DFusion%2DWorld%2DBlazing%2DAura%2DBooster%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/177967-Dragonball-Super-Fusion-World-Blazing-Aura-Booster-EN": {
     "title": "Dragonball Super Fusion World Blazing Aura Booster -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/252547%2DDragonball%2DSuper%2DFusion%2DWorld%2DBooster%2D12%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/252547-Dragonball-Super-Fusion-World-Booster-12-EN": {
     "title": "Dragonball Super Fusion World Booster 12 -EN-",
     "status": "preorder",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/252557%2DDragonball%2DSuper%2DFusion%2DWorld%2DSpecial%2DBooster%2D02%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/252557-Dragonball-Super-Fusion-World-Special-Booster-02-EN": {
     "title": "Dragonball Super Fusion World Special Booster 02 -EN-",
     "status": "preorder",
     "last_checked": "2026-10-08T11:01:47+00:00"
@@ -6186,7 +5816,7 @@
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/232207-Dragonball-Super-Fusion-World-Starter-Deck-EX-The-Beat-of-Ki-EN": {
     "title": "Dragonball Super Fusion World Starter Deck EX The Beat of Ki -EN-",
-    "status": "instock",
+    "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/206032-Dragonball-Super-Fusion-World-Starter-Deck-Vegeta-Mini-Super-Saiyan-3-EN": {
@@ -6249,81 +5879,6 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/246218%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DFS%2D14%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck FS 14 -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/246217%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DFS%2D13%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck FS 13 -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/232207%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DEX%2DThe%2DBeat%2Dof%2DKi%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck EX The Beat of Ki -EN-",
-    "status": "outofstock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/206032%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DVegeta%2DMini%2DSuper%2DSaiyan%2D3%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck Vegeta (Mini) Super Saiyan 3 -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/192957%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DSon%2DGoku%2DMini%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck Son Goku Mini -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/192958%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DVegeta%2DMini%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck Vegeta Mini -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/185305%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DBardock%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck Bardock -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/175302%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DVegeta%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck Vegeta -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/175301%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DSon%2DGoku%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck Son Goku -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/175303%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DBroly%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck Broly -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/175304%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DFrieza%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck Frieza -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/255573%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DFS%2D15%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck FS 15 -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/232206%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DEX%2DThe%2DPhase%2Dof%2DEvolution%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck EX The Phase of Evolution -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/210764%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DGiblet%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck Giblet -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/210763%2DDragonball%2DSuper%2DFusion%2DWorld%2DStarter%2DDeck%2DShallot%2DEN": {
-    "title": "Dragonball Super Fusion World Starter Deck Shallot -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241547-Magic-Marvel-Super-Heroes-Play-Booster-Display-DE": {
     "title": "Magic Marvel Super Heroes Play Booster Display -DE-",
     "status": "instock",
@@ -6371,7 +5926,7 @@
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/163351-Magic-The-Lord-of-the-Rings-Tales-of-Middle-earth-Set-Booster-Display-EN": {
     "title": "Magic The Lord of the Rings: Tales of Middle-earth Set Booster Display -EN-",
-    "status": "instock",
+    "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254332-Magic-Star-Trek-Play-Booster-Display-DE": {
@@ -6381,7 +5936,7 @@
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241515-Magic-Secrets-of-Strixhaven-Play-Booster-Display-EN": {
     "title": "Magic Secrets of Strixhaven Play Booster Display -EN-",
-    "status": "instock",
+    "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254336-Magic-Star-Trek-Sammler-Booster-Display-DE": {
@@ -6404,134 +5959,54 @@
     "status": "instock",
     "last_checked": "2026-09-30T08:21:20+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241547%2DMagic%2DMarvel%2DSuper%2DHeroes%2DPlay%2DBooster%2DDisplay%2DDE": {
-    "title": "Magic Marvel Super Heroes Play Booster Display -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241550%2DMagic%2DMarvel%2DSuper%2DHeroes%2DPlay%2DBooster%2DDisplay%2DEN": {
-    "title": "Magic Marvel Super Heroes Play Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241563%2DMagic%2DMarvel%2DSuper%2DHeroes%2DJumpstart%2DBooster%2DDisplay%2DDE": {
-    "title": "Magic Marvel Super Heroes Jumpstart Booster Display -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/233875%2DMagic%2DLorwyn%2DEclipsed%2DPlay%2DBooster%2DDisplay%2DEN%2DNachproduktion": {
-    "title": "Magic Lorwyn Eclipsed Play Booster Display -EN- (Nachproduktion)",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254338%2DMagic%2DStar%2DTrek%2DCollector%2DBooster%2DDisplay%2DEN": {
-    "title": "Magic Star Trek Collector Booster Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247951%2DMagic%2DReality%2DFracture%2DPlay%2DBooster%2DDisplay%2DEN": {
-    "title": "Magic Reality Fracture Play Booster Display -EN-",
-    "status": "outofstock",
-    "last_checked": "2026-10-07T06:21:27+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254334%2DMagic%2DStar%2DTrek%2DPlay%2DBooster%2DDisplay%2DEN": {
-    "title": "Magic Star Trek Play Booster Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247949%2DMagic%2DZersplitterte%2DRealitaet%2DPlay%2DBooster%2DDisplay%2DDE": {
-    "title": "Magic Zersplitterte Realität Play Booster Display -DE-",
-    "status": "outofstock",
-    "last_checked": "2026-10-06T14:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247953%2DMagic%2DZersplitterte%2DRealitaet%2DSammler%2DBooster%2DDisplay%2DDE": {
-    "title": "Magic Zersplitterte Realität Sammler Booster Display -DE-",
-    "status": "outofstock",
-    "last_checked": "2026-10-01T15:01:53+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/163351%2DMagic%2DThe%2DLord%2Dof%2Dthe%2DRings%2DTales%2Dof%2DMiddle%2Dearth%2DSet%2DBooster%2DDisplay%2DEN": {
-    "title": "Magic The Lord of the Rings: Tales of Middle-earth Set Booster Display -EN-",
-    "status": "outofstock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254332%2DMagic%2DStar%2DTrek%2DPlay%2DBooster%2DDisplay%2DDE": {
-    "title": "Magic Star Trek Play Booster Display -DE-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241515%2DMagic%2DSecrets%2Dof%2DStrixhaven%2DPlay%2DBooster%2DDisplay%2DEN": {
-    "title": "Magic Secrets of Strixhaven Play Booster Display -EN-",
-    "status": "outofstock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254336%2DMagic%2DStar%2DTrek%2DSammler%2DBooster%2DDisplay%2DDE": {
-    "title": "Magic Star Trek Sammler Booster Display -DE-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234264%2DMagic%2DTeenage%2DMutant%2DNinja%2DTurtles%2DPlay%2DBooster%2DDisplay%2DEN": {
-    "title": "Magic Teenage Mutant Ninja Turtles Play Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/218008%2DMagic%2DMarvel%2DSpider%2DMan%2DPlay%2DBooster%2DDisplay%2DDE": {
-    "title": "Magic Marvel Spider Man Play Booster Display -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/198328%2DMagic%2DDuskmourn%2DHaus%2Ddes%2DSchreckens%2DPlay%2DBooster%2DDisplay%2DDE": {
-    "title": "Magic Duskmourn Haus des Schreckens Play Booster Display -DE-",
-    "status": "instock",
-    "last_checked": "2026-09-30T08:21:20+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234262%2DMagic%2DTeenage%2DMutant%2DNinja%2DTurtles%2DPlay%2DBooster%2DDisplay%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234262-Magic-Teenage-Mutant-Ninja-Turtles-Play-Booster-Display-DE": {
     "title": "Magic Teenage Mutant Ninja Turtles Play Booster Display -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/218010%2DMagic%2DMarvel%2DSpider%2DMan%2DPlay%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/218010-Magic-Marvel-Spider-Man-Play-Booster-Display-EN": {
     "title": "Magic Marvel Spider Man Play Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234266%2DMagic%2DTeenage%2DMutant%2DNinja%2DTurtles%2DSammler%2DBooster%2DDisplay%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234266-Magic-Teenage-Mutant-Ninja-Turtles-Sammler-Booster-Display-DE": {
     "title": "Magic Teenage Mutant Ninja Turtles Sammler Booster Display -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/210746%2DMagic%2DAetherdrift%2DPlay%2DBooster%2DDisplay%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/210746-Magic-Aetherdrift-Play-Booster-Display-DE": {
     "title": "Magic Ätherdrift Play Booster Display -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/210748%2DMagic%2DAetherdrift%2DPlay%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/210748-Magic-Aetherdrift-Play-Booster-Display-EN": {
     "title": "Magic Aetherdrift Play Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247930%2DMagic%2DDer%2DHobbit%2DPlay%2DBooster%2DDisplay%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247930-Magic-Der-Hobbit-Play-Booster-Display-DE": {
     "title": "Magic Der Hobbit Play Booster Display -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/218014%2DMagic%2DMarvel%2DSpider%2DMan%2DCollector%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/218014-Magic-Marvel-Spider-Man-Collector-Booster-Display-EN": {
     "title": "Magic Marvel Spider Man Collector Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241560%2DMagic%2DMarvel%2DSuper%2DHeroes%2DCollector%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241560-Magic-Marvel-Super-Heroes-Collector-Booster-Display-EN": {
     "title": "Magic Marvel Super Heroes Collector Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247939-Magic-Der-Hobbit-Bundle-DE": {
     "title": "Magic Der Hobbit Bundle -DE-",
-    "status": "instock",
+    "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247940-Magic-The-Hobbit-Bundle-EN": {
     "title": "Magic The Hobbit Bundle -EN-",
-    "status": "instock",
+    "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241568-Magic-Marvel-Super-Heroes-Gift-Bundle-EN": {
@@ -6556,7 +6031,7 @@
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247960-Magic-Reality-Fracture-Bundle-EN": {
     "title": "Magic Reality Fracture Bundle -EN-",
-    "status": "instock",
+    "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247966-Magic-Reality-Fracture-Secret-Lair-Bundle-EN": {
@@ -6599,117 +6074,42 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247939%2DMagic%2DDer%2DHobbit%2DBundle%2DDE": {
-    "title": "Magic Der Hobbit Bundle -DE-",
-    "status": "outofstock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247940%2DMagic%2DThe%2DHobbit%2DBundle%2DEN": {
-    "title": "Magic The Hobbit Bundle -EN-",
-    "status": "outofstock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241568%2DMagic%2DMarvel%2DSuper%2DHeroes%2DGift%2DBundle%2DEN": {
-    "title": "Magic Marvel Super Heroes Gift Bundle -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241567%2DMagic%2DMarvel%2DSuper%2DHeroes%2DBundle%2DEN": {
-    "title": "Magic Marvel Super Heroes Bundle -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241566%2DMagic%2DMarvel%2DSuper%2DHeroes%2DBundle%2DDE": {
-    "title": "Magic Marvel Super Heroes Bundle -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247958%2DMagic%2DZersplitterte%2DRealitaet%2DBundle%2DDE": {
-    "title": "Magic Zersplitterte Realität Bundle -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247966%2DMagic%2DReality%2DFracture%2DSecret%2DLair%2DBundle%2DEN": {
-    "title": "Magic Reality Fracture Secret Lair Bundle -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247960%2DMagic%2DReality%2DFracture%2DBundle%2DEN": {
-    "title": "Magic Reality Fracture Bundle -EN-",
-    "status": "outofstock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254341%2DMagic%2DStar%2DTrek%2DBeam%2DMe%2DUp%2DBundle%2DEN": {
-    "title": "Magic Star Trek Beam Me Up Bundle -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254339%2DMagic%2DStar%2DTrek%2DBundle%2DDE": {
-    "title": "Magic Star Trek Bundle -DE-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234269%2DMagic%2DTeenage%2DMutant%2DNinja%2DTurtles%2DBundle%2DDE": {
-    "title": "Magic Teenage Mutant Ninja Turtles Bundle -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254340%2DMagic%2DStar%2DTrek%2DBundle%2DEN": {
-    "title": "Magic Star Trek Bundle -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234270%2DMagic%2DTeenage%2DMutant%2DNinja%2DTurtles%2DBundle%2DEN": {
-    "title": "Magic Teenage Mutant Ninja Turtles Bundle -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/210753%2DMagic%2DAetherdrift%2DBundle%2DDE": {
-    "title": "Magic Ätherdrift Bundle -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247942%2DMagic%2DThe%2DHobbit%2DGift%2DBundle%2DEN": {
-    "title": "Magic The Hobbit Gift Bundle -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230714%2DMagic%2DAvatar%2DThe%2DLast%2DAirbender%2DBundle%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230714-Magic-Avatar-The-Last-Airbender-Bundle-EN": {
     "title": "Magic Avatar: The Last Airbender Bundle -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230012%2DMagic%2DMarvel%2DSpider%2DMan%2DGift%2DBundle%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230012-Magic-Marvel-Spider-Man-Gift-Bundle-EN": {
     "title": "Magic Marvel Spider Man Gift Bundle -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/218016%2DMagic%2DMarvel%2DSpider%2DMan%2DBundle%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/218016-Magic-Marvel-Spider-Man-Bundle-EN": {
     "title": "Magic Marvel Spider Man Bundle -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230722%2DMagic%2DAvatar%2DThe%2DLast%2DAirbender%2DCommanders%2DBundle%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230722-Magic-Avatar-The-Last-Airbender-Commanders-Bundle-EN": {
     "title": "Magic Avatar: The Last Airbender Commander's Bundle -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241525%2DMagic%2DSecrets%2Dof%2DStrixhaven%2DCodex%2DBundle%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241525-Magic-Secrets-of-Strixhaven-Codex-Bundle-EN": {
     "title": "Magic Secrets of Strixhaven Codex Bundle -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/188237%2DMagic%2DAssassins%2DCreed%2DBundle%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/188237-Magic-Assassins-Creed-Bundle-DE": {
     "title": "Magic Assassin's Creed Bundle -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/188051%2DMagic%2DModern%2DHorizons%2D3%2DBundle%2DGift%2DEdition%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/188051-Magic-Modern-Horizons-3-Bundle-Gift-Edition-EN": {
     "title": "Magic Modern Horizons 3 Bundle Gift Edition -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/217509%2DMagic%2DTarkir%2DDrachensturm%2DBundle%2DDE%2Dmax%2D1%2Dpro%2DHaushalt": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/217509-Magic-Tarkir-Drachensturm-Bundle-DE-max-1-pro-Haushalt": {
     "title": "Magic Tarkir Drachensturm Bundle -DE- (max. 1 pro Haushalt)",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
@@ -6747,7 +6147,7 @@
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247964-Magic-Reality-Fracture-Commander-Deck-EN": {
     "title": "Magic Reality Fracture Commander Deck -EN-",
     "status": "instock",
-    "last_checked": "2026-10-07T06:21:27+00:00"
+    "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254346-Magic-Star-Trek-Commander-Deck-Set-EN": {
     "title": "Magic Star Trek Commander Deck Set -EN-",
@@ -6766,7 +6166,7 @@
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241523-Magic-Secrets-of-Strixhaven-Commander-Deck-Set-EN": {
     "title": "Magic Secrets of Strixhaven Commander Deck Set -EN-",
-    "status": "instock",
+    "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254347-Magic-Star-Trek-Commander-Deck-Set-Collectors-Edition-EN": {
@@ -6786,7 +6186,7 @@
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241522-Magic-Geheimnisse-von-Strixhaven-Commander-Deck-Set-DE": {
     "title": "Magic Geheimnisse von Strixhaven Commander Deck Set -DE-",
-    "status": "instock",
+    "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234272-Magic-Teenage-Mutant-Ninja-Turtles-Commander-Deck-EN": {
@@ -6794,122 +6194,42 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241569%2DMagic%2DMarvel%2DSuper%2DHeroes%2DCommander%2DDeck%2DSet%2DDE": {
-    "title": "Magic Marvel Super Heroes Commander Deck Set -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241570%2DMagic%2DMarvel%2DSuper%2DHeroes%2DCommander%2DDeck%2DSet%2DEN": {
-    "title": "Magic Marvel Super Heroes Commander Deck Set -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247971%2DMagic%2DFoundations%2DCommander%2DDeck%2DSet%2DEN": {
-    "title": "Magic Foundations Commander Deck Set -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-06T12:21:29+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/178428%2DMagic%2DFallout%2DCommander%2DDeck%2DSet%2DEN%2DNachproduktion": {
-    "title": "Magic Fallout Commander Deck Set -EN- (Nachproduktion)",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247968%2DMagic%2DGrundstein%2DCommander%2DDeck%2DSet%2DDE": {
-    "title": "Magic Grundstein Commander Deck Set -DE-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247963%2DMagic%2DZersplitterte%2DRealitaet%2DCommander%2DDeck%2DDE": {
-    "title": "Magic Zersplitterte Realität Commander Deck -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247964%2DMagic%2DReality%2DFracture%2DCommander%2DDeck%2DEN": {
-    "title": "Magic Reality Fracture Commander Deck -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254346%2DMagic%2DStar%2DTrek%2DCommander%2DDeck%2DSet%2DEN": {
-    "title": "Magic Star Trek Commander Deck Set -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234271%2DMagic%2DTeenage%2DMutant%2DNinja%2DTurtles%2DCommander%2DDeck%2DDE": {
-    "title": "Magic Teenage Mutant Ninja Turtles Commander Deck -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241523%2DMagic%2DSecrets%2Dof%2DStrixhaven%2DCommander%2DDeck%2DSet%2DEN": {
-    "title": "Magic Secrets of Strixhaven Commander Deck Set -EN-",
-    "status": "outofstock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254345%2DMagic%2DStar%2DTrek%2DCommander%2DDeck%2DSet%2DDE": {
-    "title": "Magic Star Trek Commander Deck Set -DE-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254347%2DMagic%2DStar%2DTrek%2DCommander%2DDeck%2DSet%2DCollectors%2DEdition%2DEN": {
-    "title": "Magic Star Trek Commander Deck Set Collector's Edition -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/217080%2DMagic%2DFinal%2DFantasy%2DCommander%2DDeck%2DSet%2DDE": {
-    "title": "Magic Final Fantasy Commander Deck Set -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/217079%2DMagic%2DFinal%2DFantasy%2DCommander%2DDeck%2DSet%2DEN": {
-    "title": "Magic Final Fantasy Commander Deck Set -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241522%2DMagic%2DGeheimnisse%2Dvon%2DStrixhaven%2DCommander%2DDeck%2DSet%2DDE": {
-    "title": "Magic Geheimnisse von Strixhaven Commander Deck Set -DE-",
-    "status": "outofstock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234272%2DMagic%2DTeenage%2DMutant%2DNinja%2DTurtles%2DCommander%2DDeck%2DEN": {
-    "title": "Magic Teenage Mutant Ninja Turtles Commander Deck -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241571%2DMagic%2DMarvel%2DSuper%2DHeroes%2DCommander%2DDeck%2DSet%2DCollectors%2DEdition%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241571-Magic-Marvel-Super-Heroes-Commander-Deck-Set-Collectors-Edition-EN": {
     "title": "Magic Marvel Super Heroes Commander Deck Set Collector's Edition -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/188072%2DMagic%2DBloomburrow%2DCommander%2DDeck%2DSet%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/188072-Magic-Bloomburrow-Commander-Deck-Set-EN": {
     "title": "Magic Bloomburrow Commander Deck Set -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/233883%2DMagic%2DLorwyn%2DEclipsed%2DCommander%2DDeck%2DSet%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/233883-Magic-Lorwyn-Eclipsed-Commander-Deck-Set-EN": {
     "title": "Magic Lorwyn Eclipsed Commander Deck Set -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/188071%2DMagic%2DBloomburrow%2DCommander%2DDeck%2DSet%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/188071-Magic-Bloomburrow-Commander-Deck-Set-DE": {
     "title": "Magic Bloomburrow Commander Deck Set -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/233882%2DMagic%2DLorwyns%2DFinsternis%2DCommander%2DDeck%2DSet%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/233882-Magic-Lorwyns-Finsternis-Commander-Deck-Set-DE": {
     "title": "Magic Lorwyns Finsternis Commander Deck Set -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/217675%2DMagic%2DAm%2DRande%2Dder%2DEwigkeiten%2DCommander%2DDeck%2DSet%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/217675-Magic-Am-Rande-der-Ewigkeiten-Commander-Deck-Set-DE": {
     "title": "Magic Am Rande der Ewigkeiten Commander Deck Set -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/176793%2DMagic%2DDie%2Dverlorenen%2DHoehlen%2Dvon%2DIxalan%2DCommander%2DDeck%2DSet%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/176793-Magic-Die-verlorenen-Hoehlen-von-Ixalan-Commander-Deck-Set-DE": {
     "title": "Magic Die verlorenen Höhlen von Ixalan Commander Deck Set -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/198339%2DMagic%2DDuskmourn%2DHaus%2Ddes%2DSchreckens%2DCommander%2DDeck%2DSet%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/198339-Magic-Duskmourn-Haus-des-Schreckens-Commander-Deck-Set-DE": {
     "title": "Magic Duskmourn Haus des Schreckens Commander Deck Set -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
@@ -6934,45 +6254,25 @@
     "status": "preorder",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/242598%2DYu%2DGi%2DOh%2DBattles%2Dof%2DLegend%2DGlorious%2DGallery%2DBooster%2DDisplay%2DEN": {
-    "title": "Yu-Gi-Oh! Battles of Legend: Glorious Gallery Booster Display -EN-",
-    "status": "outofstock",
-    "last_checked": "2026-10-02T08:21:20+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/252060%2DYu%2DGi%2DOh%2DBeyond%2Dthe%2DBrave%2DBooster%2DDisplay%2DEN": {
-    "title": "Yu-Gi-Oh! Beyond the Brave Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/228568%2DYu%2DGi%2DOh%2DRetro%2DPack%2D2%2DBooster%2DDisplay%2DEN": {
-    "title": "Yu-Gi-Oh! Retro Pack 2 Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/255755%2DYu%2DGi%2DOh%2DGlorious%2DVictors%2DBooster%2DDisplay%2DEN": {
-    "title": "Yu-Gi-Oh! Glorious Victors Booster Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/235674%2DYu%2DGi%2DOh%2DMaze%2Dof%2DMuertos%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/235674-Yu-Gi-Oh-Maze-of-Muertos-Booster-Display-EN": {
     "title": "Yu-Gi-Oh! Maze of Muertos Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/185302%2DYu%2DGi%2DOh%2D25th%2DAnniversary%2DRarity%2DCollection%2DII%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/185302-Yu-Gi-Oh-25th-Anniversary-Rarity-Collection-II-Booster-Display-EN": {
     "title": "Yu-Gi-Oh! 25th Anniversary Rarity Collection II Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/213519%2DYu%2DGi%2DOh%2DAlliance%2DInsight%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/213519-Yu-Gi-Oh-Alliance-Insight-Booster-Display-EN": {
     "title": "Yu-Gi-Oh! Alliance Insight Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230145%2DYu%2DGi%2DOh%2DPhantom%2DRevenge%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230145-Yu-Gi-Oh-Phantom-Revenge-Booster-Display-EN": {
     "title": "Yu-Gi-Oh! Phantom Revenge Booster Display -EN-",
     "status": "instock",
-    "last_checked": "2026-09-28T04:41:17+00:00"
+    "last_checked": "2026-10-08T04:21:30+00:00"
   },
   "mediamarkt.ch:https://www.mediamarkt.ch/de/product/_pokemon-center-special-box-tohoku-sammelkarten-165477479.html": {
     "title": "POKEMON Center Special Box Tohoku Sammelkarten",
@@ -11624,11 +10924,6 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/177968-Dragonball-Super-Fusion-World-Blazing-Aura-Booster-Display-EN": {
-    "title": "Dragonball Super Fusion World Blazing Aura Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
   "carab.ch:https://www.carab.ch/shop/product/One%20Piece%20Card%20Game%20-%20OP12%20Legacy%20of%20the%20Master%20-%20Display/227099": {
     "title": "One Piece Card Game - OP12 Legacy of the Master - Display",
     "status": "instock",
@@ -11891,20 +11186,10 @@
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253439-Pokemon-30-Jahre-Booster-Bundle-DE": {
     "title": "Pokémon 30 Jahre Booster Bundle -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253439-Pokemon-30-Jahre-Booster-Bundle-DE:pokemon30thall": {
-    "title": "Pokémon 30 Jahre Booster Bundle -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253439%2DPokemon%2D30%2DJahre%2DBooster%2DBundle%2DDE": {
-    "title": "Pokémon 30 Jahre Booster Bundle -DE-",
     "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253439%2DPokemon%2D30%2DJahre%2DBooster%2DBundle%2DDE:pokemon30thall": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253439-Pokemon-30-Jahre-Booster-Bundle-DE:pokemon30thall": {
     "title": "Pokémon 30 Jahre Booster Bundle -DE-",
     "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
@@ -11929,26 +11214,6 @@
     "status": "preorder",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254354%2DPokemon%2D30%2DJahre%2DUltra%2DPremium%2DKollektion%2DNacht%2DDE": {
-    "title": "Pokémon 30 Jahre Ultra-Premium-Kollektion Nacht -DE-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254354%2DPokemon%2D30%2DJahre%2DUltra%2DPremium%2DKollektion%2DNacht%2DDE:pokemon30thall": {
-    "title": "Pokémon 30 Jahre Ultra-Premium-Kollektion Nacht -DE-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254352%2DPokemon%2D30%2DJahre%2DUltra%2DPremium%2DKollektion%2DTag%2DDE": {
-    "title": "Pokémon 30 Jahre Ultra-Premium-Kollektion Tag -DE-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254352%2DPokemon%2D30%2DJahre%2DUltra%2DPremium%2DKollektion%2DTag%2DDE:pokemon30thall": {
-    "title": "Pokémon 30 Jahre Ultra-Premium-Kollektion Tag -DE-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
   "naxoria.ch:76645": {
     "title": "Pokémon Mega Evolution – ME04 Chaos Rising – Elite Trainer Box (EN)",
     "status": "instock",
@@ -11963,11 +11228,6 @@
     "title": "Pokémon Mega-Evolution – ME02.5 Ascended Heroes Booster Bundle (EN)",
     "status": "instock",
     "last_checked": "2026-10-03T14:01:39+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/213519-Yu-Gi-Oh-Alliance-Insight-Booster-Display-EN": {
-    "title": "Yu-Gi-Oh! Alliance Insight Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-07T22:01:40+00:00"
   },
   "galaxus.ch:72315995": {
     "title": "Pokémon 30th Anniversary Elite Trainer Box DE",
@@ -12057,7 +11317,7 @@
   "galaxus.ch:58898301": {
     "title": "Bandai One Piece (Englisch, Booster Pack)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:40234544": {
     "title": "One Piece Awakening of the New Era Booster Pack -",
@@ -13739,11 +12999,6 @@
     "status": "instock",
     "last_checked": "2026-09-25T20:01:44+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230145-Yu-Gi-Oh-Phantom-Revenge-Booster-Display-EN": {
-    "title": "Yu-Gi-Oh! Phantom Revenge Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T04:21:30+00:00"
-  },
   "naxoria.ch:84526": {
     "title": "Pokémon – 30th Anniversary First Partner Card Set Vol.2 (CN)",
     "status": "instock",
@@ -13753,11 +13008,6 @@
     "title": "Pokémon – 30th Anniversary First Partner Card Set Vol.2 (CN)",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/180024-One-Piece-Card-Game-500-Years-in-the-Future-Booster-Display-EN": {
-    "title": "One Piece Card Game 500 Years in the Future Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-03T14:01:39+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/217957-Yu-Gi-Oh-Duelists-Advance-Booster-Display-EN": {
     "title": "Yu-Gi-Oh! Duelist's Advance Booster Display -EN-",
@@ -13802,12 +13052,12 @@
   "manor.ch:https://www.manor.ch/de/p/mp-42fc6328-tproduct": {
     "title": "Pokémon Scarlet & Violet 151 Blooming Waters Premium Collection Box (EN)",
     "status": "instock",
-    "last_checked": "2026-10-08T10:01:53+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/mp-093ce97d-tproduct": {
     "title": "TAG TEAM Generations Premium Collection Box",
     "status": "instock",
-    "last_checked": "2026-10-08T10:01:53+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/mp-b051e9e2-tproduct": {
     "title": "TCG: Scarlet & Violet - Surging Sparks (SV08) Booster Pack - EN",
@@ -13827,7 +13077,7 @@
   "manor.ch:https://www.manor.ch/de/p/mp-f705e772-tproduct": {
     "title": "Entwicklungen in Paldea - Top-Trainer Box (English)",
     "status": "instock",
-    "last_checked": "2026-10-08T10:01:53+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/mp-ff1de7f1-tproduct": {
     "title": "Champion's Path Booster Pack (1 Random) - EN",
@@ -13874,11 +13124,6 @@
     "status": "preorder",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/257883%2DOne%2DPiece%2DCard%2DGame%2DPremium%2DExtra%2DBooster%2DDisplay%2DEN": {
-    "title": "One Piece Card Game Premium Extra Booster Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/203027-Yu-Gi-Oh-Supreme-Darkness-Booster-Display-EN": {
     "title": "Yu-Gi-Oh! Supreme Darkness Booster Display -EN-",
     "status": "instock",
@@ -13892,7 +13137,7 @@
   "manor.ch:https://www.manor.ch/de/p/mp-72a03d88-tproduct": {
     "title": "Mega-Quajutsu ex Premium Collection",
     "status": "instock",
-    "last_checked": "2026-10-08T10:01:53+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/mp-e9751d4a-tproduct": {
     "title": "Crown Zenith Pikachu VMAX Special Collection Box - EN",
@@ -13907,7 +13152,7 @@
   "manor.ch:https://www.manor.ch/de/p/mp-fc36f4c9-tproduct": {
     "title": "Premierball-Pokéball Tin Box 2019 - EN",
     "status": "instock",
-    "last_checked": "2026-10-08T10:01:53+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "naxoria.ch:91567": {
     "title": "Pokémon – 30 Jahre – 2-Pack Blister (DE)",
@@ -14202,7 +13447,7 @@
   "manor.ch:https://www.manor.ch/de/p/mp-c8963181-tproduct": {
     "title": "Mega-Quajutsu ex Premium Collection",
     "status": "instock",
-    "last_checked": "2026-10-07T14:01:49+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/mp-d5781215-tproduct": {
     "title": "Duskmourn: Haus des Schreckens Play-Booster (DE)",
@@ -14412,7 +13657,7 @@
   "galaxus.ch:59199055": {
     "title": "One Piece OP11 Booster EN (Englisch, Booster Pack)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/mp-f047c879-tproduct": {
     "title": "Marshadow Collection Box - EN",
@@ -14589,11 +13834,6 @@
     "status": "preorder",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/258087%2DYu%2DGi%2DOh%2DImmortal%2DPhoenix%2DBooster%2DDisplay%2DEN": {
-    "title": "Yu-Gi-Oh! Immortal Phoenix Booster Display -EN-",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
   "galaxus.ch:70044813": {
     "title": "Wizards of the Coast Magic The Gathering - Der Hobbit",
     "status": "instock",
@@ -14734,11 +13974,6 @@
     "status": "instock",
     "last_checked": "2026-09-30T11:41:25+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/235674-Yu-Gi-Oh-Maze-of-Muertos-Booster-Display-EN": {
-    "title": "Yu-Gi-Oh! Maze of Muertos Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-09-28T22:21:19+00:00"
-  },
   "galaxus.ch:59023451": {
     "title": "Konami Yu-Gi-Oh! Box 24 buste: Doom of Dimensions ENG",
     "status": "preorder",
@@ -14748,11 +13983,6 @@
     "title": "Pokémon Pokemon - Ogerpon ex Premium Collection (POK85882) (Englisch, Box Set & Collection)",
     "status": "instock",
     "last_checked": "2026-10-07T00:41:40+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241571-Magic-Marvel-Super-Heroes-Commander-Deck-Set-Collectors-Edition-EN": {
-    "title": "Magic Marvel Super Heroes Commander Deck Set Collector's Edition -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "galaxus.ch:65898536": {
     "title": "Pokémon ME03 Perfect Order (Englisch, Elite / Top Trainer Box)",
@@ -14775,11 +14005,6 @@
     "last_checked": "2026-09-30T03:01:43+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230703-Magic-Avatar-The-Last-Airbender-Play-Booster-Display-EN": {
-    "title": "Magic Avatar: The Last Airbender Play Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/230703%2DMagic%2DAvatar%2DThe%2DLast%2DAirbender%2DPlay%2DBooster%2DDisplay%2DEN": {
     "title": "Magic Avatar: The Last Airbender Play Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
@@ -14810,11 +14035,6 @@
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
   "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247956-Magic-Reality-Fracture-Collector-Booster-Display-EN": {
-    "title": "Magic Reality Fracture Collector Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247956%2DMagic%2DReality%2DFracture%2DCollector%2DBooster%2DDisplay%2DEN": {
     "title": "Magic Reality Fracture Collector Booster Display -EN-",
     "status": "outofstock",
     "last_checked": "2026-10-08T11:01:47+00:00"
@@ -14942,7 +14162,7 @@
   "manor.ch:https://www.manor.ch/de/p/mp-90c63aee-tproduct": {
     "title": "Schimmernde Legende Raichu GX Special Collection Box",
     "status": "instock",
-    "last_checked": "2026-10-07T19:23:06+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "manor.ch:https://www.manor.ch/de/p/mp-edd4d88e-tproduct": {
     "title": "Center Brock & Pewter City Gym - Trainer Battle Deck",
@@ -16617,7 +15837,7 @@
   "galaxus.ch:69426039": {
     "title": "Pokémon Spanish Pokemon Perfect Order pack of card games 3 envelopes (Spanisch, Booster Pack)",
     "status": "instock",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:71204879": {
     "title": "Pokémon Lumiose City 2026 Mini Tin Display EN (Englisch, Booster Display)",
@@ -16732,12 +15952,12 @@
   "galaxus.ch:53565249": {
     "title": "Bandai One Piece - - Englisch (Englisch, Deck)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:53546752": {
     "title": "One Piece The Four Emperors Booster (OP-10) (Englisch, Booster Pack)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:40181121": {
     "title": "One Piece - Starter Deck - Yamato - ST-09 - Englisch (Englisch, Deck)",
@@ -16762,7 +15982,7 @@
   "galaxus.ch:67624353": {
     "title": "One Piece Heroines Edition EB03 Booster EN (Englisch, Booster Pack)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:47016684": {
     "title": "One Piece 500 Years in the Future OP07 Booster Pack - Card Game - EN (Englisch, Booster Pack)",
@@ -16922,27 +16142,27 @@
   "galaxus.ch:53565257": {
     "title": "Bandai One Piece - - Englisch (Englisch, Booster Pack, Deck)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:52906186": {
     "title": "One Piece Starter Deck Monkey D. Luffy ST-18 EN (Englisch, Deck)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:58898302": {
     "title": "Bandai One Piece Teufelsfrucht-Sammlung Vol.3 (Englisch, Box Set & Collection)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:36363504": {
     "title": "One Piece TCG - Starter Deck: The Seven Warlords of the Sea ST03 (Englisch, Booster Pack)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:67131615": {
     "title": "Card Fun One Piece Wanokuni Boite 30 Boosters 4 Cartes (Booster Pack)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:41886092": {
     "title": "One Piece - Starter Deck - Sanji & Zoro - ST-12 - Englisch (Englisch, Deck)",
@@ -17277,7 +16497,7 @@
   "galaxus.ch:21893576": {
     "title": "Yu-Gi-Oh ! Tactical Masters Booster Display -EN-",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:59968020": {
     "title": "Konami Duelist’s Advance Booster Pack - 1. Auflage - Yu-Gi-Oh! - EN (Englisch, Booster Pack)",
@@ -17287,12 +16507,12 @@
   "galaxus.ch:36875332": {
     "title": "Yu-Gi-Oh Structure Deck: Warriors' Strike - 1. Auflage -! - EN (Englisch, Deck)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:36874797": {
     "title": "Yu-Gi-Oh Zexal Collection Tin 2013 -! (Englisch, Tin)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "galaxus.ch:36874611": {
     "title": "Yu-Gi-Oh Structure Deck: Sacred Beasts -! - EN (Englisch, Deck)",
@@ -17452,7 +16672,7 @@
   "galaxus.ch:68709154": {
     "title": "One Piece Card Game - Heroines Special Set EN (Englisch, Box Set & Collection)",
     "status": "preorder",
-    "last_checked": "2026-10-08T10:41:24+00:00"
+    "last_checked": "2026-10-08T10:57:39+00:00"
   },
   "spielezar.ch:48599": {
     "title": "Pokémon: 30th Celebration Booster Bundle - EN",
@@ -17649,7 +16869,7 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/184038%2DYu%2DGi%2DOh%2DLegacy%2Dof%2DDestruction%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/184038-Yu-Gi-Oh-Legacy-of-Destruction-Booster-Display-EN": {
     "title": "Yu-Gi-Oh! Legacy of Destruction Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
@@ -17664,22 +16884,12 @@
     "status": "preorder",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247971%2DMagic%2DFoundations%2DCommander%2DDeck%2DSet%2DEN%2DNachlieferung": {
-    "title": "Magic Foundations Commander Deck Set -EN- (Nachlieferung)",
-    "status": "preorder",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
   "galaxus.ch:23564324": {
     "title": "Pokémon League Battle Deck (Englisch, Deck)",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/218010-Magic-Marvel-Spider-Man-Play-Booster-Display-EN": {
-    "title": "Magic Marvel Spider Man Play Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T06:21:30+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247934%2DMagic%2DDer%2DHobbit%2DSammler%2DBooster%2DDisplay%2DDE": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/247934-Magic-Der-Hobbit-Sammler-Booster-Display-DE": {
     "title": "Magic Der Hobbit Sammler Booster Display -DE-",
     "status": "instock",
     "last_checked": "2026-10-08T06:21:30+00:00"
@@ -17729,11 +16939,6 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234262-Magic-Teenage-Mutant-Ninja-Turtles-Play-Booster-Display-DE": {
-    "title": "Magic Teenage Mutant Ninja Turtles Play Booster Display -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T06:21:30+00:00"
-  },
   "galaxus.ch:72257372": {
     "title": "Pokémon POK 30 Jahre Feelinara-ex Kollekt. (Deutsch, Box Set & Collection)",
     "status": "instock",
@@ -17759,7 +16964,7 @@
     "status": "preorder",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234268%2DMagic%2DTeenage%2DMutant%2DNinja%2DTurtles%2DCollector%2DBooster%2DDisplay%2DEN": {
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/234268-Magic-Teenage-Mutant-Ninja-Turtles-Collector-Booster-Display-EN": {
     "title": "Magic Teenage Mutant Ninja Turtles Collector Booster Display -EN-",
     "status": "instock",
     "last_checked": "2026-10-08T06:21:30+00:00"
@@ -17824,16 +17029,6 @@
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
   },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241565%2DMagic%2DMarvel%2DSuper%2DHeroes%2DJumpstart%2DBooster%2DDisplay%2DEN": {
-    "title": "Magic Marvel Super Heroes Jumpstart Booster Display -EN-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
-  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/241558%2DMagic%2DMarvel%2DSuper%2DHeroes%2DSammler%2DBooster%2DDisplay%2DDE": {
-    "title": "Magic Marvel Super Heroes Sammler Booster Display -DE-",
-    "status": "instock",
-    "last_checked": "2026-10-08T11:01:47+00:00"
-  },
   "pokealp.ch:16061625401675": {
     "title": "Pokémon TCG 30th Celebration only Binder Collection",
     "status": "instock",
@@ -17843,5 +17038,880 @@
     "title": "Yu-Gi-Oh TCG Box Set Legendary Decks II Reprint",
     "status": "instock",
     "last_checked": "2026-10-08T11:01:47+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254351-Pokemon-30th-Celebration-Ditto-Premium-Collection-EN": {
+    "title": "Pokémon 30th Celebration Ditto Premium Collection -EN-",
+    "status": "outofstock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254350-Pokemon-30-Jahre-Ditto-Premium-Kollektion-DE": {
+    "title": "Pokémon 30 Jahre Ditto Premium-Kollektion -DE-",
+    "status": "outofstock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254350-Pokemon-30-Jahre-Ditto-Premium-Kollektion-DE:pokemon30thall": {
+    "title": "Pokémon 30 Jahre Ditto Premium-Kollektion -DE-",
+    "status": "outofstock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/244556-Pokemon-Mega-Greninja-EX-Premium-Collection-EN": {
+    "title": "Pokémon Mega Greninja EX Premium Collection -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/214991-Pokemon-Scarlet-Violet-Prismatic-Evolutions-Super-Premium-Collection-EN": {
+    "title": "Pokémon Scarlet & Violet: Prismatic Evolutions Super Premium Collection -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/240397-Pokemon-Mega-Zygarde-EX-Premium-Collection-EN": {
+    "title": "Pokémon Mega Zygarde EX Premium Collection -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/172312-Pokemon-Charizard-EX-Premium-Collection-EN": {
+    "title": "Pokémon Charizard EX Premium Collection -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/229801-Pokemon-Mega-Venusaur-EX-Premium-Collection-EN": {
+    "title": "Pokémon Mega Venusaur EX Premium Collection -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253442-Pokemon-30th-Celebration-Mini-Tin-Set-EN": {
+    "title": "Pokémon 30th Celebration Mini-Tin Set -EN-",
+    "status": "outofstock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/254097-Pokemon-30th-Celebration-Battle-Deck-Set-Espeon-EX-Umbreon-EX-EN": {
+    "title": "Pokémon 30th Celebration Battle Deck Set (Espeon EX, Umbreon EX) -EN-",
+    "status": "outofstock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253438-Pokemon-30th-Celebration-EX-Tin-Box-Set-EN": {
+    "title": "Pokémon 30th Celebration EX Tin-Box Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253430-Pokemon-30th-Celebration-2-Pack-Blister-EN": {
+    "title": "Pokémon 30th Celebration 2-Pack Blister -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253426-Pokemon-30th-Celebration-Binder-Collection-EN": {
+    "title": "Pokémon 30th Celebration Binder Collection -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253441-Pokemon-30-Jahre-Mini-Tin-Set-DE": {
+    "title": "Pokémon 30 Jahre Mini-Tin Set -DE-",
+    "status": "outofstock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/253441-Pokemon-30-Jahre-Mini-Tin-Set-DE:pokemon30thall": {
+    "title": "Pokémon 30 Jahre Mini-Tin Set -DE-",
+    "status": "outofstock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/237076-Pokemon-Mega-Evolution-Ascended-Heroes-Mini-Tin-Set-EN": {
+    "title": "Pokémon Mega Evolution: Ascended Heroes Mini-Tin Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/242721-Pokemon-Lumiose-City-Mini-Tin-Set-EN": {
+    "title": "Pokémon Lumiose City Mini-Tin Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/220459-Pokemon-Scarlet-Violet-Black-Bolt-White-Flare-Mini-Tin-8er-Set-EN": {
+    "title": "Pokémon Scarlet & Violet: Black Bolt & White Flare Mini-Tin 8er Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/226734-Pokemon-Mega-Evolution-Mini-Tin-Set-EN": {
+    "title": "Pokémon Mega Evolution Mini-Tin Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/207432-Pokemon-Scarlet-Violet-Prismatic-Evolutions-Mini-Tin-8er-Set-EN": {
+    "title": "Pokémon Scarlet & Violet: Prismatic Evolutions Mini-Tin 8er Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/170750-Pokemon-Scarlet-Violet-151-Mini-Tin-Set-EN": {
+    "title": "Pokémon Scarlet & Violet: 151 Mini-Tin Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/142488-Pokemon-GO-Mini-Tin-Set": {
+    "title": "Pokémon GO Mini-Tin Set",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/179207-Pokemon-Scarlet-Violet-Paldean-Fates-Mini-Tin-Set-EN": {
+    "title": "Pokémon Scarlet & Violet: Paldean Fates Mini-Tin Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/105190-Pokemon-Galar-Power-Mini-Tin-Set": {
+    "title": "Pokémon Galar Power Mini-Tin Set",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/87129-Pokemon-Kanto-Staerke-Mini-Tin-Set": {
+    "title": "Pokémon Kanto Stärke Mini-Tin Set",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/190869-Pokemon-Scarlet-Violet-Shrouded-Fable-Mini-Tin-Set-EN": {
+    "title": "Pokémon Scarlet & Violet: Shrouded Fable Mini-Tin Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/142489-Pokemon-GO-Mini-Tin-Set-EN": {
+    "title": "Pokémon GO Mini-Tin Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/187028-Pokemon-Vibrant-Paldea-Mini-Tin-Set-EN": {
+    "title": "Pokémon Vibrant Paldea Mini-Tin Set -EN-",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "wog.ch:https://www.wog.ch/de/index.cfm/details/product/155902-Pokemon-Schwert-Schild-Zenit-der-Koenige-Mini-Tin-Set": {
+    "title": "Pokémon Schwert & Schild: Zenit der Könige Mini-Tin Set",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10004084325": {
+    "title": "Pokémon P-EN Mega Zygarde ex Premium Collection",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-f6b8f42b-tproduct": {
+    "title": "TCG: Combined Powers Premium Collection - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-e1cc0592-tproduct": {
+    "title": "Primarene GX Premium Collection Box - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-c21c91c5-tproduct": {
+    "title": "Mega Tyranitar EX Premium Collection Box - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-baf667df-tproduct": {
+    "title": "TCG: Eevee Evolutions Premium Collection Box - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-b544fd1d-tproduct": {
+    "title": "TCG: Cynthia's Garchomp ex - Premium Collection - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-525bbe93-tproduct": {
+    "title": "Mega-Bisaflor ex Premium Collection - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-35c6d134-tproduct": {
+    "title": "Charizard ex Super - Premium Collection - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-33fc5728-tproduct": {
+    "title": "Tsareena EX Premium Collection Box - Walmart Exclusive 2024 - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-2c84546f-tproduct": {
+    "title": "Mega-Quajutsu ex Premium Collection",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/p0-38667501": {
+    "title": "Charizard GX Premium Collection, Englisch",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10003421126": {
+    "title": "Ogerpon ex Premium Collection",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10002985106": {
+    "title": "Armarouge ex Premium Collection, Englisch",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10001538997": {
+    "title": "VSTAR – Dialga/Palkia Premium Collection, Zufallsauswahl",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10001301389": {
+    "title": "Lucario VSTAR Premium Collection",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10000728353": {
+    "title": "Shining Fates, Shiny Crobat V Max Premium Collection",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10000383160": {
+    "title": "True Steel Premium Collection",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-2d1b62fd-tproduct": {
+    "title": "Cyrus Premium Tournament Collection Box - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-9d04946c-tproduct": {
+    "title": "Legendary Battle Deck Ho-Oh - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10002529226": {
+    "title": "Scarlet & Violet - Paradox Rift Checklane Blister, Zufallsauswahl",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-a1bfb867-tproduct": {
+    "title": "TCG: Scarlet & Violet SV10.5 - Black Bolt & White Flare - Unova Mini Tin - Assorted - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-4f30a2a5-tproduct": {
+    "title": "TCG: Scarlet & Violet Paldean Fates Mini Tin - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/mp-145ec5b1-tproduct": {
+    "title": "TCG: Scarlet & Violet—Shrouded Fable Mini Tin - EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10002455715": {
+    "title": "Mini Tin, Englisch, Zufallsauswahl",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10001427213": {
+    "title": "Sword&Shield 10.5 Go Mini Tin, Zufallsauswahl",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10001288007": {
+    "title": "Sinnoh Friends Mini Tin, Zufallsauswahl",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10000746934": {
+    "title": "Shining Fates Mini Tin, Zufallsauswahl",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "manor.ch:https://www.manor.ch/de/p/10000506890": {
+    "title": "Mini Tin Galar Power, English",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Elite Trainer Box/275198": {
+    "title": "Pokémon 30th Celebration - Elite Trainer Box",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Elite Trainer Box/275161": {
+    "title": "Pokémon 30th Celebration - Elite Trainer Box",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Elite Trainer Box/275160": {
+    "title": "Pokémon 30th Celebration - Elite Trainer Box",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon - Mega Greninja EX - Premium Collection/268266": {
+    "title": "Pokémon - Mega Greninja EX - Premium Collection",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon - Mega Greninja EX - Premium Collection/268265": {
+    "title": "Pokémon - Mega Greninja EX - Premium Collection",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon - Mega Greninja EX - Premium Collection/268264": {
+    "title": "Pokémon - Mega Greninja EX - Premium Collection",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Faltbox PET - Pokémon Booster Bundle (10)/276598": {
+    "title": "Faltbox PET - Pokémon Booster Bundle (10)",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Booster Bundle/281524": {
+    "title": "Pokémon 30th Celebration - Booster Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Booster Bundle/281523": {
+    "title": "Pokémon 30th Celebration - Booster Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Booster Bundle/275202": {
+    "title": "Pokémon 30th Celebration - Booster Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Booster Bundle/275201": {
+    "title": "Pokémon 30th Celebration - Booster Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon Scarlet & Violet: Prismatic Evolution - Super-Premium Collection/215545": {
+    "title": "Pokémon Scarlet & Violet: Prismatic Evolution - Super-Premium Collection",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/281539": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/281538": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/281537": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/281536": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/281535": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/281534": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/281532": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/281531": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/281530": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/275228": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/275226": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Pokémon 30th Celebration - Mini-Tin/275223": {
+    "title": "Pokémon 30th Celebration - Mini-Tin",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - OP17 - The World's Strongest Warriors - Booster/275150": {
+    "title": "One Piece Card Game - OP17 - The World's Strongest Warriors - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - OP16 The Time of Battle - Booster Display/263571": {
+    "title": "One Piece Card Game - OP16 The Time of Battle - Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Deluxe Faltbox PET - One Piece Booster Display (10)/258358": {
+    "title": "Deluxe Faltbox PET - One Piece Booster Display (10)",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - OP15 Adventure on Kamis Island - Booster/254201": {
+    "title": "One Piece Card Game - OP15 Adventure on Kamis Island - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - OP15 Adventure on Kamis Island - Booster Display/254200": {
+    "title": "One Piece Card Game - OP15 Adventure on Kamis Island - Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - OP14 The Azure Sea's Seven - Booster/241845": {
+    "title": "One Piece Card Game - OP14 The Azure Sea's Seven - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - OP14 The Azure Sea's Seven - Display/241842": {
+    "title": "One Piece Card Game - OP14 The Azure Sea's Seven - Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - OP13 Carrying on his Will - Booster/233638": {
+    "title": "One Piece Card Game - OP13 Carrying on his Will - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - OP13 Carrying on his Will - Display/233636": {
+    "title": "One Piece Card Game - OP13 Carrying on his Will - Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - OP12 Legacy of the Master Double Pack Set 8/227889": {
+    "title": "One Piece Card Game - OP12 Legacy of the Master Double Pack Set 8",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - PRB02 The Best Vol.2 Premium - Booster/232230": {
+    "title": "One Piece Card Game - PRB02 The Best Vol.2 Premium - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/One Piece Card Game - PRB02 The Best Vol.2 Premium - Display/231553": {
+    "title": "One Piece Card Game - PRB02 The Best Vol.2 Premium - Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragon Ball Super Fusion World - Story Booster 01 - Booster Display/274903": {
+    "title": "Dragon Ball Super Fusion World - Story Booster 01 - Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Cross Force Booster/266650": {
+    "title": "Dragonball Super Fusion World - Cross Force Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Cross Force Booster Display/266649": {
+    "title": "Dragonball Super Fusion World - Cross Force Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Dual Evolution Booster/252213": {
+    "title": "Dragonball Super Fusion World - Dual Evolution Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Dual Evolution Booster Display/251634": {
+    "title": "Dragonball Super Fusion World - Dual Evolution Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Saiyan's Pride Booster Display/240033": {
+    "title": "Dragonball Super Fusion World - Saiyan's Pride Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragon Ball Super Fusion World - Wish for Shenron Booster Display/229990": {
+    "title": "Dragon Ball Super Fusion World - Wish for Shenron Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Ultra Limit Display/118742": {
+    "title": "Dragonball Super Fusion World - Ultra Limit Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Blazing Aura Display/27082": {
+    "title": "Dragonball Super Fusion World - Blazing Aura Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Awakened Pulse Booster/248281": {
+    "title": "Dragonball Super Fusion World - Awakened Pulse Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Awakened Pulse Display/26705": {
+    "title": "Dragonball Super Fusion World - Awakened Pulse Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Starter Deck/118712": {
+    "title": "Dragonball Super Fusion World - Starter Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Starter Deck/118711": {
+    "title": "Dragonball Super Fusion World - Starter Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Starter Deck/26711": {
+    "title": "Dragonball Super Fusion World - Starter Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Starter Deck/26710": {
+    "title": "Dragonball Super Fusion World - Starter Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Starter Deck/26709": {
+    "title": "Dragonball Super Fusion World - Starter Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Starter Deck/26708": {
+    "title": "Dragonball Super Fusion World - Starter Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Dragonball Super Fusion World - Starter Deck/26707": {
+    "title": "Dragonball Super Fusion World - Starter Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - Reality Fracture - Collector Booster Display/280034": {
+    "title": "Magic: the Gathering - Reality Fracture - Collector Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - Reality Fracture - Play Booster Display/280028": {
+    "title": "Magic: the Gathering - Reality Fracture - Play Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - Reality Fracture - Play Booster Display/280027": {
+    "title": "Magic: the Gathering - Reality Fracture - Play Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - The Hobbit - Collector Booster Display/272446": {
+    "title": "Magic: the Gathering - The Hobbit - Collector Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - The Hobbit - Collector Booster Display/272445": {
+    "title": "Magic: the Gathering - The Hobbit - Collector Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - The Hobbit - Play Booster Display/272421": {
+    "title": "Magic: the Gathering - The Hobbit - Play Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - The Hobbit - Play Booster Display/272420": {
+    "title": "Magic: the Gathering - The Hobbit - Play Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering x Marvel Super Heroes - Jumpstart Booster Display/266501": {
+    "title": "Magic: the Gathering x Marvel Super Heroes - Jumpstart Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - Reality Fracture - Bundle/280044": {
+    "title": "Magic: the Gathering - Reality Fracture - Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - The Hobbit - Bundle Gift Edition/272435": {
+    "title": "Magic: the Gathering - The Hobbit - Bundle Gift Edition",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - The Hobbit - Bundle/272433": {
+    "title": "Magic: the Gathering - The Hobbit - Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - The Hobbit - Bundle/272432": {
+    "title": "Magic: the Gathering - The Hobbit - Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering x Marvel Super Heroes - Gift Bundle/266516": {
+    "title": "Magic: the Gathering x Marvel Super Heroes - Gift Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering x Marvel Super Heroes - Bundle/266508": {
+    "title": "Magic: the Gathering x Marvel Super Heroes - Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering x Marvel Super Heroes - Bundle/266507": {
+    "title": "Magic: the Gathering x Marvel Super Heroes - Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gaterhing -  Secrets of Strixhaven - Codex Bundle/256010": {
+    "title": "Magic: the Gaterhing - Secrets of Strixhaven - Codex Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gaterhing -  Secrets of Strixhaven - Bundle/256007": {
+    "title": "Magic: the Gaterhing - Secrets of Strixhaven - Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gaterhing -  Secrets of Strixhaven - Bundle/256006": {
+    "title": "Magic: the Gaterhing - Secrets of Strixhaven - Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gatering x Teenage Mutant Ninja Turtles - Pizza Bundle/254365": {
+    "title": "Magic: the Gatering x Teenage Mutant Ninja Turtles - Pizza Bundle",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - Reality Fracture - Commander Deck/280047": {
+    "title": "Magic: the Gathering - Reality Fracture - Commander Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering - Reality Fracture - Commander Deck/280046": {
+    "title": "Magic: the Gathering - Reality Fracture - Commander Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering x Marvel Super Heroes - Collectors Edition Commander Deck/266540": {
+    "title": "Magic: the Gathering x Marvel Super Heroes - Collectors Edition Commander Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering x Marvel Super Heroes - Collectors Edition Commander Deck/266539": {
+    "title": "Magic: the Gathering x Marvel Super Heroes - Collectors Edition Commander Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering x Marvel Super Heroes - Collectors Edition Commander Deck/266538": {
+    "title": "Magic: the Gathering x Marvel Super Heroes - Collectors Edition Commander Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering x Marvel Super Heroes - Collectors Edition Commander Deck/266537": {
+    "title": "Magic: the Gathering x Marvel Super Heroes - Collectors Edition Commander Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Magic: the Gathering x Marvel Super Heroes - Commander Deck/266529": {
+    "title": "Magic: the Gathering x Marvel Super Heroes - Commander Deck",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! 25th Anniversary Rarity Collection - Booster/278529": {
+    "title": "Yu-Gi-Oh! 25th Anniversary Rarity Collection - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Chaos Origins - Booster/268224": {
+    "title": "Yu-Gi-Oh! - Chaos Origins - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Battle of Legends: Monster Mayhem - Booster/228377": {
+    "title": "Yu-Gi-Oh! - Battle of Legends: Monster Mayhem - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Battle of Legends: Monster Mayhem - Booster/228376": {
+    "title": "Yu-Gi-Oh! - Battle of Legends: Monster Mayhem - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Battle of Legends: Monster Mayhem - Display/228374": {
+    "title": "Yu-Gi-Oh! - Battle of Legends: Monster Mayhem - Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Battle of Legends: Monster Mayhem - Display/228373": {
+    "title": "Yu-Gi-Oh! - Battle of Legends: Monster Mayhem - Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Maze of the Master - Booster/207196": {
+    "title": "Yu-Gi-Oh! - Maze of the Master - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Maze of the Master - Booster/207195": {
+    "title": "Yu-Gi-Oh! - Maze of the Master - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Maze of the Master - Display/207193": {
+    "title": "Yu-Gi-Oh! - Maze of the Master - Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Maze of the Master - Display/207192": {
+    "title": "Yu-Gi-Oh! - Maze of the Master - Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Supreme Darkness - Booster/204350": {
+    "title": "Yu-Gi-Oh! - Supreme Darkness - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Beyond the Brave - Booster Display/281092": {
+    "title": "Yu-Gi-Oh! - Beyond the Brave - Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Beyond the Brave - Booster Display/281091": {
+    "title": "Yu-Gi-Oh! - Beyond the Brave - Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Battles of Legend: Glorious Gallery - Booster/264723": {
+    "title": "Yu-Gi-Oh! - Battles of Legend: Glorious Gallery - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Battles of Legend: Glorious Gallery - Booster/264724": {
+    "title": "Yu-Gi-Oh! - Battles of Legend: Glorious Gallery - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Battles of Legend: Glorious Gallery - Booster Display/264721": {
+    "title": "Yu-Gi-Oh! - Battles of Legend: Glorious Gallery - Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Battles of Legend: Glorious Gallery - Booster Display/264720": {
+    "title": "Yu-Gi-Oh! - Battles of Legend: Glorious Gallery - Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Blazing Dominion - Booster/260970": {
+    "title": "Yu-Gi-Oh! - Blazing Dominion - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Blazing Dominion - Booster/260969": {
+    "title": "Yu-Gi-Oh! - Blazing Dominion - Booster",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Blazing Dominion - Booster Display/260967": {
+    "title": "Yu-Gi-Oh! - Blazing Dominion - Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "carab.ch:https://www.carab.ch/shop/product/Yu-Gi-Oh! - Blazing Dominion - Booster Display/260966": {
+    "title": "Yu-Gi-Oh! - Blazing Dominion - Booster Display",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-spezial-kollektionen/2278-pokemon-sv085-prismatic-evolutions-super-premium-collection-en-196214106062.html": {
+    "title": "POKÉMON SV08.5 PRISMATIC EVOLUTIONS SUPER PREMIUM COLLECTION EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-spezial-kollektionen/839-pokemon-go-premium-collection-radiant-eevee-en-820650850523.html": {
+    "title": "POKÉMON GO PREMIUM COLLECTION RADIANT EEVEE EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-spezial-kollektionen/1672-pokemon-combined-powers-premium-collection-en-820650855955.html": {
+    "title": "POKÉMON COMBINED POWERS PREMIUM COLLECTION EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-spezial-kollektionen/1739-pokemon-armarouge-ex-premium-collection-en-820650857522.html": {
+    "title": "POKÉMON ARMAROUGE EX PREMIUM COLLECTION EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-spezial-kollektionen/1837-pokemon-charizard-ex-super-premium-collection-en-196214112001.html": {
+    "title": "POKÉMON CHARIZARD EX SUPER PREMIUM COLLECTION EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-spezial-kollektionen/1905-pokemon-ogerpon-ex-premium-collection-en-820650858826.html": {
+    "title": "POKÉMON OGERPON EX PREMIUM COLLECTION EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-spezial-kollektionen/2224-pokemon-iono-s-bellibolt-ex-premium-collection-en-196214109315.html": {
+    "title": "POKÉMON IONO'S BELLIBOLT EX PREMIUM COLLECTION EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-spezial-kollektionen/2924-pokemon-me055-30th-celebration-ditto-premium-collection-en-196214147423.html": {
+    "title": "Dies ist eine Vorbestellung. Die Mengen können nicht garantiert werden, da es seitens der Lieferanten zu Kürzungen kommen kann. Aufgrund der momentanen Produktionsschwierigkeiten kann es bei der Auslieferung auch zu Verzögerungen kommen. Aufgrund der grossen Nachfrage und um eine gerechte Verteilung zu gewährleisten, ist die Bestellmenge auf 1 Stück pro...",
+    "status": "preorder",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-tins/2832-pokemon-me055-30th-celebration-ex-tin-en-196214146891.html": {
+    "title": "POKÉMON ME05.5 30TH CELEBRATION EX TIN EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-spezial-kollektionen/2836-pokemon-me055-30th-celebration-binder-collection-en-196214145146.html": {
+    "title": "POKÉMON ME05.5 30TH CELEBRATION BINDER COLLECTION EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-booster/2838-pokemon-me055-30th-celebration-booster-pack-en-5390368994727.html": {
+    "title": "POKÉMON ME05.5 30TH CELEBRATION BOOSTER PACK EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-blister/2840-pokemon-me055-30th-celebration-2-pack-blister-en-196214152281.html": {
+    "title": "Aufgrund der grossen Nachfrage und um eine gerechte Verteilung zu gewährleisten, ist die Bestellmenge auf 3 Stück pro Haushalt begrenzt. Mehrfachbestellungen werden kommentarlos storniert.",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-displays/2893-pokemon-me055-30th-celebration-booster-bundle-en-196214145207.html": {
+    "title": "POKÉMON ME05.5 30TH CELEBRATION BOOSTER BUNDLE EN",
+    "status": "outofstock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-tins/800-pokemon-mini-tin-sinnoh-stars-display-en-820650870149.html": {
+    "title": "POKÉMON MINI TIN SINNOH STARS DISPLAY EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-tins/835-pokemon-go-mini-tin-display-en.html": {
+    "title": "POKÉMON GO MINI TIN DISPLAY EN",
+    "status": "outofstock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-tins/851-pokemon-go-mini-tin-en-820650850462.html": {
+    "title": "POKÉMON GO MINI TIN EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
+  },
+  "toytans.ch:https://www.toytans.ch/de/pokemon-tins/1259-pokemon-paldea-friends-mini-tin-display-en-820650862793.html": {
+    "title": "POKÉMON PALDEA FRIENDS MINI TIN DISPLAY EN",
+    "status": "instock",
+    "last_checked": "2026-10-08T10:57:39+00:00"
   }
 }
