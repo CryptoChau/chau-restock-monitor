@@ -72,6 +72,7 @@ RETAILERS = [
     "detsuki.ch",
     "pokealp.ch",
     "thebluesamurai.com",
+    "cardtreasure.ch",
 ]
 
 # WooCommerce-Haendler: oeffentliche Store-API unter /wp-json/wc/store/v1/products
@@ -350,6 +351,10 @@ MTG_EXCLUDE = [
     "(CN)", "[CN]", "Chinesisch",
     "(KR)", "[KR]", "Koreanisch",
     "- JPN", "- JP", " JPN", "- CHN", "- KOR", "- FRA",
+    # Englisch/franzoesisch geschriebene Sprachnamen - cardtreasure.ch schreibt z.B.
+    # "Magic: The Gathering French" ohne Klammer-Code (gefunden 2026-10-10)
+    "French", "Italian", "Japanese", "Spanish", "Portuguese", "Chinese", "Korean", "Russian",
+    "Francais", "Japonais", "Italiano", "Espanol",
     "Playmat", "Sleeve", "Album", "Life Counter", "Boulder", "Sidewinder", "Xenoskin",
     "Squire", "Bastion", "Sidekick", "Zip-Up", "Slipcase", "Deck Box", "Binder", "Toploader",
     "PSA", "BGS", "CGC", "graded", "Vinyl Figur", "POP!",
