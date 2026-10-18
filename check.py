@@ -1011,9 +1011,33 @@ def check_stealth_category_retailers(page, state, now):
                 "last_checked": now,
             }
 
+            # Galaxus-Marketplace: Angebote von Drittanbietern (ueberteuert, Nutzerwunsch
+            # 2026-10-18) nicht melden, nur Ware die Galaxus selbst verkauft.
+            if domain == "galaxus.ch" and status != "outofstock" and prev_status != status:
+                if galaxus_is_third_party(page, p["link"]):
+                    log(f"  galaxus.ch Drittanbieter uebersprungen: {title[:60]}")
+                    continue
+
             if brand:
                 notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], p["price"], brand, now)
             maybe_notify_pokemon30th(state, product_key, title, status, domain, p["link"], p["price"], now)
+
+
+def galaxus_is_third_party(page, link):
+    """True, wenn die Galaxus-Produktseite den Bestand 'beim Drittanbieter' ausweist
+    (Marketplace-Verkaeufer). Galaxus-eigene Ware hat nur 'N Stueck an Lager' ohne diesen
+    Zusatz. Bei Ladefehler False (lieber einmal zu viel melden als eine echte Chance verpassen)."""
+    try:
+        resp = page.request.get(link, timeout=20000)
+        return "beim Drittanbieter" in resp.text()
+    except Exception:
+        try:
+            page.goto(link, timeout=25000, wait_until="domcontentloaded")
+            page.wait_for_timeout(1500)
+            return "beim Drittanbieter" in page.content()
+        except Exception as e:
+            log(f"  galaxus Drittanbieter-Check fehlgeschlagen ({type(e).__name__})")
+            return False
 
 
 def check_stealth_browser_retailers(state, now):
