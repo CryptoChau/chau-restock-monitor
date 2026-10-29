@@ -9,7 +9,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-3": {
     "name": "Volbeat",
@@ -21,7 +21,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-4": {
     "name": "Illumise",
@@ -33,7 +33,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-25T11:34:06Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-5": {
     "name": "Tropius",
@@ -45,7 +45,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-6": {
     "name": "Cherubi",
@@ -69,7 +69,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-9": {
     "name": "Vulpix",
@@ -81,7 +81,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-11": {
     "name": "Moltres",
@@ -129,7 +129,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-15": {
     "name": "Fuecoco ex",
@@ -141,7 +141,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-16": {
     "name": "Slowpoke",
@@ -153,7 +153,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-17": {
     "name": "Lapras",
@@ -165,7 +165,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-19": {
     "name": "Kyogre",
@@ -189,7 +189,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-21": {
     "name": "Greninja ex",
@@ -226,7 +226,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-26T13:07:26Z",
-    "ebay_sold_count_now": 258,
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -332,7 +332,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-23T11:52:52Z",
-    "ebay_sold_count_now": 265,
+    "ebay_sold_count_now": 273,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -448,9 +448,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 2.72,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.67,
+        "n": 60
       }
     ],
-    "ebay_median_now": 2.72
+    "ebay_median_now": 2.67
   },
   "me55-25": {
     "name": "Pikachu",
@@ -462,8 +467,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-25T11:34:06Z",
-    "ebay_sold_count_now": 249,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 251,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -569,9 +574,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 2.69,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.5,
+        "n": 60
       }
     ],
-    "ebay_median_now": 2.69
+    "ebay_median_now": 2.5
   },
   "me55-27": {
     "name": "Pikachu",
@@ -583,8 +593,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z",
-    "ebay_sold_count_now": 258,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 262,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -725,9 +735,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 2.68,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.67,
+        "n": 60
       }
     ],
-    "ebay_median_now": 2.68
+    "ebay_median_now": 2.67
   },
   "me55-28": {
     "name": "Pikachu",
@@ -740,7 +755,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-26T13:07:26Z",
-    "ebay_sold_count_now": 217,
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -1032,7 +1047,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 74,
+    "ebay_sold_count_now": 75,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -1133,9 +1148,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 30.89,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 30.43,
+        "n": 60
       }
     ],
-    "ebay_median_now": 30.89
+    "ebay_median_now": 30.43
   },
   "me55-34": {
     "name": "Pikachu",
@@ -1147,8 +1167,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z",
-    "ebay_sold_count_now": 26,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 28,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -1279,9 +1299,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 3.36,
         "n": 26
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 3.71,
+        "n": 28
       }
     ],
-    "ebay_median_now": 3.36
+    "ebay_median_now": 3.71
   },
   "me55-35": {
     "name": "Pikachu",
@@ -1293,7 +1318,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-25T11:34:06Z",
+    "last_updated": "2026-10-29T13:05:29Z",
     "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
@@ -1444,8 +1469,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 31,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -1590,7 +1615,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z",
+    "last_updated": "2026-10-29T13:05:29Z",
     "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
@@ -1706,8 +1731,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z",
-    "ebay_sold_count_now": 34,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -1858,7 +1883,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 30,
+    "ebay_sold_count_now": 31,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -1974,9 +1999,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 2.68,
         "n": 30
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.67,
+        "n": 31
       }
     ],
-    "ebay_median_now": 2.68
+    "ebay_median_now": 2.67
   },
   "me55-43": {
     "name": "Pikachu",
@@ -1989,7 +2019,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 40,
+    "ebay_sold_count_now": 41,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -2110,9 +2140,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 3.54,
         "n": 40
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 3.57,
+        "n": 41
       }
     ],
-    "ebay_median_now": 3.54
+    "ebay_median_now": 3.57
   },
   "me55-44": {
     "name": "Pikachu",
@@ -2124,8 +2159,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 0,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 32,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -2226,9 +2261,14 @@
         "t": "2026-10-26T13:15:26Z",
         "median": 2.52,
         "n": 28
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.79,
+        "n": 32
       }
     ],
-    "ebay_median_now": 2.52
+    "ebay_median_now": 2.79
   },
   "me55-45": {
     "name": "Pikachu",
@@ -2241,7 +2281,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 38,
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -2386,8 +2426,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 73,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -2543,7 +2583,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 31,
+    "ebay_sold_count_now": 32,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -2679,9 +2719,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 2.59,
         "n": 31
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.62,
+        "n": 32
       }
     ],
-    "ebay_median_now": 2.59
+    "ebay_median_now": 2.62
   },
   "me55-48": {
     "name": "Pikachu",
@@ -2693,8 +2738,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 40,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -2809,8 +2854,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-25T11:34:06Z",
-    "ebay_sold_count_now": 0,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 35,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -2906,9 +2951,14 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 2.46,
         "n": 29
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.55,
+        "n": 35
       }
     ],
-    "ebay_median_now": 2.46
+    "ebay_median_now": 2.55
   },
   "me55-53": {
     "name": "Pikachu ex",
@@ -2920,7 +2970,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-55": {
     "name": "Zapdos",
@@ -2932,7 +2982,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-56": {
     "name": "Zekrom",
@@ -2956,7 +3006,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-62": {
     "name": "Miraidon",
@@ -2968,7 +3018,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-25T11:34:06Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-63": {
     "name": "Mewtwo",
@@ -2980,7 +3030,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-64": {
     "name": "Mewtwo ex",
@@ -2992,7 +3042,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-65": {
     "name": "Mew",
@@ -3004,7 +3054,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-66": {
     "name": "Mew ex",
@@ -3040,7 +3090,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-72": {
     "name": "Unown",
@@ -3052,7 +3102,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-76": {
     "name": "Xerneas",
@@ -3064,7 +3114,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-77": {
     "name": "Comfey",
@@ -3076,7 +3126,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-80": {
     "name": "Lunala",
@@ -3088,7 +3138,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-81": {
     "name": "Gimmighoul",
@@ -3124,7 +3174,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-85": {
     "name": "Lycanroc",
@@ -3136,7 +3186,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-86": {
     "name": "Koraidon",
@@ -3148,7 +3198,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-21T11:52:34Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-87": {
     "name": "Nidoran ♀",
@@ -3160,7 +3210,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-88": {
     "name": "Nidorina",
@@ -3172,7 +3222,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-89": {
     "name": "Alolan Meowth",
@@ -3184,7 +3234,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-21T11:52:34Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-90": {
     "name": "Gengar ex",
@@ -3196,7 +3246,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-91": {
     "name": "Umbreon",
@@ -3232,7 +3282,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-94": {
     "name": "Scraggy",
@@ -3244,7 +3294,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-95": {
     "name": "Zorua",
@@ -3256,7 +3306,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-97": {
     "name": "Deino",
@@ -3268,7 +3318,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-98": {
     "name": "Zweilous",
@@ -3292,7 +3342,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-102": {
     "name": "Jirachi ex",
@@ -3304,7 +3354,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-105": {
     "name": "Solgaleo",
@@ -3328,7 +3378,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-109": {
     "name": "Salamence ex",
@@ -3340,7 +3390,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-110": {
     "name": "Jangmo-o",
@@ -3352,7 +3402,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-19T13:21:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-111": {
     "name": "Hakamo-o",
@@ -3376,7 +3426,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-17T10:47:45Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-113": {
     "name": "Meowth",
@@ -3400,7 +3450,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-19T13:21:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-115": {
     "name": "Ditto",
@@ -3412,7 +3462,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-19T13:21:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-116": {
     "name": "Eevee",
@@ -3424,7 +3474,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-17T10:47:45Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-119": {
     "name": "Snorlax",
@@ -3460,7 +3510,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-19T13:21:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-122": {
     "name": "Hisuian Zorua",
@@ -3472,7 +3522,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-19T13:21:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-123": {
     "name": "Hisuian Zoroark",
@@ -3508,7 +3558,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-19T13:21:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-126": {
     "name": "Poké Pad",
@@ -3532,7 +3582,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-19T13:21:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-128": {
     "name": "Ultra Ball",
@@ -3544,7 +3594,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-19T13:21:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-129": {
     "name": "Alolan Exeggutor",
@@ -3557,7 +3607,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-17T10:47:45Z",
-    "ebay_sold_count_now": 492,
+    "ebay_sold_count_now": 490,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -3698,9 +3748,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 5.65,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 4.47,
+        "n": 60
       }
     ],
-    "ebay_median_now": 5.65
+    "ebay_median_now": 4.47
   },
   "me55-130": {
     "name": "Moltres",
@@ -3859,7 +3914,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-19T13:21:26Z",
-    "ebay_sold_count_now": 0,
+    "ebay_sold_count_now": 558,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -3980,9 +4035,14 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 10.03,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 9.85,
+        "n": 60
       }
     ],
-    "ebay_median_now": 10.03
+    "ebay_median_now": 9.85
   },
   "me55-133": {
     "name": "Zapdos",
@@ -4126,7 +4186,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-28T13:59:38Z",
-    "ebay_sold_count_now": 390,
+    "ebay_sold_count_now": 396,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -4242,9 +4302,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 8.14,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 7.82,
+        "n": 60
       }
     ],
-    "ebay_median_now": 8.14
+    "ebay_median_now": 7.82
   },
   "me55-136": {
     "name": "Drifloon",
@@ -4388,9 +4453,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 5.48,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 5.37,
+        "n": 60
       }
     ],
-    "ebay_median_now": 5.48
+    "ebay_median_now": 5.37
   },
   "me55-137": {
     "name": "Chandelure",
@@ -4403,7 +4473,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-19T13:21:26Z",
-    "ebay_sold_count_now": 0,
+    "ebay_sold_count_now": 493,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -4519,9 +4589,14 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 4.62,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 4.47,
+        "n": 60
       }
     ],
-    "ebay_median_now": 4.62
+    "ebay_median_now": 4.47
   },
   "me55-138": {
     "name": "Lycanroc",
@@ -4534,7 +4609,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-19T13:21:26Z",
-    "ebay_sold_count_now": 545,
+    "ebay_sold_count_now": 553,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -4650,9 +4725,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 4.61,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 3.57,
+        "n": 60
       }
     ],
-    "ebay_median_now": 4.61
+    "ebay_median_now": 3.57
   },
   "me55-140": {
     "name": "Scraggy",
@@ -4665,7 +4745,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-19T13:21:26Z",
-    "ebay_sold_count_now": 0,
+    "ebay_sold_count_now": 540,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -4781,9 +4861,14 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 3.35,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 3.7,
+        "n": 60
       }
     ],
-    "ebay_median_now": 3.35
+    "ebay_median_now": 3.7
   },
   "me55-142": {
     "name": "Gholdengo",
@@ -4796,7 +4881,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-30T10:48:46Z",
-    "ebay_sold_count_now": 514,
+    "ebay_sold_count_now": 529,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -4912,9 +4997,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 4.37,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 3.56,
+        "n": 60
       }
     ],
-    "ebay_median_now": 4.37
+    "ebay_median_now": 3.56
   },
   "me55-144": {
     "name": "Meowth",
@@ -4927,7 +5017,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-30T10:48:46Z",
-    "ebay_sold_count_now": 378,
+    "ebay_sold_count_now": 368,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -5048,9 +5138,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 12.04,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 11.93,
+        "n": 60
       }
     ],
-    "ebay_median_now": 12.04
+    "ebay_median_now": 11.93
   },
   "me55-145": {
     "name": "Hisuian Zorua",
@@ -5063,7 +5158,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-28T13:59:38Z",
-    "ebay_sold_count_now": 460,
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -5224,7 +5319,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-27T15:06:14Z",
-    "ebay_sold_count_now": 325,
+    "ebay_sold_count_now": 334,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -5350,9 +5445,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 12.98,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 11.57,
+        "n": 60
       }
     ],
-    "ebay_median_now": 12.98
+    "ebay_median_now": 11.57
   },
   "me55-147": {
     "name": "Fuecoco ex",
@@ -5365,7 +5465,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-29T12:56:34Z",
-    "ebay_sold_count_now": 0,
+    "ebay_sold_count_now": 177,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:46:19Z",
@@ -5486,9 +5586,14 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 15.8,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 14.91,
+        "n": 60
       }
     ],
-    "ebay_median_now": 15.8
+    "ebay_median_now": 14.91
   },
   "me55-148": {
     "name": "Greninja ex",
@@ -5501,7 +5606,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-30T10:48:46Z",
-    "ebay_sold_count_now": 235,
+    "ebay_sold_count_now": 236,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -5622,9 +5727,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 25.06,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 24.16,
+        "n": 60
       }
     ],
-    "ebay_median_now": 25.06
+    "ebay_median_now": 24.16
   },
   "me55-149": {
     "name": "Pikachu ex",
@@ -5637,7 +5747,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-29T12:56:34Z",
-    "ebay_sold_count_now": 172,
+    "ebay_sold_count_now": 177,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -5758,9 +5868,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 58.95,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 49.22,
+        "n": 60
       }
     ],
-    "ebay_median_now": 58.95
+    "ebay_median_now": 49.22
   },
   "me55-150": {
     "name": "Pikachu ex",
@@ -5773,7 +5888,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-29T12:56:34Z",
-    "ebay_sold_count_now": 192,
+    "ebay_sold_count_now": 205,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -5909,9 +6024,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 67.22,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 60.33,
+        "n": 60
       }
     ],
-    "ebay_median_now": 67.22
+    "ebay_median_now": 60.33
   },
   "me55-151": {
     "name": "Mewtwo ex",
@@ -5924,7 +6044,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-30T10:48:46Z",
-    "ebay_sold_count_now": 0,
+    "ebay_sold_count_now": 241,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -6040,9 +6160,14 @@
         "t": "2026-10-26T13:15:26Z",
         "median": 53.88,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 51.88,
+        "n": 60
       }
     ],
-    "ebay_median_now": 53.88
+    "ebay_median_now": 51.88
   },
   "me55-152": {
     "name": "Mew ex",
@@ -6055,7 +6180,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-30T10:48:46Z",
-    "ebay_sold_count_now": 181,
+    "ebay_sold_count_now": 190,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -6181,9 +6306,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 93.57,
         "n": 59
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 89.52,
+        "n": 59
       }
     ],
-    "ebay_median_now": 93.57
+    "ebay_median_now": 89.52
   },
   "me55-154": {
     "name": "Gengar ex",
@@ -6312,9 +6442,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 79.07,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 73.4,
+        "n": 60
       }
     ],
-    "ebay_median_now": 79.07
+    "ebay_median_now": 73.4
   },
   "me55-155": {
     "name": "Jirachi ex",
@@ -6327,7 +6462,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-29T12:56:34Z",
-    "ebay_sold_count_now": 0,
+    "ebay_sold_count_now": 266,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -6453,9 +6588,14 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 44.72,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 41.16,
+        "n": 60
       }
     ],
-    "ebay_median_now": 44.72
+    "ebay_median_now": 41.16
   },
   "me55-156": {
     "name": "Salamence ex",
@@ -6468,7 +6608,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-30T10:48:46Z",
-    "ebay_sold_count_now": 0,
+    "ebay_sold_count_now": 250,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -6589,9 +6729,14 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 17.88,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 17.9,
+        "n": 60
       }
     ],
-    "ebay_median_now": 17.88
+    "ebay_median_now": 17.9
   },
   "me55-157": {
     "name": "Mewtwo ex",
@@ -6604,7 +6749,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-29T12:56:34Z",
-    "ebay_sold_count_now": 0,
+    "ebay_sold_count_now": 265,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -6710,9 +6855,14 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 45.29,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 44.84,
+        "n": 60
       }
     ],
-    "ebay_median_now": 45.29
+    "ebay_median_now": 44.84
   },
   "me55-158": {
     "name": "Mew ex",
@@ -6725,7 +6875,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-28T13:59:38Z",
-    "ebay_sold_count_now": 285,
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -6951,10 +7101,15 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 183.73,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 194.7,
+        "n": 60
       }
     ],
-    "ebay_median_now": 183.73,
-    "ebay_sold_count_now": 65
+    "ebay_median_now": 194.7,
+    "ebay_sold_count_now": 61
   },
   "me55c-5": {
     "name": "Delcatty",
@@ -7082,10 +7237,15 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 7.82,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 8.05,
+        "n": 60
       }
     ],
-    "ebay_median_now": 7.82,
-    "ebay_sold_count_now": 87
+    "ebay_median_now": 8.05,
+    "ebay_sold_count_now": 84
   },
   "me55c-11": {
     "name": "Metagross",
@@ -7208,10 +7368,15 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 11.97,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 11.63,
+        "n": 60
       }
     ],
-    "ebay_median_now": 11.97,
-    "ebay_sold_count_now": 102
+    "ebay_median_now": 11.63,
+    "ebay_sold_count_now": 105
   },
   "me55c-18": {
     "name": "Misty",
@@ -7334,10 +7499,15 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 12.54,
         "n": 57
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 12.53,
+        "n": 56
       }
     ],
-    "ebay_median_now": 12.54,
-    "ebay_sold_count_now": 57
+    "ebay_median_now": 12.53,
+    "ebay_sold_count_now": 56
   },
   "me55c-19": {
     "name": "Dark Tyranitar",
@@ -7435,10 +7605,15 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 17.88,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 17.9,
+        "n": 60
       }
     ],
-    "ebay_median_now": 17.88,
-    "ebay_sold_count_now": 0
+    "ebay_median_now": 17.9,
+    "ebay_sold_count_now": 66
   },
   "me55-1": {
     "name": "Exeggcute",
@@ -7450,7 +7625,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-7": {
     "name": "Cherrim",
@@ -7462,7 +7637,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-10": {
     "name": "Ninetales",
@@ -7474,7 +7649,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-18": {
     "name": "Articuno",
@@ -7486,7 +7661,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-26": {
     "name": "Pikachu",
@@ -7498,8 +7673,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 0,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 224,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -7635,6 +7810,11 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 2.67,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.67,
+        "n": 60
       }
     ],
     "ebay_median_now": 2.67
@@ -7649,8 +7829,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 0,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 242,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -7766,9 +7946,14 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 2.68,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 3.08,
+        "n": 60
       }
     ],
-    "ebay_median_now": 2.68
+    "ebay_median_now": 3.08
   },
   "me55-30": {
     "name": "Pikachu",
@@ -7892,9 +8077,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 47.84,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 35.81,
+        "n": 60
       }
     ],
-    "ebay_median_now": 47.84
+    "ebay_median_now": 35.81
   },
   "me55-38": {
     "name": "Pikachu",
@@ -7907,7 +8097,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 41,
+    "ebay_sold_count_now": 42,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -8048,9 +8238,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 2.42,
         "n": 41
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.54,
+        "n": 42
       }
     ],
-    "ebay_median_now": 2.42
+    "ebay_median_now": 2.54
   },
   "me55-40": {
     "name": "Pikachu",
@@ -8062,8 +8257,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z",
-    "ebay_sold_count_now": 8,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 7,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -8189,9 +8384,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 5.33,
         "n": 8
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 4.21,
+        "n": 7
       }
     ],
-    "ebay_median_now": 5.33
+    "ebay_median_now": 4.21
   },
   "me55-41": {
     "name": "Pikachu",
@@ -8203,8 +8403,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 0,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 44,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -8325,6 +8525,11 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 2.67,
         "n": 42
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.67,
+        "n": 44
       }
     ],
     "ebay_median_now": 2.67
@@ -8339,8 +8544,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 49,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -8476,7 +8681,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 32,
+    "ebay_sold_count_now": 33,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -8582,9 +8787,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 2.79,
         "n": 32
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 2.67,
+        "n": 33
       }
     ],
-    "ebay_median_now": 2.79
+    "ebay_median_now": 2.67
   },
   "me55-57": {
     "name": "Zeraora",
@@ -8608,7 +8818,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-60": {
     "name": "Toxtricity",
@@ -8620,7 +8830,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-68": {
     "name": "Azumarill",
@@ -8644,7 +8854,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-73": {
     "name": "Drifloon",
@@ -8668,7 +8878,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-26T13:07:26Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-78": {
     "name": "Cosmog",
@@ -8680,7 +8890,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-83": {
     "name": "Lucario",
@@ -8692,7 +8902,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-100": {
     "name": "Yveltal",
@@ -8716,7 +8926,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-117": {
     "name": "Eevee",
@@ -8728,7 +8938,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-17T10:47:45Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-118": {
     "name": "Eevee",
@@ -8740,7 +8950,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-17T10:47:45Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-132": {
     "name": "Articuno",
@@ -8879,7 +9089,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-17T10:47:45Z",
-    "ebay_sold_count_now": 384,
+    "ebay_sold_count_now": 379,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -9000,9 +9210,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 5.6,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 5.37,
+        "n": 60
       }
     ],
-    "ebay_median_now": 5.6
+    "ebay_median_now": 5.37
   },
   "me55-143": {
     "name": "Kommo-o",
@@ -9015,7 +9230,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-28T13:59:38Z",
-    "ebay_sold_count_now": 570,
+    "ebay_sold_count_now": 582,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -9136,9 +9351,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 3.79,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 3.57,
+        "n": 60
       }
     ],
-    "ebay_median_now": 3.79
+    "ebay_median_now": 3.57
   },
   "me55-153": {
     "name": "Sylveon ex",
@@ -9151,7 +9371,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-30T10:48:46Z",
-    "ebay_sold_count_now": 252,
+    "ebay_sold_count_now": 260,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -9267,9 +9487,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 42.8,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 43.61,
+        "n": 60
       }
     ],
-    "ebay_median_now": 42.8
+    "ebay_median_now": 43.61
   },
   "me55-32": {
     "name": "Pikachu",
@@ -9282,7 +9507,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-10-28T12:58:57Z",
-    "ebay_sold_count_now": 27,
+    "ebay_sold_count_now": 30,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -9393,9 +9618,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 4.02,
         "n": 27
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 4.43,
+        "n": 30
       }
     ],
-    "ebay_median_now": 4.02
+    "ebay_median_now": 4.43
   },
   "me55-49": {
     "name": "Pikachu",
@@ -9407,8 +9637,8 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-23T11:52:52Z",
-    "ebay_sold_count_now": 26,
+    "last_updated": "2026-10-29T13:05:29Z",
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -9548,7 +9778,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-28T12:58:57Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-71": {
     "name": "Sylveon ex",
@@ -9572,7 +9802,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-79": {
     "name": "Cosmoem",
@@ -9584,7 +9814,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-99": {
     "name": "Hydreigon",
@@ -9596,7 +9826,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-107": {
     "name": "Zamazenta",
@@ -9608,7 +9838,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-139": {
     "name": "Alolan Meowth",
@@ -9621,7 +9851,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-28T13:59:38Z",
-    "ebay_sold_count_now": 403,
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -9777,7 +10007,7 @@
     "price_source": null,
     "price_history": [],
     "last_updated": "2026-09-29T12:56:34Z",
-    "ebay_sold_count_now": 390,
+    "ebay_sold_count_now": 0,
     "ebay_sold_history": [
       {
         "t": "2026-09-27T14:29:59Z",
@@ -10031,7 +10261,7 @@
       }
     ],
     "ebay_median_now": 8.07,
-    "ebay_sold_count_now": 95
+    "ebay_sold_count_now": 0
   },
   "me55-54": {
     "name": "Pikachu ex",
@@ -10043,7 +10273,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-25T11:34:06Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-96": {
     "name": "Zoroark",
@@ -10067,7 +10297,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55-104": {
     "name": "Ferrothorn",
@@ -10079,7 +10309,7 @@
     "price_now": null,
     "price_source": null,
     "price_history": [],
-    "last_updated": "2026-10-24T11:04:48Z"
+    "last_updated": "2026-10-29T13:05:29Z"
   },
   "me55c-m149": {
     "name": "Lugia",
@@ -10166,10 +10396,15 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 267.9,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 285.31,
+        "n": 60
       }
     ],
-    "ebay_median_now": 267.9,
-    "ebay_sold_count_now": 82
+    "ebay_median_now": 285.31,
+    "ebay_sold_count_now": 79
   },
   "me55c-m203": {
     "name": "Magikarp",
@@ -10286,10 +10521,15 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 89.44,
         "n": 60
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 89.51,
+        "n": 60
       }
     ],
-    "ebay_median_now": 89.44,
-    "ebay_sold_count_now": 0
+    "ebay_median_now": 89.51,
+    "ebay_sold_count_now": 78
   },
   "me55c-m94": {
     "name": "Gengar Prime",
@@ -10406,10 +10646,15 @@
         "t": "2026-10-27T12:24:10Z",
         "median": 73.37,
         "n": 48
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 75.63,
+        "n": 46
       }
     ],
-    "ebay_median_now": 73.37,
-    "ebay_sold_count_now": 0
+    "ebay_median_now": 75.63,
+    "ebay_sold_count_now": 46
   },
   "me55c-m33": {
     "name": "Pikachu & Zekrom GX",
@@ -10526,9 +10771,14 @@
         "t": "2026-10-28T13:06:58Z",
         "median": 35.84,
         "n": 43
+      },
+      {
+        "t": "2026-10-29T13:13:30Z",
+        "median": 35.8,
+        "n": 45
       }
     ],
-    "ebay_median_now": 35.84,
-    "ebay_sold_count_now": 43
+    "ebay_median_now": 35.8,
+    "ebay_sold_count_now": 45
   }
 }
