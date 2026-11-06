@@ -231,16 +231,318 @@ def matches_pokemon_30th_all(title):
     return True
 
 
-def maybe_notify_pokemon30th(state, product_key, title, status, domain, link, price, now, cart_link=None):
+# Sichtbarer Text auf einer Galaxus-Seite. "verfuegbar" allein reicht NICHT: die Kachel
+# kippt bei Vorbestellungen und Marketplace-Angeboten genau auf dieses Wort (User-Report
+# 2026-11, Produkte 72350263 / 72348004) und wurde dadurch als RESTOCK gelabelt.
+_GALAXUS_UNAVAILABLE_MARKERS = (
+    "nicht verfugbar", "nicht lieferbar", "ausverkauft", "vergriffen",
+    "nicht auf lager", "nicht an lager", "nicht mehr lieferbar", "nicht mehr bestellbar",
+    "out of stock", "sold out", "unavailable",
+)
+_GALAXUS_ANNOUNCED_MARKERS = (
+    "noch nicht erschienen", "bald verfugbar", "upcoming", "angekundigt", "ankundigung",
+    "announced", "demnachst", "in kurze",
+)
+_GALAXUS_PAGE_PREORDER_RE = re.compile(
+    r"\bvor(?:bestellung|bestellen|besteller)\b|"
+    r"\bpre[\s\-]?order\b|"
+    r"\bcoming soon\b|"
+    r"\berscheint am\b|"
+    r"\berscheinungsdatum\b|"
+    r"\brelease date\b|"
+    r"\bin einigen tagen\b|"
+    r"\bvoraussichtlich\b|"
+    r"\bin \d+\s*tagen\b",
+)
+_GALAXUS_POSITIVE_STOCK_RE = re.compile(
+    r"\b\d+\s*(?:stuck|stueck)\s+an lager\b|"
+    r"\bnur noch\s+\d+\s*(?:stuck|stueck)\b|"
+    r"\bsofort lieferbar\b|"
+    r"\bsofort verfugbar\b|"
+    r"\bmorgen bei dir\b|"
+    r"\ban lager\b|"
+    r"\bauf lager\b",
+)
+_GALAXUS_SELLER_LABEL_RE = re.compile(
+    r"(?:Verkauf(?:\s+und\s+Versand)?\s+durch|Verkauft\s+(?:von|durch)|"
+    r"Anbieter\s*[:\-]|Händler\s*[:\-]|Haendler\s*[:\-])\s*([^\n]{2,80})",
+    re.IGNORECASE,
+)
+_GALAXUS_JSON_SELLER_RE = re.compile(
+    r'"(?:supplierName|merchantName|sellerName)"\s*:\s*"([^"\\]{1,80})"',
+    re.IGNORECASE,
+)
+_GALAXUS_JSON_SUPPLIER_NAME_RE = re.compile(
+    r'"supplier"\s*:\s*\{(?:(?!\{).){0,400}?"name"\s*:\s*"([^"\\]{1,80})"',
+    re.IGNORECASE | re.DOTALL,
+)
+_GALAXUS_THIRD_PARTY_RE = re.compile(
+    r"beim drittanbieter|\bdrittanbieter\b|marketplace-angebot|marktplatzangebot|"
+    r"externer anbieter|marktplatzverkaeufer|marktplatz-verkaeufer",
+)
+_GALAXUS_JSON_PREORDER_TRUE_RE = re.compile(
+    r'"(?:isPreorder|isComingSoon)"\s*:\s*true\b',
+    re.IGNORECASE,
+)
+_GALAXUS_JSON_PREORDER_VALUE_RE = re.compile(
+    r'"(?:availability|stockStatus|offerType)"\s*:\s*"(preorder|pre-order|announced|upcoming)"',
+    re.IGNORECASE,
+)
+_GALAXUS_JSON_INSTOCK_VALUE_RE = re.compile(
+    r'"(?:availability|stockStatus)"\s*:\s*"(instock|in_stock|available)"',
+    re.IGNORECASE,
+)
+_GALAXUS_DIRECT_SELLER_NAMES = {
+    "galaxus",
+    "galaxus ag",
+    "digitec galaxus",
+    "digitec galaxus ag",
+}
+
+
+def _html_to_visible(raw):
+    """Sichtbarer Seitentext. Script/Style bleiben aussen, damit i18n-Keys wie
+    "vorbestellung" im JS-Bundle eine echte Lagerzeile nicht zur Vorbestellung machen."""
+    text = raw or ""
+    text = re.sub(r"(?is)<script[^>]*>.*?</script>", " ", text)
+    text = re.sub(r"(?is)<style[^>]*>.*?</style>", " ", text)
+    text = re.sub(r"(?i)<br\s*/?>", "\n", text)
+    text = re.sub(r"(?i)</(p|div|li|tr|h[1-6]|section|article|span)>", "\n", text)
+    text = re.sub(r"(?s)<[^>]+>", " ", text)
+    return html.unescape(text)
+
+
+def nonavailable_kind(text):
+    """preorder/announced/outofstock, wenn der kurze Titel selbst schon sagt, dass nichts
+    sofort kaufbar ist. None = kein solcher Hinweis. Nur fuer Titel, nicht fuer ganzes HTML
+    (sonst trifft z.B. "release:" in einer Produkttabelle jedes Galaxus-Angebot)."""
+    if not text:
+        return None
+    t = normalize(text)
+    if any(m in t for m in _GALAXUS_UNAVAILABLE_MARKERS):
+        return "outofstock"
+    if is_preorder(text) or _GALAXUS_PAGE_PREORDER_RE.search(t):
+        return "preorder"
+    if any(m in t for m in _GALAXUS_ANNOUNCED_MARKERS):
+        return "announced"
+    return None
+
+
+def galaxus_visible_availability(visible):
+    """instock nur bei positivem Lagertext. Vorbestellung/Ankuendigung/nicht lieferbar
+    gewinnen immer. Blosses "verfuegbar" bleibt unknown (fail-closed)."""
+    t = normalize(visible or "")
+    if not t.strip():
+        return "unknown"
+    if any(m in t for m in _GALAXUS_UNAVAILABLE_MARKERS):
+        return "unavailable"
+    if _GALAXUS_PAGE_PREORDER_RE.search(t):
+        return "preorder"
+    if any(m in t for m in _GALAXUS_ANNOUNCED_MARKERS):
+        return "announced"
+    if _GALAXUS_POSITIVE_STOCK_RE.search(t):
+        return "instock"
+    return "unknown"
+
+
+def _clean_galaxus_seller(name):
+    name = html.unescape(name or "")
+    name = re.split(r"[\n|,]", name, maxsplit=1)[0]
+    name = re.split(
+        r"\s+(?:ab|inkl|nur|in|chf|für|fur|versand)\b",
+        name,
+        maxsplit=1,
+        flags=re.IGNORECASE,
+    )[0]
+    return re.sub(r"\s+", " ", name).strip(" .:-–—")
+
+
+def _is_direct_galaxus_seller(name):
+    n = normalize(name)
+    n = re.sub(r"[^a-z0-9 ]+", " ", n)
+    n = re.sub(r"\s+", " ", n).strip()
+    return n in _GALAXUS_DIRECT_SELLER_NAMES
+
+
+def galaxus_seller_from_page(raw, visible):
+    """direct nur bei positiv benanntem Galaxus-Verkaeufer.
+    Spaetere weitere Angebote auf derselben Seite aendern den ersten "Verkauf durch"-Namen
+    nicht. Widerspruch zu einem Drittanbieter-Hinweis ist unknown (fail-closed)."""
+    labels = []
+    for match in _GALAXUS_SELLER_LABEL_RE.finditer(visible or ""):
+        cleaned = _clean_galaxus_seller(match.group(1))
+        if cleaned:
+            labels.append(cleaned)
+    json_names = []
+    for regex in (_GALAXUS_JSON_SELLER_RE, _GALAXUS_JSON_SUPPLIER_NAME_RE):
+        for match in regex.finditer(raw or ""):
+            cleaned = _clean_galaxus_seller(match.group(1))
+            if cleaned:
+                json_names.append(cleaned)
+    third = bool(_GALAXUS_THIRD_PARTY_RE.search(normalize(visible or "")))
+    if labels:
+        primary_direct = _is_direct_galaxus_seller(labels[0])
+        if primary_direct and third:
+            return "unknown"
+        return "direct" if primary_direct else "third_party"
+    if json_names:
+        directs = [_is_direct_galaxus_seller(n) for n in json_names]
+        if third and any(directs):
+            return "unknown"
+        if third or not any(directs):
+            return "third_party"
+        if all(directs):
+            return "direct"
+        return "unknown"
+    if third:
+        return "third_party"
+    return "unknown"
+
+
+def _apply_galaxus_json_availability(raw, availability):
+    value_match = _GALAXUS_JSON_PREORDER_VALUE_RE.search(raw or "")
+    json_flag = bool(_GALAXUS_JSON_PREORDER_TRUE_RE.search(raw or ""))
+    json_pre = bool(value_match) or json_flag
+    json_in = bool(_GALAXUS_JSON_INSTOCK_VALUE_RE.search(raw or ""))
+    if json_pre and json_in and availability == "unknown":
+        return "unknown"
+    if json_pre and availability in ("instock", "unknown"):
+        if value_match and value_match.group(1).lower() in ("announced", "upcoming"):
+            return "announced"
+        return "preorder"
+    if json_in and availability == "unknown" and not json_pre:
+        return "instock"
+    return availability
+
+
+def classify_galaxus_offer_text(text):
+    """Verkaufs- und Lieferurteil einer Galaxus-Produktseite.
+    seller: direct | third_party | unknown
+    availability: instock | preorder | announced | unavailable | unknown
+    error: None oder kurzer Grund. Leerer/unbrauchbarer Text ist ein Fehler (fail-closed)."""
+    if not isinstance(text, str) or not text.strip():
+        return {"seller": "unknown", "availability": "unknown", "error": "empty"}
+    visible = _html_to_visible(text)
+    availability = galaxus_visible_availability(visible)
+    availability = _apply_galaxus_json_availability(text, availability)
+    return {
+        "seller": galaxus_seller_from_page(text, visible),
+        "availability": availability,
+        "error": None,
+    }
+
+
+def _response_text(resp):
+    raw = resp.text() if callable(getattr(resp, "text", None)) else resp.text
+    if callable(raw):
+        raw = raw()
+    if raw is None:
+        return ""
+    if isinstance(raw, bytes):
+        return raw.decode("utf-8", errors="replace")
+    if not isinstance(raw, str):
+        raise TypeError("galaxus response text")
+    return raw
+
+
+def load_galaxus_offer(page, link):
+    """Liest die Produktseite und klassifiziert sie. Netzwerk- und Parsefehler werden
+    zu unknown + error, nie zu 'Galaxus verkauft und lieferbar'."""
+    try:
+        resp = page.request.get(link, timeout=20000)
+        text = _response_text(resp)
+    except Exception:
+        try:
+            page.goto(link, timeout=25000, wait_until="domcontentloaded")
+            page.wait_for_timeout(1500)
+            text = page.content()
+        except Exception as e:
+            log(f"  galaxus Direktverkauf-Check fehlgeschlagen ({type(e).__name__})")
+            return {"seller": "unknown", "availability": "unknown", "error": type(e).__name__}
+    try:
+        if not isinstance(text, str):
+            raise TypeError("galaxus page content")
+        return classify_galaxus_offer_text(text)
+    except Exception as e:
+        log(f"  galaxus Direktverkauf-Parse fehlgeschlagen ({type(e).__name__})")
+        return {"seller": "unknown", "availability": "unknown", "error": type(e).__name__}
+
+
+def pokemon30th_stock_allowed(domain, title, galaxus_offer):
+    """Ob ein RESTOCK in den englischen 30th-Stock-Kanal darf.
+    Galaxus: nur direkter Galaxus-Verkaeufer UND positiv verfuegbar. Drittpartei,
+    unbekannter Verkaeufer, fehlende Seite und Parse-/Ladefehler sind verboten."""
+    if nonavailable_kind(title):
+        return False
+    if domain == "galaxus.ch":
+        if not galaxus_offer or galaxus_offer.get("error"):
+            return False
+        if galaxus_offer.get("seller") != "direct":
+            return False
+        if galaxus_offer.get("availability") != "instock":
+            return False
+    return True
+
+
+def resolve_pokemon30th_en_status(domain, status, title, galaxus_offer, prev_status):
+    """Status nur fuer den englischen 30th-Kanal.
+    Rueckgabe: (effective_status, update_state, notify).
+    update_state False = Zustand nicht anfassen und nichts senden (erneuter Versuch spaeter)."""
+    if domain == "galaxus.ch" and status == "instock":
+        # Schon geprueft und die Kachel bleibt "instock": nicht erneut senden und nicht bei
+        # jedem Lauf neu laden. Preisupdates ohne Statuswechsel erzeugen keine Meldung.
+        # Ein neuer Beleg kommt, sobald die Kachel den Status verlaesst und zurueckkehrt.
+        if galaxus_offer is None and prev_status in ("instock", "marketplace", "unverified"):
+            return prev_status, True, False
+        if pokemon30th_stock_allowed(domain, title, galaxus_offer):
+            return "instock", True, True
+        # Ladefehler / leere Antwort: Zustand nicht festschreiben, naechster Lauf versucht es erneut.
+        if not galaxus_offer or galaxus_offer.get("error") or galaxus_offer.get("seller") not in ("direct", "third_party", "unknown"):
+            return None, False, False
+        if galaxus_offer.get("seller") == "third_party":
+            return "marketplace", True, True
+        title_kind = nonavailable_kind(title)
+        avail = galaxus_offer.get("availability")
+        if title_kind == "outofstock" or avail == "unavailable":
+            return "outofstock", True, True
+        if title_kind == "announced" or avail == "announced":
+            return "announced", True, True
+        if title_kind == "preorder" or avail == "preorder":
+            return "preorder", True, True
+        # Seite gelesen, aber kein positiver Direktverkauf mit echter Lieferbarkeit.
+        return "unverified", True, True
+
+    if status == "instock":
+        kind = nonavailable_kind(title)
+        if kind:
+            return kind, True, True
+    return status, True, True
+
+
+def maybe_notify_pokemon30th(state, product_key, title, status, domain, link, price, now, cart_link=None, galaxus_offer=None):
     """Zusaetzliche Meldung(en) an die Pokemon-30th-Anniversary-Unterkanaele, unabhaengig vom
     normalen Pokemon-Kanal getrackt (eigene state.json-Keys), damit alle Kanaele unabhaengig
-    ihre eigene Neu-Erkennung haben. Zwei Kanaele: nur-Englisch, und alle Sprachen."""
+    ihre eigene Neu-Erkennung haben. Zwei Kanaele: nur-Englisch, und alle Sprachen.
+
+    Nur der englische Kanal (pokemon30th) filtert Vorbestellungen/Ankuendigungen aus dem
+    Stock-Webhook und verlangt bei Galaxus einen positiv belegten Direktverkauf plus echte
+    Lieferbarkeit. Der All-Sprachen-Kanal und alle anderen Marken bleiben unveraendert."""
     if matches_pokemon_30th(title):
         key30 = product_key + ":pokemon30th"
         prev = state.get(key30)
         prev_status = prev.get("status") if prev else None
-        state[key30] = {"title": title, "status": status, "last_checked": now}
-        notify_status_change(state, key30, title, status, prev_status, domain, link, price, "pokemon30th", now, cart_link=cart_link)
+        effective, update_state, do_notify = resolve_pokemon30th_en_status(
+            domain, status, title, galaxus_offer, prev_status
+        )
+        if update_state:
+            state[key30] = {"title": title, "status": effective, "last_checked": now}
+        else:
+            log(f"  pokemon30th EN fail-closed: {title[:60]} bei {domain}")
+        if update_state and do_notify:
+            notify_status_change(
+                state, key30, title, effective, prev_status, domain, link, price,
+                POKEMON_30TH_EN_BRAND, now, cart_link=cart_link, galaxus_offer=galaxus_offer,
+            )
 
     if matches_pokemon_30th_all(title):
         key30all = product_key + ":pokemon30thall"
@@ -271,15 +573,27 @@ BRAND_LABELS = {
     "pokemon30th": "Pokemon 30th Anniversary (EN)",
     "pokemon30thall": "Pokemon 30-Jahre-Jubilaeum (alle Sprachen)",
 }
-BRAND_WEBHOOKS = {
-    "pokemon": (config.DISCORD_WEBHOOK_POKEMON, config.DISCORD_WEBHOOK_POKEMON_PREORDER),
-    "onepiece": (config.DISCORD_WEBHOOK_ONEPIECE, config.DISCORD_WEBHOOK_ONEPIECE_PREORDER),
-    "dragonball": (config.DISCORD_WEBHOOK_DRAGONBALL, config.DISCORD_WEBHOOK_DRAGONBALL_PREORDER),
-    "mtg": (config.DISCORD_WEBHOOK_MTG, config.DISCORD_WEBHOOK_MTG_PREORDER),
-    "yugioh": (config.DISCORD_WEBHOOK_YUGIOH, config.DISCORD_WEBHOOK_YUGIOH_PREORDER),
-    "pokemon30th": (config.DISCORD_WEBHOOK_POKEMON_30TH, config.DISCORD_WEBHOOK_POKEMON_30TH_PREORDER),
-    "pokemon30thall": (config.DISCORD_WEBHOOK_POKEMON_30TH_ALL, config.DISCORD_WEBHOOK_POKEMON_30TH_ALL_PREORDER),
-}
+
+# Englischer 30th-Stock-/Deal-Kanal. Vorbestellungen dieser Marke gehen weiter an den
+# separaten PREORDER-Webhook. Ob die beiden Secrets wirklich verschiedene Discord-Kanaele
+# sind, laesst sich ohne Lesen der Secret-Werte nicht pruefen.
+POKEMON_30TH_EN_BRAND = "pokemon30th"
+
+
+def brand_webhooks(brand):
+    """Webhook-Paar (Restock, Vorbestellung) zum Sendezeitpunkt aus config lesen.
+    Nicht beim Import einfrieren, damit Tests und spaet gesetzte Werte dieselbe Quelle nutzen.
+    Die Funktion vergleicht keine Secret-Werte und loggt sie nicht."""
+    table = {
+        "pokemon": (config.DISCORD_WEBHOOK_POKEMON, config.DISCORD_WEBHOOK_POKEMON_PREORDER),
+        "onepiece": (config.DISCORD_WEBHOOK_ONEPIECE, config.DISCORD_WEBHOOK_ONEPIECE_PREORDER),
+        "dragonball": (config.DISCORD_WEBHOOK_DRAGONBALL, config.DISCORD_WEBHOOK_DRAGONBALL_PREORDER),
+        "mtg": (config.DISCORD_WEBHOOK_MTG, config.DISCORD_WEBHOOK_MTG_PREORDER),
+        "yugioh": (config.DISCORD_WEBHOOK_YUGIOH, config.DISCORD_WEBHOOK_YUGIOH_PREORDER),
+        "pokemon30th": (config.DISCORD_WEBHOOK_POKEMON_30TH, config.DISCORD_WEBHOOK_POKEMON_30TH_PREORDER),
+        "pokemon30thall": (config.DISCORD_WEBHOOK_POKEMON_30TH_ALL, config.DISCORD_WEBHOOK_POKEMON_30TH_ALL_PREORDER),
+    }
+    return table[brand]
 
 
 def fetch_products(domain):
@@ -566,13 +880,14 @@ def _alert_suppressed(state, product_key, status, now):
     return False
 
 
-def notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now, cart_link=None):
+def notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now, cart_link=None, galaxus_offer=None):
     """Gemeinsame Notify-Logik: meldet neue Vorbestellungen/Restocks an den passenden Discord-Kanal.
-    brand: "pokemon"/"onepiece"/"dragonball" (siehe BRAND_WEBHOOKS/BRAND_LABELS).
+    brand: "pokemon"/"onepiece"/"dragonball" (siehe brand_webhooks()/BRAND_LABELS).
     cart_link (optional): direkter "in den Warenkorb legen"-Link (Shopify /cart/add), damit der Nutzer
-    beim Restock nur noch auf Kaufen klicken muss statt selbst zu suchen (Nutzerwunsch 2026-09-17)."""
+    beim Restock nur noch auf Kaufen klicken muss statt selbst zu suchen (Nutzerwunsch 2026-09-17).
+    galaxus_offer: nur fuer den englischen 30th-Stock-Kanal ausgewertet. Andere Marken ignorieren ihn."""
     label = BRAND_LABELS[brand]
-    restock_webhook, preorder_webhook = BRAND_WEBHOOKS[brand]
+    restock_webhook, preorder_webhook = brand_webhooks(brand)
     cart_line = f"\U0001F6D2 Direkt in den Warenkorb: {cart_link}\n" if cart_link else ""
     # Ankuendigung nur, wenn das Produkt neu ist oder vorher ausverkauft war - ein "Downgrade"
     # preorder/instock -> announced (z.B. nach Einfuehrung des wog.ch-Detail-Checks) ist keine News.
@@ -603,6 +918,13 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
         log(f"  VORBESTELLUNG gefunden: {title} bei {domain}")
         send_discord(preorder_webhook, msg)
     elif status == "instock" and prev_status != "instock":
+        # Einziger Pfad, der den Stock-Webhook trifft (Erstfund, Statuswechsel, erneuter
+        # Aufruf aus dem Priority-Lauf). Preisaenderungen ohne Statuswechsel rufen diesen
+        # Zweig nicht auf. Der englische 30th-Kanal bekommt hier weder Vorbestellung noch
+        # unbewiesene Galaxus-Angebote, auch wenn der Aufrufer "instock" behauptet.
+        if brand == POKEMON_30TH_EN_BRAND and not pokemon30th_stock_allowed(domain, title, galaxus_offer):
+            log(f"  pokemon30th EN: kein RESTOCK (nicht positiv lieferbar oder kein Direktverkauf): {title[:60]}")
+            return
         if _alert_suppressed(state, product_key, status, now):
             return
         msg = (
@@ -1013,14 +1335,25 @@ def check_stealth_category_retailers(page, state, now):
 
             # Galaxus-Marketplace: Angebote von Drittanbietern (ueberteuert, Nutzerwunsch
             # 2026-10-18) nicht melden, nur Ware die Galaxus selbst verkauft.
+            # Unveraendert fail-open und nur auf die exakte Phrase - gilt fuer alle Marken.
+            # Der englische 30th-Kanal hat zusaetzlich load_galaxus_offer() (fail-closed).
             if domain == "galaxus.ch" and status != "outofstock" and prev_status != status:
                 if galaxus_is_third_party(page, p["link"]):
                     log(f"  galaxus.ch Drittanbieter uebersprungen: {title[:60]}")
                     continue
 
+            galaxus_offer = None
+            if domain == "galaxus.ch" and status == "instock" and matches_pokemon_30th(title):
+                key30_prev = (state.get(product_key + ":pokemon30th") or {}).get("status")
+                if key30_prev not in ("instock", "marketplace", "unverified"):
+                    galaxus_offer = load_galaxus_offer(page, p["link"])
+
             if brand:
                 notify_status_change(state, product_key, title, status, prev_status, domain, p["link"], p["price"], brand, now)
-            maybe_notify_pokemon30th(state, product_key, title, status, domain, p["link"], p["price"], now)
+            maybe_notify_pokemon30th(
+                state, product_key, title, status, domain, p["link"], p["price"], now,
+                galaxus_offer=galaxus_offer,
+            )
 
 
 def galaxus_is_third_party(page, link):
