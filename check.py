@@ -6,6 +6,7 @@ Sealed-Produkten. Postet neue Restocks sofort an die jeweiligen Discord-Webhooks
 
 Gedacht fuer den Aufruf alle 5 Minuten via Windows-Aufgabenplanung.
 """
+import hashlib
 import html
 import json
 import os
@@ -574,10 +575,17 @@ BRAND_LABELS = {
     "pokemon30thall": "Pokemon 30-Jahre-Jubilaeum (alle Sprachen)",
 }
 
-# Englischer 30th-Stock-/Deal-Kanal. Vorbestellungen dieser Marke gehen weiter an den
-# separaten PREORDER-Webhook. Ob die beiden Secrets wirklich verschiedene Discord-Kanaele
-# sind, laesst sich ohne Lesen der Secret-Werte nicht pruefen.
+# Englischer 30th-Stock-/Deal-Kanal (#pokemon-30th-en). Vorbestellungen dieser Marke
+# duerfen nur an einen nachweislich anderen Discord-Kanal. Die Kanal-ID ist oeffentlich
+# (kein Secret). Webhook-URLs werden dafuer nicht geloggt und nicht verglichen ausser
+# als Identitaet "derselbe Webhook".
 POKEMON_30TH_EN_BRAND = "pokemon30th"
+POKEMON_30TH_EN_CHANNEL_ID = "1550133206831857785"
+_WEBHOOK_URL_RE = re.compile(
+    r"^https://(?:discord\.com|discordapp\.com)/api(?:/v\d+)?/webhooks/(\d+)/([^/?#\s]+)/?(?:\?[^#]*)?$",
+    re.IGNORECASE,
+)
+_webhook_channel_cache = {}
 
 
 def brand_webhooks(brand):
@@ -880,6 +888,112 @@ def _alert_suppressed(state, product_key, status, now):
     return False
 
 
+def clear_webhook_channel_cache():
+    """Nur fuer Tests. Der Cache haelt ausschliesslich Kanal-IDs, keine URLs."""
+    _webhook_channel_cache.clear()
+
+
+def _webhook_identity(url):
+    """(id, token) eines Incoming-Webhooks, oder None. Token wird nicht geloggt."""
+    if not isinstance(url, str):
+        return None
+    match = _WEBHOOK_URL_RE.match(url.strip())
+    if not match:
+        return None
+    return match.group(1), match.group(2)
+
+
+def _same_webhook(left, right):
+    """True, wenn beide Angaben denselben Webhook meinen (nicht nur denselben Kanal)."""
+    left_id = _webhook_identity(left)
+    right_id = _webhook_identity(right)
+    if left_id and right_id:
+        return left_id == right_id
+    if isinstance(left, str) and isinstance(right, str):
+        left_s, right_s = left.strip(), right.strip()
+        return bool(left_s) and left_s == right_s
+    return False
+
+
+def _webhook_metadata_endpoint(url):
+    """Dokumentierte Adresse GET /webhooks/{id}/{token}. Kein Redirect, keine Query."""
+    identity = _webhook_identity(url)
+    if not identity:
+        return None
+    webhook_id, token = identity
+    return f"https://discord.com/api/webhooks/{webhook_id}/{token}"
+
+
+def _snowflake(value):
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        if value <= 0:
+            return None
+        return str(value)
+    if isinstance(value, str) and value.isdigit() and value != "0":
+        return value
+    return None
+
+
+def _fetch_webhook_channel_id(endpoint):
+    """Kanal-ID ueber die dokumentierte Webhook-Metadaten-Antwort.
+    Fehlschlag, Redirect oder fehlende channel_id -> None (Aufrufer unterdrueckt).
+    Antwortkoerper und URL werden nicht geloggt (die Antwort enthaelt das Webhook-Token)."""
+    try:
+        response = requests.get(endpoint, timeout=config.REQUEST_TIMEOUT, allow_redirects=False)
+    except Exception:
+        return None
+    try:
+        if getattr(response, "status_code", None) != 200:
+            return None
+        data = response.json()
+    except Exception:
+        return None
+    if not isinstance(data, dict):
+        return None
+    return _snowflake(data.get("channel_id"))
+
+
+def webhook_channel_id(url):
+    """Kanal-ID des uebergebenen Webhooks, oder None wenn sie nicht sicher lesbar ist."""
+    endpoint = _webhook_metadata_endpoint(url)
+    if not endpoint:
+        return None
+    key = hashlib.sha256(endpoint.encode("utf-8")).hexdigest()
+    cached = _webhook_channel_cache.get(key)
+    if cached:
+        return cached
+    channel_id = _fetch_webhook_channel_id(endpoint)
+    if channel_id:
+        _webhook_channel_cache[key] = channel_id
+    return channel_id
+
+
+def pokemon30th_preorder_destination_allowed(preorder_url, stock_url):
+    """True nur, wenn die Vorbestellung nachweislich nicht in #pokemon-30th-en landet.
+    Gleicher Webhook wie der Stock-Kanal, geschuetzte Kanal-ID, oder nicht lesbares Ziel
+    -> False. Ein anderer, per Metadaten bestaetigter Kanal -> True."""
+    if _same_webhook(preorder_url, stock_url):
+        return False
+    channel_id = webhook_channel_id(preorder_url)
+    if not channel_id or channel_id == POKEMON_30TH_EN_CHANNEL_ID:
+        return False
+    return True
+
+
+def _pokemon30th_preorder_blocked(brand, preorder_webhook):
+    """True = diese pokemon30th-Vorbestellung/Ankuendigung nicht senden.
+    Andere Marken: immer False. Unterdrueckung verbraucht keinen Alert-Cooldown."""
+    if brand != POKEMON_30TH_EN_BRAND:
+        return False
+    stock_webhook, _ = brand_webhooks(brand)
+    if pokemon30th_preorder_destination_allowed(preorder_webhook, stock_webhook):
+        return False
+    log("  pokemon30th EN: Vorbestellung/Ankuendigung nicht gesendet (Ziel nicht als anderer Kanal verifiziert)")
+    return True
+
+
 def notify_status_change(state, product_key, title, status, prev_status, domain, link, price, brand, now, cart_link=None, galaxus_offer=None):
     """Gemeinsame Notify-Logik: meldet neue Vorbestellungen/Restocks an den passenden Discord-Kanal.
     brand: "pokemon"/"onepiece"/"dragonball" (siehe brand_webhooks()/BRAND_LABELS).
@@ -892,6 +1006,8 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
     # Ankuendigung nur, wenn das Produkt neu ist oder vorher ausverkauft war - ein "Downgrade"
     # preorder/instock -> announced (z.B. nach Einfuehrung des wog.ch-Detail-Checks) ist keine News.
     if status == "announced" and prev_status in (None, "outofstock"):
+        if _pokemon30th_preorder_blocked(brand, preorder_webhook):
+            return
         if _alert_suppressed(state, product_key, status, now):
             return
         msg = (
@@ -905,6 +1021,8 @@ def notify_status_change(state, product_key, title, status, prev_status, domain,
         log(f"  ANKUENDIGUNG gefunden: {title} bei {domain}")
         send_discord(preorder_webhook, msg)
     elif status == "preorder" and prev_status != "preorder":
+        if _pokemon30th_preorder_blocked(brand, preorder_webhook):
+            return
         if _alert_suppressed(state, product_key, status, now):
             return
         msg = (
